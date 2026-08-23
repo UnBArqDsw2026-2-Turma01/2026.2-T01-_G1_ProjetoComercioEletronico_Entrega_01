@@ -3,6 +3,13 @@
 - [Home](/)
 - [Projetos](/Projeto/Projeto.md)
 
+- Reuniões e Atas
+    - [Modelo de Ata](/Projeto/ModeloAta.md)
+    - SubEquipe 01
+    - SubEquipe 02
+    - SubEquipe 03
+
+
 - **Base**
   - [1. Desenho de Software (Base)](/Base/1.Base.md)
   - Relatórios
