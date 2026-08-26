@@ -1,6 +1,7 @@
 # Rich Picture
 
-<img src="../../../assets/Subequipe3/RichpictureSubequipe03.png" alt="Diagrama" width="500">
+![Rich Picture](../../../assets/Subequipe3/RichpictureSubequipe03.png)
+
 
 # Embasamento Teórico
 A rich picture elaborada para representar a perspectiva do comprador no Comércio Eletrônico segue a técnica descrita por Monk e Howard (1998), que tem origem na Soft Systems Methodology (SSM), desenvolvida por Peter Checkland em Lancaster entre as décadas de 1960 e 1970. A SSM, por sua vez, deriva das abordagens sociotécnicas de design de sistemas, cujo objetivo central é compreender sistemas de atividade humana de forma significativa para os próprios atores envolvidos, e não apenas sob a ótica do analista ou desenvolvedor.
