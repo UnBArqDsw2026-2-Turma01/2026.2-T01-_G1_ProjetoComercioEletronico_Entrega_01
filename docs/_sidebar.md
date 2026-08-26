@@ -4,12 +4,13 @@
 - [Projetos](/Projeto/Projeto.md)
 
 - Reuniões e Atas
-    - [Modelo de Ata](/Atas/ModeloAta.md)
-    - SubEquipe 01
-        - [Reunião 24/08](/Atas/Subequipe1/ata24_08.md)
-    - SubEquipe 02
-    - SubEquipe 03
-        - [Reunião 24/08](/Atas/Subequipe3/Ata24_08.md)
+  - [Modelo de Ata](/Atas/ModeloAta.md)
+  - SubEquipe 01
+    - [Reunião 24/08](/Atas/Subequipe1/ata24_08.md)
+    - [Reunião 26/08](/Atas/Subequipe1/ata26_08.md)
+  - SubEquipe 02
+  - SubEquipe 03
+    - [Reunião 24/08](/Atas/Subequipe3/Ata24_08.md)
 
 - **Base**
   - [1. Desenho de Software (Base)](/Base/1.Base.md)
