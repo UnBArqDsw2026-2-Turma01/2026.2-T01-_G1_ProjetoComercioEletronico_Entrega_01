@@ -6,9 +6,10 @@
 - Reuniões e Atas
     - [Modelo de Ata](/Atas/ModeloAta.md)
     - SubEquipe 01
+        - [Reunião 24/08](/Atas/Subequipe1/ata24_08.md)
     - SubEquipe 02
     - SubEquipe 03
-        - [Reunião 24/08](/Atas/Subequipe3/Ata28_08.md)
+        - [Reunião 24/08](/Atas/Subequipe3/Ata24_08.md)
 
 
 - **Base**
