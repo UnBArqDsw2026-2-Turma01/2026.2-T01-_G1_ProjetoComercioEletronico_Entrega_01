@@ -92,6 +92,75 @@ As operacionalizações não respeitam essa divisão, e isso é deliberado: `Fil
 
 ---
 
+## Galho 3 — Satisfação
+
+*Responsável:* Guilherme Costa Zanella
+
+### Operacionalizações e sua origem
+
+| Operacionalização | Contribui para | Rótulo | Origem |
+| -- | -- | -- | -- |
+| Rolagem infinita | Estética Minimalista [Listagem] | + | Carregar por rolagem dispensa a paginação clicável, e a listagem fica sem controle de página |
+| Nota e reputação visíveis | Confiança Percebida [Vendedor] | ++ | RN05 e RF05 — todo produto exibe nota, número de avaliações e reputação do vendedor já na listagem |
+
+### Correlações — o que piora
+
+| Operacionalização | Softgoal atingido | Rótulo | Por quê |
+| -- | -- | -- | -- |
+| Nota e reputação visíveis | Estética Minimalista [Listagem] | − | Cada cartão passa a carregar preço, parcelamento, frete, nota, número de avaliações e reputação |
+
+*Claim C2, ancorado nessa ligação: *nota e reputação em cada cartão poluem a listagem, mas sem elas o comprador não distingue ofertas equivalentes do mesmo produto (MONK; HOWARD, 1998). O claim traduz para a notação a preocupação registrada no Rich Picture — "o produto é confiável?" —, e é o que sustenta aceitar o − sobre a estética em vez de removê-lo.
+
+### Propagação neste galho
+
+| Softgoal | Entradas | Rótulo |
+| -- | -- | -- |
+| Estética Minimalista [Listagem] | um + e um − | *W⁻* |
+| Confiança Percebida [Vendedor] | um ++ | *✓ — crítico* |
+| *Satisfação [Comprador]* | *AND (W⁻, ✓)* | *W⁻* |
+
+Confiança Percebida [Vendedor] está marcado como crítico embora esteja satisfeito, e a razão é que ele é o único ponto do grafo em que o vendedor aparece. O Rich Picture registra uma tensão que este SIG não representa: loja oficial e vendedor autônomo competem pela mesma vitrine, e a reputação exibida é parte do que os separa. O softgoal existe aqui do ponto de vista do comprador; do lado do vendedor ele seria outro grafo.
+
+---
+
+## Propagação até a raiz
+
+| Softgoal de 1º nível | Rótulo |
+| -- | -- |
+| Facilidade de Aprendizado [Comprador novo] | W⁺ |
+| Eficiência de Uso [Busca de produto] | W⁻ |
+| Prevenção de Erros [Decisão de compra] | W⁻ |
+| Satisfação [Comprador] | W⁻ |
+| *Usabilidade [G1_ProjetoComercioEletronico]* | *AND (mínimo) → W⁻* |
+
+O grafo não termina em "Usabilidade satisfeita". Termina em *W⁻*, e três dos quatro galhos chegam nesse mesmo rótulo por caminhos distintos. A convergência não é coincidência: Rolagem infinita é a operacionalização que pesa sobre os três — − no tempo de resposta, −− na reversibilidade, e um + na estética que não compensa nenhum dos dois. É a decisão mais cara do grafo, e a que a interface observada adota sem alternativa.
+
+Como a decomposição é AND, adotamos o mínimo entre os filhos: o elo mais fraco define o resultado do pai, e a dívida sobe até a raiz.
+
+---
+
+## Elos com os outros artefatos
+
+| Elemento do SIG | Vem de | Vai para |
+| -- | -- | -- |
+| Softgoal raiz Usabilidade | Ramo Qualidades (RNF) do [mapa mental](/Base/Relatórios/SubEquipe01/ArtefatoGeneralista.md) | — |
+| Poucos Passos, Feedback Imediato, Reversibilidade | RNF01, RNF03 e RNF02 da [engenharia reversa](/Base/Relatórios/SubEquipe01/EngenhariaReversa.md) | — |
+| Operacionalizações de busca e listagem | RN01 a RN06, RF01 a RF06 | Atividades do [BPMN](/Base/Relatórios/SubEquipe01/BPMN.md) |
+| Confiança Percebida [Vendedor] | Concerns e tensão do [Rich Picture](/Base/Relatórios/SubEquipe01/ArtefatoGeneralista.md) | Ponto em aberto: o grafo do lado do vendedor |
+| Correlação − em Tempo de Resposta | Trade-off apontado no senso crítico do mapa mental | — |
+
+---
+
+## Limites do grafo
+
+- *A primeira versão não tinha nenhuma aresta vermelha.* Ela listava só o que cada decisão melhora, e nesse formato o SIG não informa nada que uma tabela de requisitos já não informe. Ele só passou a ter função quando perguntamos o que piora — e aí apareceram Tempo de Resposta e Estética Minimalista em W⁻ e Reversibilidade recebendo um −−.
+- *A regra do elo mais fraco no AND é uma convenção.* Adotamos o mínimo entre os filhos por ser a leitura mais conservadora. Um avaliador poderia argumentar que os quatro galhos não têm o mesmo peso para o comprador e que o grafo deveria priorizar. O framework permite; não usamos, e o efeito é tratar os quatro como igualmente críticos.
+- *O grafo é do ponto de vista do comprador.* O vendedor aparece uma única vez, como tópico de Confiança Percebida. A tensão entre loja oficial e vendedor autônomo, registrada no Rich Picture, não tem representação aqui — ela exigiria um softgoal de imparcialidade do ranking, para o qual não há operacionalização derivável do que foi observado.
+- *Consistência tem uma única contribuição fraca.* É o softgoal mais mal sustentado do grafo: só o breadcrumb chega até ele, com +. Não é que o sistema seja inconsistente — é que consistência de layout não é observável em um percurso único, e o rótulo W⁺ reflete a limitação do método, não a qualidade da interface.
+- *Disponibilidade e segurança ficaram fora.* Nenhuma das duas é observável por inspeção de interface sem conta autenticada e sem realizar compra. Incluí-las sem operacionalização as deixaria indecisas e, pela regra do AND, arrastaria a raiz inteira para indeciso — o que diria menos, e não mais.
+
+---
+
 ## Referências
 
 CHUNG, Lawrence; NIXON, Brian A.; YU, Eric; MYLOPOULOS, John. **Non-Functional Requirements in Software Engineering**. Boston: Kluwer Academic Publishers, 2000.
@@ -111,3 +180,4 @@ NIELSEN, Jakob. Enhancing the explanatory power of usability heuristics. In: **P
 | 1.0 | 24/08/2026 | Estruturação inicial | José Joaquim da Silva Neto | Pedro Henrique Gomes |
 | 1.1 | 27/08/2026 | Adição da parte geral sobre o SIG | Patrick Anderson Carvalho dos Santos, Pedro Luciano de Azevedo, Guilherme Costa Zanella | -- |
 | 1.2 | 27/08/2026 | Consolidação em um único SIG, o de Usabilidade, com os quatro galhos de 1º nível divididos entre os três integrantes; operacionalizações, correlações, claims e propagação até a raiz | Pedro Luciano de Azevedo | -- |
+| 1.3 | 27/08/2026 | Adição do Galho 3 — Satisfação (operacionalizações, correlações, claim e propagação) e dos elos com os outros artefatos | Guilherme Costa Zanella | -- |
