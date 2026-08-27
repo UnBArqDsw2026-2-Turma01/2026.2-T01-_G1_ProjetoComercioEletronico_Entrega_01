@@ -32,9 +32,27 @@ A qualidade da resposta da IA é diretamente proporcional às restrições impos
 
 ---
 
+---
+
+# Uso de Inteligência Artificial Generativa: Lições Aprendidas (Guilherme Davila)
+
+## Uso da IA Generativa
+
+**Tutor de Conteúdo Teórico:** A IA foi utilizada como apoio a dúvidas respondendo perguntas sobre o conteúdo para melhorar meu entendimento.<br>
+**Apoio na Elaboração de Documentos:** Utilizei a ferramenta para estruturar a redação técnica do relatório final de NFR, garantindo um tom claro, formal e coeso.
+
+##  Senso Crítico e Lições Aprendidas
+
+A elaboração deste framework trouxe insights críticos para a equipe sobre as complexidades do desenho arquitetural de sistemas:
+
+1. **Inexistência de Solução Perfeita (Trade-offs):** A engenharia de software é guiada por compromissos mútuos. Ficou nítido que buscar a Usabilidade extrema (ex: analisando foneticamente strings erradas em tempo real) gera atrito direto com o Desempenho (latência de resposta). Cabe ao arquiteto encontrar o ponto de equilíbrio aceitável pelo negócio (por exemplo, aplicando um cache agressivo de CDN para mitigar a latência introduzida pelos algoritmos de correção).
+2. **Importância dos Argumentos (Claims):** Apenas modelar diagramas conceituais não basta para provar a qualidade. A introdução de dados empíricos do DevTools atuou como o fator decisivo para provar que as metas de engenharia propostas na modelagem se sustentam em ambiente produtivo real.
+
+---
 ## Histórico de Versões
 
 | Versão | Data | Descrição | Autor(es) | Revisor(es) |
 | -- | -- | -- | -- | -- |
 | 1.0 | 24/08/2026 | Estruturação inicial | José Joaquim da Silva Neto | Pedro Henrique Gomes |
 | 1.1 | 27/08/2026 | Lições aprendidas sobre IA | Julia Oliveira Patricio | -- |
+| 1.2 | 27/08/2026 | Lições aprendidas sobre IA | Guilherme Davila | -- |

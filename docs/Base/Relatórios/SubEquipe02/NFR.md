@@ -6,15 +6,6 @@ Este documento apresenta o relatório do NFR Framework desenvolvido pela **Subeq
 
 ---
 
-## Histórico de Versões
-
-| Versão | Data | Descrição | Autor(es) | Revisor(es) |
-| :---: | :---: | :---: | :---: | :---: |
-| 1.0 | 24/08/2026 | Estruturação inicial | José Joaquim da Silva Neto | Pedro Henrique Gomes |
-| 1.1 | 26/08/2026 | Elaboração do conteúdo completo, modelagem do SIG, análise do DevTools e atualização do modelo NFR | Guilherme Davila, Julia Oliveira Patricio, Maria Clara Sena |  |
-
----
-
 ## 1. Introdução e Embasamento Teórico
 
 Na engenharia de software tradicional, os Requisitos Não Funcionais frequentemente recebem menor prioridade em comparação com as funcionalidades básicas. O **NFR Framework**, proposto originalmente por Lawrence Chung et al. (2000), visa solucionar essa assimetria elevando os RNFs a elementos de primeira classe no design de arquitetura.
@@ -133,22 +124,16 @@ A imagem abaixo demonstra o funcionamento do sistema quando o usuário comete um
 
 ---
 
-## 6. Rastreabilidade e Elos com Outros Artefatos
-
-O NFR Framework não deve ser visto isoladamente; ele se comunica intimamente com os outros artefatos da entrega de desenho de software da **Subequipe 02**:
-
----
-
-## 7. Senso Crítico e Lições Aprendidas
-
-A elaboração deste framework trouxe insights críticos para a equipe sobre as complexidades do desenho arquitetural de sistemas:
-
-1. **Inexistência de Solução Perfeita (Trade-offs):** A engenharia de software é guiada por compromissos mútuos. Ficou nítido que buscar a Usabilidade extrema (ex: analisando foneticamente strings erradas em tempo real) gera atrito direto com o Desempenho (latência de resposta). Cabe ao arquiteto encontrar o ponto de equilíbrio aceitável pelo negócio (por exemplo, aplicando um cache agressivo de CDN para mitigar a latência introduzida pelos algoritmos de correção).
-2. **Importância dos Argumentos (Claims):** Apenas modelar diagramas conceituais não basta para provar a qualidade. A introdução de dados empíricos do DevTools atuou como o fator decisivo para provar que as metas de engenharia propostas na modelagem se sustentam em ambiente produtivo real.
-
----
-
-## 8. Referências Bibliográficas
+## 6. Referências Bibliográficas
 
 * CHUNG, Lawrence; NIXON, Brian A.; YU, Eric; MYLOPOULOS, John. **Non-functional requirements in software engineering**. Springer Science & Business Media, 2000.
 * **Documentação do DSM3**. Disponível em: <https://www.cin.ufpe.br/~jhcp/dsm3goals/index.html>. Acesso em: 26 ago. 2026.
+
+---
+
+## Histórico de Versões
+
+| Versão | Data | Descrição | Autor(es) | Revisor(es) |
+| :---: | :---: | :---: | :---: | :---: |
+| 1.0 | 24/08/2026 | Estruturação inicial | José Joaquim da Silva Neto | Pedro Henrique Gomes |
+| 1.1 | 26/08/2026 | Elaboração do conteúdo completo, modelagem do SIG, análise do DevTools e atualização do modelo NFR | Guilherme Davila, Julia Oliveira Patricio, Maria Clara Sena |  |
