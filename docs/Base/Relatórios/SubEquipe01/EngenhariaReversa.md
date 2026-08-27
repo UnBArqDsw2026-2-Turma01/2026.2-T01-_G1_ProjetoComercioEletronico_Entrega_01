@@ -292,8 +292,42 @@ Lidos isoladamente, os recortes descrevem telas. Lidos juntos, dois fios atraves
 **O estado viaja na URL, e isso é uma decisão de projeto, não um acaso.** Aparece nos três recortes: o estado da consulta em A (RN-A06), o contexto de retorno entre subdomínios em B (RN-B03) e o identificador do rascunho em C (RN-C02). O ganho é o mesmo nos três — fluxo compartilhável e retomável. O custo também: qualquer dado colocado ali fica exposto no histórico, em logs e no cabeçalho de referência, o que sustenta RNF-B05 e RNF-C01.
 ---
 
+
+## 8. Rastreabilidade
+
+| Achado | Vai para | Papel |
+| -- | -- | -- |
+| RN-B01 — carrinho agrupado por vendedor | [BPMN](/Base/Relatórios/SubEquipe01/BPMN.md) | Justifica a pool do vendedor no modelo |
+| T-B01 a T-B08 | [BPMN](/Base/Relatórios/SubEquipe01/BPMN.md) | Viram fluxos de sequência e de mensagem |
+| T-C01 a T-C05, RN-C01 a RN-C06 | [BPMN](/Base/Relatórios/SubEquipe01/BPMN.md) | Sustentam o modelo de publicação de anúncio |
+| RNF-A02 — rolagem não preservada | Backlog de usabilidade | Requisito não satisfeito, candidato a correção |
+
+---
+
+## 9. Limites do levantamento
+
+- **O checkout e o pagamento não foram percorridos.** Fazê-lo exigiria confirmar uma compra real. As transições T-B06 a T-B08 estão marcadas como inferidas, e nenhuma tabela as apresenta como observadas.
+- **As atividades internas da plataforma são hipótese.** "Consultar o catálogo", "validar no servidor", "autorizar pagamento": todas foram derivadas do comportamento observável. Chikofsky e Cross (1990) são explícitos quanto a isso — recuperação de projeto produz abstrações coerentes com o sistema, não idênticas ao projeto original.
+- **A autenticação muda o que se vê.** No recorte A, a ficha do produto exibe um campo de CEP; no recorte B, observado com sessão autenticada, o mesmo lugar da tela exibe "Enviar para \<endereço salvo\>". Não são registros contraditórios: são dois estados da mesma tela. Isso só ficou visível porque duas pessoas observaram em condições diferentes, e é um argumento a favor de dividir a engenharia reversa por pessoa, e não só por tela.
+- **O que a inspeção do DOM ganha em precisão, perde em durabilidade.** `maxlength="8"` é um fato sobre o artefato, e é a evidência mais dura deste documento — mas também a mais frágil no tempo: um atributo muda em qualquer implantação, enquanto uma regra observada no comportamento tende a durar. Por isso a data da observação está registrada.
+- **Nem tudo que parece regra é regra.** "Telefone com `maxlength` de 120" é quase certamente um limite genérico herdado de um componente, não uma decisão sobre telefones. Foi registrado assim mesmo, porque a ausência de decisão também é observável — mas é honesto dizer que aí se está lendo intenção onde talvez só haja um padrão de biblioteca.
+- **Nenhum dado pessoal foi transcrito.** Parte da observação foi feita com sessão autenticada, com endereços e itens reais. Foram registrados rótulos, controles, atributos e agrupamentos; nenhum conteúdo.
+
+---
+
+## Referências
+
+CHIKOFSKY, Elliot J.; CROSS II, James H. Reverse engineering and design recovery: a taxonomy. **IEEE Software**, v. 7, n. 1, p. 13–17, jan. 1990.
+
+MEMON, Atif; BANERJEE, Ishan; NAGARAJAN, Adithya. GUI Ripping: Reverse Engineering of Graphical User Interfaces for Testing. In: **Proceedings of the 10th Working Conference on Reverse Engineering (WCRE '03)**. Victoria: IEEE, 2003. p. 260–269.
+
+NIELSEN, Jakob. Enhancing the explanatory power of usability heuristics. In: **Proceedings of the SIGCHI Conference on Human Factors in Computing Systems (CHI '94)**. Boston: ACM, 1994. p. 152–158.
+
+---
+
 ## Histórico de Versões
 
 | Versão | Data | Descrição | Autor(es) | Revisor(es) |
 | -- | -- | -- | -- | -- |
 | 1.1 | 27/08/2026 | Adição dos recortes de carrinho, endereço e entrada de checkout e de publicação de anúncio pelo vendedor: inspeção do DOM, transições de estado, validadores de campo, diagramas de fluxo de navegação, regras de negócio e requisitos derivados | Patrick Anderson | -- |
+| 1.2 | 27/08/2026 | Adição da Rastreabilidade e Limite do Levantamento | Guilherme Costa Zanella | -- |
