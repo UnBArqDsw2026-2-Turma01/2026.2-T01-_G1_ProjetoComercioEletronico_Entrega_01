@@ -105,7 +105,7 @@ A tensão registrada opõe **loja oficial e vendedor autônomo**, que competem p
 - **A subequipe não aparece no desenho.** Monk e Howard recomendam incluir os analistas na estrutura, para lembrar que também têm ponto de vista e possível viés. Lacuna reconhecida.
 - **Apenas uma tensão foi grafada.** Outras tensões poderiam ter sido registradas como por exemplo atendimento x vendedor x jenny (cliente) e operadora de pagamento (comissão) x vendedor (lucro)
 - **O artefato não expressa ordem nem condição.** O fluxo de reclamação mostra que há mediação e dois desfechos possíveis, mas não sob quais condições. Limitação intrínseca do rich Picture isso pode ser melhor explorado no BPMN
-  **O desenho revelou algo não previsto.** Jenny não tem ligação direta com os vendedores: produto, dinheiro, informação e reclamação passam todos pela plataforma. Essa centralidade emergiu ao ligar os fluxos.
+- **O desenho revelou algo não previsto.** Jenny não tem ligação direta com os vendedores: produto, dinheiro, informação e reclamação passam todos pela plataforma. Essa centralidade emergiu ao ligar os fluxos.
 
 ---
 
