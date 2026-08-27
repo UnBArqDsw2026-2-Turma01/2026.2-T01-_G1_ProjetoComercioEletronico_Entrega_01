@@ -54,6 +54,44 @@ As operacionalizações não respeitam essa divisão, e isso é deliberado: `Fil
 
 ---
 
+## Galho 1 — Facilidade de Aprendizado e Eficiência de Uso
+
+**Responsável:** Pedro Luciano de Azevedo
+
+### Operacionalizações e sua origem
+
+| Operacionalização | Contribui para | Rótulo | Origem |
+| -- | -- | -- | -- |
+| Breadcrumb de categorias | `Consistência [Layout da listagem]` | `+` | Inventário de tela — breadcrumb observado na listagem |
+| Breadcrumb de categorias | `Reconhecimento [Navegação]` | `++` | Mesmo achado: a trilha deixa a posição visível em vez de exigir memória |
+| Autocompletar na busca | `Reconhecimento [Navegação]` | `+` | RF01 — sugestões surgem ao digitar, antes da submissão |
+| Autocompletar na busca | `Poucos Passos [Busca → Produto]` | `++` | RNF01 — encurta o caminho até a ficha do produto |
+| Filtros facetados | `Poucos Passos [Busca → Produto]` | `++` | RN03 e RF02 — facetas cumulativas com contagem prévia |
+| Ordenação por relevância | `Poucos Passos [Busca → Produto]` | `+` | RN02 — a ordenação padrão é por relevância, não por preço |
+
+### Correlações — o que piora
+
+| Operacionalização | Softgoal atingido | Rótulo | Por quê |
+| -- | -- | -- | -- |
+| Autocompletar na busca | `Tempo de Resposta [Listagem]` | `−` | Sugestão a cada tecla digitada é consulta a cada tecla digitada |
+| Filtros facetados | `Tempo de Resposta [Listagem]` | `−` | Cada faceta exibe a contagem de resultados que restará, o que exige contar antes de filtrar |
+| Rolagem infinita | `Tempo de Resposta [Listagem]` | `−` | Carregar por rolagem mantém a listagem crescendo na mesma página |
+
+### Propagação neste galho
+
+| Softgoal | Entradas | Rótulo |
+| -- | -- | -- |
+| `Consistência [Layout da listagem]` | um `+` | **W⁺** |
+| `Reconhecimento [Navegação]` | um `++` e um `+` | **✓** |
+| `Poucos Passos [Busca → Produto]` | dois `++` e um `+` | **✓** |
+| `Tempo de Resposta [Listagem]` | três `−` | **W⁻** |
+| `Facilidade de Aprendizado [Comprador novo]` | AND (W⁺, ✓) | **W⁺** |
+| **`Eficiência de Uso [Busca de produto]`** | **AND (✓, W⁻)** | **W⁻ — crítico** |
+
+`Eficiência de Uso` é o galho marcado como crítico no grafo, e o motivo é localizável: as três operacionalizações que encurtam o caminho até o produto são exatamente as três que pesam sobre o tempo de resposta. Não há aqui uma decisão errada a corrigir — há um custo que o projeto assume, e o grafo serve para que ele seja assumido explicitamente.
+
+---
+
 ## Referências
 
 CHUNG, Lawrence; NIXON, Brian A.; YU, Eric; MYLOPOULOS, John. **Non-Functional Requirements in Software Engineering**. Boston: Kluwer Academic Publishers, 2000.
@@ -72,3 +110,4 @@ NIELSEN, Jakob. Enhancing the explanatory power of usability heuristics. In: **P
 | -- | -- | -- | -- | -- |
 | 1.0 | 24/08/2026 | Estruturação inicial | José Joaquim da Silva Neto | Pedro Henrique Gomes |
 | 1.1 | 27/08/2026 | Adição da parte geral sobre o SIG | Patrick Anderson Carvalho dos Santos, Pedro Luciano de Azevedo, Guilherme Costa Zanella | -- |
+| 1.2 | 27/08/2026 | Consolidação em um único SIG, o de Usabilidade, com os quatro galhos de 1º nível divididos entre os três integrantes; operacionalizações, correlações, claims e propagação até a raiz | Pedro Luciano de Azevedo | -- |
