@@ -73,4 +73,4 @@ OBJECT MANAGEMENT GROUP. **Business Process Model and Notation (BPMN), Version 2
 | -- | -- | -- | -- | -- |
 | 1.0 | 24/08/2026 | Estruturação inicial | José Joaquim da Silva Neto | Pedro Henrique Gomes |
 | 1.1 | 26/08/2026 | Adição do ponto de vista individual sobre lições aprendidas e uso da IA Generativa | Pedro Luciano de Azevedo | -- |
-| 1.2 | 27/08/2026 | Adição do ponto de vista do Guilherme sobre lições aprendidas e uso da IA Generativa | Guilherme Costa Zanella | -- |
+| 1.2 | 27/08/2026 | Adição do ponto de vista individual sobre lições aprendidas e uso da IA Generativa | Guilherme Costa Zanella | -- |
