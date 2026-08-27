@@ -1,6 +1,6 @@
 # NFR Framework
 
-Conforme decidido na [reunião de 24/08/2026](/Atas/Subequipe1/ata24_08.md), no SIG cada integrante da Subequipe 01 assume **um galho da árvore** — isto é, um requisito não funcional — para posterior consolidação. Esta página reúne os galhos individuais.
+Conforme decidido na [reunião de 24/08/2026](/Atas/Subequipe1/ata24_08.md), no SIG cada integrante da Subequipe 01 assume um galho da árvore — um requisito não funcional — para consolidação posterior. Esta página reúne os galhos.
 
 ---
 
@@ -8,13 +8,13 @@ Conforme decidido na [reunião de 24/08/2026](/Atas/Subequipe1/ata24_08.md), no 
 
 ### O que é o artefato
 
-O **NFR Framework** (CHUNG et al., 2000) trata requisitos não funcionais como *softgoals*: objetivos sem critério de satisfação binário, que não são "atendidos" ou "não atendidos", mas **satisficed** em grau — suficientemente satisfeitos dentro de um conjunto de compromissos assumidos. O artefato produzido pelo framework é o **SIG** (*Softgoal Interdependency Graph*), um grafo que registra três coisas que uma lista de requisitos não consegue registrar:
+O NFR Framework (CHUNG et al., 2000) trata requisitos não funcionais como *softgoals*: objetivos sem critério de satisfação binário, que não são simplesmente atendidos ou não, mas satisfeitos em grau, dentro de um conjunto de compromissos assumidos. O artefato do framework é o SIG (*Softgoal Interdependency Graph*), um grafo que registra três coisas que uma lista de requisitos não registra:
 
-1. **A decomposição** de um softgoal em subgoals, por tipo ou por tópico, com refinamento AND ou OR;
-2. **As contribuições** das decisões de projeto (*operacionalizações*) sobre esses softgoals, rotuladas em `++` (MAKE), `+` (HELP), `−` (HURT), `−−` (BREAK); e
-3. **As correlações**, que são contribuições **não intencionais** — o efeito colateral de uma decisão sobre um softgoal que não era o alvo dela.
+- **a decomposição** de um softgoal em subgoals, por tipo ou por tópico, com refinamento AND ou OR;
+- **as contribuições** das decisões de projeto (as *operacionalizações*) sobre esses softgoals, rotuladas em `++` (MAKE), `+` (HELP), `−` (HURT) e `−−` (BREAK);
+- **as correlações**, que são efeitos não intencionais de uma decisão sobre um softgoal que não era o alvo dela.
 
-A avaliação do grafo se dá por **propagação de rótulos**: partindo das operacionalizações escolhidas, os rótulos sobem pelo grafo até a raiz, e o resultado na raiz é o veredito honesto sobre o quanto aquele conjunto de decisões atende ao requisito. Os *claims* — softgoals de justificativa, desenhados em nuvem tracejada — se ligam às **ligações**, e não aos nós: eles registram por que aquela contribuição tem o peso que tem.
+A avaliação se dá por propagação de rótulos: partindo das operacionalizações escolhidas, os rótulos sobem até a raiz, e o resultado ali é o veredito sobre o quanto aquele conjunto de decisões atende ao requisito. Os *claims*, desenhados em nuvem tracejada, se ligam às **ligações** e não aos nós: registram por que aquela contribuição tem o peso que tem.
 
 ### O artefato
 
@@ -22,102 +22,95 @@ A avaliação do grafo se dá por **propagação de rótulos**: partindo das ope
 
 <sub>_Clique no diagrama para abri-lo em tamanho real._</sub>
 
-> _Figura 5 — SIG de Segurança do checkout do G1_ProjetoComercioEletronico. Nuvem de borda fina: softgoal NFR. Nuvem de borda grossa: operacionalização. Nuvem tracejada: claim. Aresta preta: contribuição ou decomposição AND. Aresta vermelha: correlação negativa. Fonte: Autor, 2026._
+> _Figura 5 — SIG de Segurança do checkout. Nuvem azul de borda fina: softgoal NFR. Nuvem verde de borda grossa: operacionalização. Nuvem tracejada: claim. Nuvem laranja, no painel à direita: softgoal que não é de segurança e que foi atingido por correlação. Fonte: Autor, 2026._
 
-O diagrama é um **SVG gerado por script**: o código-fonte está em [`sig_seguranca_patrick.py`](https://github.com/UnBArqDsw2026-2-Turma01/2026.2-T01-_G1_ProjetoComercioEletronico_Entrega_01/blob/main/docs/assets/SubEquipe01/src/sig_seguranca_patrick.py), e o grafo — nós, ligações, rótulos de contribuição e rótulos de avaliação — está declarado em estruturas de dados no topo do arquivo. Reproduzir ou alterar o SIG é editar uma lista e rodar:
+O diagrama é gerado por [`sig_seguranca_patrick.py`](https://github.com/UnBArqDsw2026-2-Turma01/2026.2-T01-_G1_ProjetoComercioEletronico_Entrega_01/blob/main/docs/assets/SubEquipe01/src/sig_seguranca_patrick.py), com nós, ligações e rótulos declarados no topo do arquivo. Para reproduzir:
 
 ```bash
 python3 docs/assets/SubEquipe01/src/sig_seguranca_patrick.py
 ```
 
-A razão é a mesma do meu [Mapa Mental](/Base/Relatórios/SubEquipe01/ArtefatoGeneralista.md): mudar uma contribuição de `+` para `−−` aparece como uma linha alterada no *diff* do commit, e não como um binário substituído.
-
 ### Por que assumi o galho de Segurança
 
-Na divisão combinada em reunião, o Pedro Luciano sinalizou o galho de **Usabilidade**. Assumi **Segurança** por três razões, e nenhuma delas é "sobrou para mim":
+O Pedro Luciano sinalizou o galho de Usabilidade, e Segurança foi a escolha natural para mim por dois motivos que se reforçam.
 
-1. **É o galho que a minha engenharia reversa sustenta com evidência.** O meu recorte — carrinho, endereço e entrada de checkout — é exatamente o trecho em que o comprador entrega dado pessoal ao sistema. Cada operacionalização deste SIG tem origem rastreável em um achado registrado na [Engenharia Reversa](/Base/Relatórios/SubEquipe01/EngenhariaReversa.md), e não em conhecimento geral sobre segurança.
-2. **É o galho que produz conflito com o do Pedro.** Segurança e Usabilidade são o par clássico de softgoals concorrentes. Como os dois galhos existem na mesma subequipe, o conflito não fica no plano da teoria: `Facilidade de Uso [Checkout]` aparece neste grafo em estado de **conflito**, e é o mesmo softgoal que ancora o galho dele. Quando os galhos forem consolidados, esse é o ponto de costura.
-3. **Segurança tem catálogo consolidado.** Chung et al. (2000) tratam explicitamente da decomposição de Segurança em Integridade, Confidencialidade e Disponibilidade, o que dá base de literatura à decomposição de primeiro nível em vez de me obrigar a inventá-la.
+O primeiro é que é o galho que a minha parte da engenharia reversa sustenta com evidência. O recorte que levantei — carrinho, endereço e entrada do checkout — é justamente o trecho em que o comprador entrega dado pessoal ao sistema. Cada operacionalização deste grafo tem origem rastreável em um achado registrado, e não em conhecimento geral sobre segurança.
 
-### Como o grafo foi construído
+O segundo é que Segurança e Usabilidade são o par clássico de softgoals concorrentes. Como os dois galhos existem dentro da mesma subequipe, o conflito não fica no plano teórico: `Facilidade de Uso [Checkout]` aparece neste grafo em estado de conflito, e é o mesmo softgoal que ancora o galho do Pedro. Na consolidação, é ali que os dois se costuram. Some-se a isso que Chung et al. (2000) tratam explicitamente da decomposição de Segurança em Integridade, Confidencialidade e Disponibilidade, o que dá base de literatura à decomposição de primeiro nível.
+
+### Como o grafo foi montado
 
 | Passo | O que foi feito |
 | -- | -- |
-| 1 | **Softgoal raiz**: `Segurança [Checkout]` — tipo *Segurança*, tópico *Checkout* |
-| 2 | **Decomposição AND** do raiz em `Confidencialidade [Dados do Comprador]` e `Integridade [Pedido]` |
-| 3 | **Segundo nível**, também AND: Confidencialidade se decompõe por tópico (`Endereço`, `Meio de Pagamento`); Integridade se decompõe em `Validade [Dados do Formulário]` e `Autenticidade [Comprador]` |
-| 4 | **Operacionalizações** derivadas dos achados da engenharia reversa (tabela abaixo) |
-| 5 | **Correlações**: efeitos não intencionais das operacionalizações sobre `Tempo de Resposta`, `Facilidade de Uso` e `Acessibilidade` |
-| 6 | **Claims** ligados às duas ligações que precisavam de justificativa |
-| 7 | **Propagação dos rótulos** das operacionalizações até a raiz |
+| 1 | Softgoal raiz `Segurança [Checkout]` |
+| 2 | Decomposição AND em `Confidencialidade [Dados do Comprador]` e `Integridade [Pedido]` |
+| 3 | Segundo nível, também AND: Confidencialidade por tópico (`Endereço`, `Meio de Pagamento`); Integridade em `Validade [Dados do Formulário]` e `Autenticidade [Comprador]` |
+| 4 | Operacionalizações derivadas dos achados da engenharia reversa |
+| 5 | Correlações sobre `Tempo de Resposta`, `Facilidade de Uso` e `Acessibilidade` |
+| 6 | *Claims* nas duas ligações que precisavam de justificativa |
+| 7 | Propagação dos rótulos até a raiz |
 
 ### Operacionalizações e sua origem
 
-Nenhuma operacionalização foi inventada: cada uma responde a um achado registrado.
-
-| Operacionalização | Contribui para | Rótulo | Origem na Engenharia Reversa |
+| Operacionalização | Contribui para | Rótulo | Origem na [Engenharia Reversa](/Base/Relatórios/SubEquipe01/EngenhariaReversa.md) |
 | -- | -- | -- | -- |
-| Manter o contexto de retorno como **token opaco** na URL | `Confidencialidade [Endereço]` | `+` | T03 e T04 — o destino de retorno e o contexto trafegam como parâmetro legível, inclusive entre subdomínios (RNF-P05) |
-| **Tokenizar** o meio de pagamento | `Confidencialidade [Meio de Pagamento]` | `++` | Ramo `Pontos de Confiança → No ato de pagar` do Mapa Mental; não observado no percurso, assumido como decisão de projeto |
-| **Validar no servidor** | `Validade [Dados do Formulário]` | `++` | RN-P05 — nenhum campo declara `required`; a validação é integralmente delegada a script no cliente |
-| **Validar no cliente ao perder o foco** | `Validade [Dados do Formulário]` | `+` | RN-P06 e T05 — a validação só ocorre na submissão; campo vazio que perde o foco não produz mensagem |
-| **Reautenticar antes de confirmar** | `Autenticidade [Comprador]` | `++` | Sessão autenticada persistente observada durante todo o percurso, sem nova verificação de identidade até a entrada do checkout |
-| **Declarar obrigatoriedade com o atributo `required`** | `Validade [Dados do Formulário]` | `+` | RN-P05 e RNF-P01 — a obrigatoriedade só existe no rótulo textual, por negação ("Complemento (opcional)") |
+| Manter o contexto de retorno como token opaco na URL | `Confidencialidade [Endereço]` | `+` | T-B03 e T-B04 — destino de retorno e contexto viajam como parâmetro legível entre subdomínios (RNF-B05) |
+| Tokenizar o meio de pagamento | `Confidencialidade [Meio de Pagamento]` | `++` | Ramo *Pontos de Confiança* do mapa mental; **não observado**, assumido como decisão de projeto |
+| Validar no servidor | `Validade [Dados do Formulário]` | `++` | RN-B05 — nenhum campo declara `required`; a validação é delegada a script no cliente |
+| Validar no cliente ao perder o foco | `Validade [Dados do Formulário]` | `+` | RN-B06 e T-B05 — a validação só ocorre na submissão |
+| Reautenticar antes de confirmar | `Autenticidade [Comprador]` | `++` | Sessão autenticada persistente durante todo o percurso, sem nova verificação de identidade |
+| Declarar obrigatoriedade com `required` | `Validade [Dados do Formulário]` | `+` | RN-B05 e RNF-B01 — a obrigatoriedade só existe no rótulo, e por negação |
 
 ### Correlações — o que piora
 
 | Operacionalização | Softgoal atingido | Rótulo | Por quê |
 | -- | -- | -- | -- |
 | Validar no servidor | `Tempo de Resposta [Checkout]` | `−` | Cada validação passa a exigir ida ao servidor, somando latência a um fluxo que hoje responde localmente |
-| Validar no cliente ao perder o foco | `Facilidade de Uso [Checkout]` | `+` | Feedback imediato por campo reduz retrabalho — é o lado positivo da mesma decisão |
-| Reautenticar antes de confirmar | `Facilidade de Uso [Checkout]` | `−−` | Insere uma etapa de identidade no momento de maior intenção de compra do usuário |
+| Validar no cliente ao perder o foco | `Facilidade de Uso [Checkout]` | `+` | Feedback imediato por campo reduz retrabalho |
+| Reautenticar antes de confirmar | `Facilidade de Uso [Checkout]` | `−−` | Insere uma etapa de identidade no momento de maior intenção de compra |
 | Declarar obrigatoriedade com `required` | `Acessibilidade [Formulário]` | `++` | A obrigatoriedade passa a ser exposta programaticamente e alcança tecnologia assistiva |
 
 ### Propagação dos rótulos
 
-| Softgoal | Contribuições recebidas | Rótulo resultante |
+| Softgoal | Contribuições recebidas | Resultado |
 | -- | -- | -- |
-| `Confidencialidade [Endereço]` | um `+` | **W⁺** — fracamente satisfeito |
-| `Confidencialidade [Meio de Pagamento]` | um `++` | **✓** — satisfeito |
+| `Confidencialidade [Endereço]` | um `+` | **W⁺** |
+| `Confidencialidade [Meio de Pagamento]` | um `++` | **✓** |
 | `Confidencialidade [Dados do Comprador]` | AND (W⁺, ✓) → mínimo | **W⁺** |
 | `Validade [Dados do Formulário]` | `++`, `+`, `+` | **✓** |
 | `Autenticidade [Comprador]` | um `++` | **✓** |
 | `Integridade [Pedido]` | AND (✓, ✓) | **✓** |
-| **`Segurança [Checkout]`** | **AND (W⁺, ✓) → mínimo** | **W⁺ — fracamente satisfeito** |
-| `Tempo de Resposta [Checkout]` | um `−`, nenhum positivo | **W⁻** — fracamente negado |
-| `Facilidade de Uso [Checkout]` | um `+` e um `−−` | **↯ conflito** |
+| **`Segurança [Checkout]`** | **AND (W⁺, ✓) → mínimo** | **W⁺** |
+| `Tempo de Resposta [Checkout]` | um `−` | **W⁻** |
+| `Facilidade de Uso [Checkout]` | um `+` e um `−−` | **conflito** |
 | `Acessibilidade [Formulário]` | um `++` | **✓** |
 
-**Leitura do resultado.** O grafo não termina em "Segurança satisfeita". Termina em **W⁺**, e o motivo é localizável: `Confidencialidade [Endereço]` recebe apenas uma contribuição `+`, porque a única operacionalização que eu consegui derivar de evidência para ela — trocar o parâmetro legível por token opaco — reduz a exposição, mas não a elimina; o dado continua saindo do domínio de origem. Como a decomposição é AND, o elo mais fraco define o resultado do pai, e a dívida sobe até a raiz. Um SIG que terminasse em ✓ aqui estaria escondendo isso.
+O grafo não termina em "Segurança satisfeita". Termina em **W⁺**, e o motivo é localizável: `Confidencialidade [Endereço]` recebe uma única contribuição fraca, porque a única operacionalização que consegui derivar de evidência para ela — trocar o parâmetro legível por token opaco — reduz a exposição, mas não a elimina; o dado continua saindo do domínio de origem. Como a decomposição é AND, o elo mais fraco define o resultado do pai, e a dívida sobe até a raiz.
 
-**O conflito em `Facilidade de Uso`.** Ele recebe `+` de uma decisão e `−−` de outra; a notação não resolve isso sozinha — o framework a marca como conflito e devolve a decisão para quem projeta. A minha decisão, registrada no *claim* C2, é **aceitar o `−−` de forma condicionada**: reautenticar apenas quando o meio de pagamento for novo, e não em toda compra, o que restringe a fricção a um subconjunto das transações. Com essa condição, o resultado assumido para `Facilidade de Uso [Checkout]` passa a **W⁻** — fracamente negado, e não negado. O ponto é que **essa é uma decisão, não um cálculo**, e é por isso que ela precisa aparecer no grafo como *claim*, e não como uma nota de rodapé.
+O conflito em `Facilidade de Uso` recebe `+` de uma decisão e `−−` de outra. A notação não resolve isso: marca o conflito e devolve a decisão a quem projeta. A minha decisão, registrada no claim C2, é aceitar o `−−` de forma condicionada — reautenticar só quando o meio de pagamento for novo, e não em toda compra, o que restringe a fricção a parte das transações. Com essa condição, o resultado assumido passa a **W⁻**. É uma decisão, não um cálculo, e por isso precisa aparecer no grafo como claim.
 
-### Rastreabilidade e elos com outros artefatos
+### Elos com os outros artefatos
 
 | Elemento do SIG | Vem de | Vai para |
 | -- | -- | -- |
-| Softgoal raiz `Segurança [Checkout]` | Ramo `Qualidades RNF → Segurança` do [Mapa Mental](/Base/Relatórios/SubEquipe01/ArtefatoGeneralista.md) | — |
-| Decomposição de 1º nível | Mesmo ramo do Mapa Mental + catálogo de Chung et al. (2000) | — |
-| Todas as operacionalizações | Achados RN-P05, RN-P06, RNF-P01, RNF-P05 e transições T03–T05 da [Engenharia Reversa](/Base/Relatórios/SubEquipe01/EngenhariaReversa.md) | — |
+| Softgoal raiz `Segurança [Checkout]` | Ramo *Qualidades (RNF)* do [mapa mental](/Base/Relatórios/SubEquipe01/ArtefatoGeneralista.md) | — |
+| Decomposição de 1º nível | Mesmo ramo, mais o catálogo de Chung et al. (2000) | — |
+| Todas as operacionalizações | RN-B05, RN-B06, RNF-B01, RNF-B05, T-B03 a T-B05 | — |
 | Correlação `−` em Tempo de Resposta | Decisão de validar no servidor | Anotação de texto no [BPMN](/Base/Relatórios/SubEquipe01/BPMN.md) |
-| Softgoal `Facilidade de Uso [Checkout]` em conflito | Este grafo | **Ponto de costura com o galho de Usabilidade** da subequipe |
-| Claim C1 | Transições T03 e T04 | Justifica a priorização de `Confidencialidade [Endereço]` |
+| `Facilidade de Uso [Checkout]` em conflito | Este grafo | Ponto de costura com o galho de Usabilidade |
 
-### Senso crítico
+### Limites do grafo
 
-- **Deixei Disponibilidade de fora, e isso é uma escolha discutível.** O catálogo clássico decompõe Segurança em Integridade, Confidencialidade **e** Disponibilidade. Não modelei o terceiro porque não consegui derivar dele nenhuma operacionalização a partir do que observei — disponibilidade não é observável por inspeção de interface em uma única sessão. A alternativa seria incluí-lo sem operacionalização, o que o deixaria **indeciso** e, pela regra do AND, arrastaria a raiz inteira para indeciso — um resultado que diria menos, não mais. Registro a omissão aqui em vez de deixá-la implícita no desenho.
-- **A operacionalização de tokenização é a mais fraca do grafo.** Ela não vem de observação: o percurso foi interrompido antes do pagamento, então "tokenizar o meio de pagamento" é uma decisão de projeto plausível, não um achado. Ela recebe `++` porque, se implementada, de fato resolve o softgoal — mas o rótulo é sobre a decisão hipotética, não sobre o sistema observado. Marcar isso importa: é a única linha da tabela de operacionalizações cuja coluna de origem não aponta para um achado.
-- **A propagação por "elo mais fraco" no AND é uma convenção, não uma verdade.** Adotei a regra de o pai receber o mínimo entre os filhos porque é a leitura mais conservadora e a que expõe dívida. Um avaliador poderia argumentar que Confidencialidade de endereço e de meio de pagamento não têm o mesmo peso — vazar um endereço e vazar um cartão têm consequências muito diferentes — e que o grafo deveria ponderar. O NFR Framework permite essa priorização; eu não a usei, e o efeito é que o grafo trata os dois como igualmente críticos, o que provavelmente subestima o meio de pagamento.
-- **A primeira versão deste grafo não tinha nenhuma aresta vermelha, e estava errada.** Ela listava só o que cada decisão melhora. Um SIG assim é uma lista de boas intenções desenhada em nuvem: ele não informa nada que uma tabela de requisitos já não informasse. O grafo só passou a ter função quando eu forcei a pergunta inversa — *o que piora quando isto melhora?* — e apareceram `Tempo de Resposta` em W⁻ e `Facilidade de Uso` em conflito. **O valor do NFR Framework está nas arestas que a gente preferiria não desenhar.**
+- **Disponibilidade ficou de fora.** O catálogo clássico decompõe Segurança em Integridade, Confidencialidade e Disponibilidade. Não modelei a terceira porque não consegui derivar dela nenhuma operacionalização a partir do que observei — disponibilidade não é observável por inspeção de interface em uma sessão. Incluí-la sem operacionalização a deixaria indecisa e, pela regra do AND, arrastaria a raiz inteira para indeciso, o que diria menos e não mais.
+- **A tokenização é a operacionalização mais fraca do grafo.** Ela não vem de observação: o percurso parou antes do pagamento. Recebe `++` porque, se implementada, resolve o softgoal — mas o rótulo é sobre a decisão hipotética, não sobre o sistema observado. É a única linha da tabela cuja origem não aponta para um achado.
+- **A regra do elo mais fraco no AND é uma convenção.** Adotei o mínimo entre os filhos por ser a leitura mais conservadora. Um avaliador poderia argumentar que vazar um endereço e vazar um cartão não têm o mesmo peso e que o grafo deveria priorizar. O framework permite; eu não usei, e o efeito é tratar os dois como igualmente críticos.
+- **A primeira versão do grafo não tinha nenhuma aresta vermelha.** Ela listava só o que cada decisão melhora, e nesse formato o SIG não informa nada que uma tabela de requisitos já não informe. Ele só passou a ter função quando perguntei o que piora — e aí apareceram `Tempo de Resposta` em W⁻ e `Facilidade de Uso` em conflito.
 
 ---
 
 ## Referências
 
 CHUNG, Lawrence; NIXON, Brian A.; YU, Eric; MYLOPOULOS, John. **Non-Functional Requirements in Software Engineering**. Boston: Kluwer Academic Publishers, 2000.
-
-CHIKOFSKY, Elliot J.; CROSS II, James H. Reverse engineering and design recovery: a taxonomy. **IEEE Software**, v. 7, n. 1, p. 13–17, jan. 1990.
 
 MYLOPOULOS, John; CHUNG, Lawrence; NIXON, Brian. Representing and using nonfunctional requirements: a process-oriented approach. **IEEE Transactions on Software Engineering**, v. 18, n. 6, p. 483–497, jun. 1992.
 
@@ -130,4 +123,4 @@ NIELSEN, Jakob. Enhancing the explanatory power of usability heuristics. In: **P
 | Versão | Data | Descrição | Autor(es) | Revisor(es) |
 | -- | -- | -- | -- | -- |
 | 1.0 | 24/08/2026 | Estruturação inicial | José Joaquim da Silva Neto | Pedro Henrique Gomes |
-| 1.1 | 27/08/2026 | Adição do galho de Segurança: SIG do checkout gerado por script, com 6 operacionalizações rastreadas à engenharia reversa, 4 correlações, 2 claims, propagação de rótulos e senso crítico | Patrick Anderson Carvalho dos Santos | -- |
+| 1.1 | 27/08/2026 | Adição do galho de Segurança: SIG do checkout, operacionalizações, correlações, claims e propagação de rótulos | Patrick Anderson Carvalho dos Santos | -- |
