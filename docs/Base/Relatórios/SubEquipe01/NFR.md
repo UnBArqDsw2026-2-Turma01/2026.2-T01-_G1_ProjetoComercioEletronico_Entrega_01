@@ -47,7 +47,7 @@ Usabilidade foi escolhida como raiz única porque é o softgoal que os três rec
 | Galho de 1º nível | Softgoals de 2º nível | Responsável | Base de evidência |
 | -- | -- | -- | -- |
 | `Facilidade de Aprendizado [Comprador novo]` e `Eficiência de Uso [Busca de produto]` | Consistência, Reconhecimento, Poucos Passos, Tempo de Resposta | Pedro Luciano de Azevedo | [Engenharia reversa do fluxo de busca e escolha de produto](/Base/Relatórios/SubEquipe01/EngenhariaReversa.md) |
-| `Prevenção de Erros [Decisão de compra]` | Feedback Imediato, Reversibilidade | Patrick Anderson Carvalho dos Santos | Recorte de carrinho, endereço e checkout; [BPMN](/Base/Relatórios/SubEquipe01/BPMN.md) do mesmo fluxo |
+| `Prevenção de Erros [Decisão de compra]` | Feedback Imediato, Reversibilidade | Patrick Anderson | Recorte de carrinho, endereço e checkout; [BPMN](/Base/Relatórios/SubEquipe01/BPMN.md) do mesmo fluxo |
 | `Satisfação [Comprador]` | Estética Minimalista, Confiança Percebida | Guilherme Costa Zanella | [Rich Picture](/Base/Relatórios/SubEquipe01/ArtefatoGeneralista.md) do fluxo de compra |
 
 As operacionalizações não respeitam essa divisão, e isso é deliberado: `Filtros facetados` contribui para um softgoal do Pedro e um do Patrick; `Rolagem infinita` toca os três galhos. É justamente onde os galhos se cruzam que o grafo diz algo que uma lista de requisitos não diria.
@@ -64,10 +64,10 @@ As operacionalizações não respeitam essa divisão, e isso é deliberado: `Fil
 | -- | -- | -- | -- |
 | Breadcrumb de categorias | `Consistência [Layout da listagem]` | `+` | Inventário de tela — breadcrumb observado na listagem |
 | Breadcrumb de categorias | `Reconhecimento [Navegação]` | `++` | Mesmo achado: a trilha deixa a posição visível em vez de exigir memória |
-| Autocompletar na busca | `Reconhecimento [Navegação]` | `+` | RF01 — sugestões surgem ao digitar, antes da submissão |
-| Autocompletar na busca | `Poucos Passos [Busca → Produto]` | `++` | RNF01 — encurta o caminho até a ficha do produto |
-| Filtros facetados | `Poucos Passos [Busca → Produto]` | `++` | RN03 e RF02 — facetas cumulativas com contagem prévia |
-| Ordenação por relevância | `Poucos Passos [Busca → Produto]` | `+` | RN02 — a ordenação padrão é por relevância, não por preço |
+| Autocompletar na busca | `Reconhecimento [Navegação]` | `+` | RF-A01 — sugestões surgem ao digitar, antes da submissão |
+| Autocompletar na busca | `Poucos Passos [Busca → Produto]` | `++` | RNF-A01 — encurta o caminho até a ficha do produto |
+| Filtros facetados | `Poucos Passos [Busca → Produto]` | `++` | RN-A03 e RF-A02 — facetas cumulativas com contagem prévia |
+| Ordenação por relevância | `Poucos Passos [Busca → Produto]` | `+` | RN-A02 — a ordenação padrão é por relevância, não por preço |
 
 ### Correlações — o que piora
 
@@ -92,6 +92,37 @@ As operacionalizações não respeitam essa divisão, e isso é deliberado: `Fil
 
 ---
 
+## Galho 2 — Prevenção de Erros
+
+**Responsável:** Patrick Anderson
+
+### Operacionalizações e sua origem
+
+| Operacionalização | Contribui para | Rótulo | Origem |
+| -- | -- | -- | -- |
+| Filtros facetados | `Feedback Imediato [Filtros]` | `++` | RN-A03 e RNF-A03 — a faceta antecipa quantos resultados restarão, antes de ser aplicada |
+| Filtros na URL | `Reversibilidade [Navegação]` | `++` | RN-A06 — termo, filtros, ordenação e página viajam na URL, o que torna o estado reproduzível |
+
+### Correlações — o que piora
+
+| Operacionalização | Softgoal atingido | Rótulo | Por quê |
+| -- | -- | -- | -- |
+| Rolagem infinita | `Reversibilidade [Navegação]` | `−−` | Etapa 4 da engenharia reversa: ao voltar, os filtros são preservados porque vêm da URL, mas a posição de rolagem reinicia do topo |
+
+**Claim C1**, ancorado nessa ligação: *rolagem infinita quebra o retorno à listagem — o comprador perde posição e filtros ao voltar* (NIELSEN, 1994: controle e liberdade do usuário). O claim está no grafo porque o `−−` não é dedução da notação: é a leitura de que perder a posição depois de rolar dezenas de resultados custa mais do que a rolagem economiza.
+
+### Propagação neste galho
+
+| Softgoal | Entradas | Rótulo |
+| -- | -- | -- |
+| `Feedback Imediato [Filtros]` | um `++` | **✓** |
+| `Reversibilidade [Navegação]` | um `++` e um `−−` | **W⁻** |
+| **`Prevenção de Erros [Decisão de compra]`** | **AND (✓, W⁻)** | **W⁻** |
+
+`Reversibilidade` é o único softgoal do grafo que recebe uma contribuição forte de cada sinal. O `++` dos filtros na URL e o `−−` da rolagem infinita não se cancelam: eles atuam sobre partes diferentes do mesmo estado — a URL guarda o *filtro*, e nada guarda a *posição*. É por isso que o RNF-A02 aparece na engenharia reversa como requisito que o sistema observado **não** satisfaz.
+
+---
+
 ## Galho 3 — Satisfação
 
 *Responsável:* Guilherme Costa Zanella
@@ -101,7 +132,7 @@ As operacionalizações não respeitam essa divisão, e isso é deliberado: `Fil
 | Operacionalização | Contribui para | Rótulo | Origem |
 | -- | -- | -- | -- |
 | Rolagem infinita | Estética Minimalista [Listagem] | + | Carregar por rolagem dispensa a paginação clicável, e a listagem fica sem controle de página |
-| Nota e reputação visíveis | Confiança Percebida [Vendedor] | ++ | RN05 e RF05 — todo produto exibe nota, número de avaliações e reputação do vendedor já na listagem |
+| Nota e reputação visíveis | Confiança Percebida [Vendedor] | ++ | RN-A05 e RF-A05 — todo produto exibe nota, número de avaliações e reputação do vendedor já na listagem |
 
 ### Correlações — o que piora
 
@@ -144,8 +175,8 @@ Como a decomposição é AND, adotamos o mínimo entre os filhos: o elo mais fra
 | Elemento do SIG | Vem de | Vai para |
 | -- | -- | -- |
 | Softgoal raiz Usabilidade | Ramo Qualidades (RNF) do [mapa mental](/Base/Relatórios/SubEquipe01/ArtefatoGeneralista.md) | — |
-| Poucos Passos, Feedback Imediato, Reversibilidade | RNF01, RNF03 e RNF02 da [engenharia reversa](/Base/Relatórios/SubEquipe01/EngenhariaReversa.md) | — |
-| Operacionalizações de busca e listagem | RN01 a RN06, RF01 a RF06 | Atividades do [BPMN](/Base/Relatórios/SubEquipe01/BPMN.md) |
+| Poucos Passos, Feedback Imediato, Reversibilidade | RNF-A01, RNF-A03 e RNF-A02 da [engenharia reversa](/Base/Relatórios/SubEquipe01/EngenhariaReversa.md) | — |
+| Operacionalizações de busca e listagem | RN-A01 a RN-A06, RF-A01 a RF-A06 | Atividades do [BPMN](/Base/Relatórios/SubEquipe01/BPMN.md) |
 | Confiança Percebida [Vendedor] | Concerns e tensão do [Rich Picture](/Base/Relatórios/SubEquipe01/ArtefatoGeneralista.md) | Ponto em aberto: o grafo do lado do vendedor |
 | Correlação − em Tempo de Resposta | Trade-off apontado no senso crítico do mapa mental | — |
 
@@ -178,6 +209,7 @@ NIELSEN, Jakob. Enhancing the explanatory power of usability heuristics. In: **P
 | Versão | Data | Descrição | Autor(es) | Revisor(es) |
 | -- | -- | -- | -- | -- |
 | 1.0 | 24/08/2026 | Estruturação inicial | José Joaquim da Silva Neto | Pedro Henrique Gomes |
-| 1.1 | 27/08/2026 | Adição da parte geral sobre o SIG | Patrick Anderson Carvalho dos Santos, Pedro Luciano de Azevedo, Guilherme Costa Zanella | -- |
+| 1.1 | 27/08/2026 | Adição da parte geral sobre o SIG | Patrick Anderson, Pedro Luciano de Azevedo, Guilherme Costa Zanella | -- |
 | 1.2 | 27/08/2026 | Consolidação em um único SIG, o de Usabilidade, com os quatro galhos de 1º nível divididos entre os três integrantes; operacionalizações, correlações, claims e propagação até a raiz | Pedro Luciano de Azevedo | -- |
 | 1.3 | 27/08/2026 | Adição do Galho 3 — Satisfação (operacionalizações, correlações, claim e propagação) e dos elos com os outros artefatos | Guilherme Costa Zanella | -- |
+| 1.4 | 27/08/2026 | Adição do Galho 2 — Prevenção de Erros (operacionalizações, correlação, claim e propagação) | Patrick Anderson | -- |
