@@ -74,7 +74,6 @@ As Diretrizes pedem para usar os vários recursos de modelagem da notação. Os 
 | Calcular frete e prazo por CEP → Revisar itens do carrinho  | RN-A04 — o frete é conhecido antes do checkout                                      |
 | Cadastrar endereço de entrega e o gateway que leva a ele    | T-B03 e T-B04                                                                       |
 | Gateway Dados do formulário válidos? e o laço de correção   | RN-B06 e T-B05                                                                      |
-| Anotação sobre Validar dados do formulário                  | Correlação − do [SIG](/Base/Relatórios/SubEquipe01/NFR.md) sobre Tempo de Resposta  |
 | Criar rascunho do anúncio e sua anotação                    | RN-C01 e RN-C02                                                                     |
 | Gateway Encontrou no catálogo?                              | RN-C04 e RN-C06                                                                     |
 | Publicar no catálogo e o depósito Catálogo                  | RN-C04 e RN-B09 — o vínculo com o catálogo explica as ofertas concorrentes na ficha |
