@@ -14,11 +14,11 @@ Na engenharia de software, esse tipo de representação se enquadra no que a lit
 
 ### O artefato
 
-[![Mapa Mental do Mercado Livre](../../../assets/SubEquipe01/MapaMental_PedroLuciano.png)](../../../assets/SubEquipe01/MapaMental_PedroLuciano.png ":ignore")
+[![Mapa Mental do G1_ProjetoComercioEletronico — Pedro Luciano](../../../assets/SubEquipe01/MapaMental_PedroLuciano.png)](../../../assets/SubEquipe01/MapaMental_PedroLuciano.png ":ignore")
 
 <sub>_Clique no diagrama para abri-lo em tamanho real._</sub>
 
-> _Figura 1 — Mapa Mental do Mercado Livre, usado como base de inspiração para o projeto ([Projeto](/Projeto/Projeto.md)). Nó central: o sistema em estudo. Ramos de 1º nível: domínios funcionais (Descoberta do Produto, Decisão de Compra, Transação & Pagamento, Pós-venda), o contexto de atores, o subsistema de conta e acesso, e o ramo de qualidades (RNFs). Folhas: elementos efetivamente observados na interface durante a engenharia reversa._
+> _Figura 1 — Mapa Mental do G1_ProjetoComercioEletronico, elaborado a partir do comércio eletrônico tomado como fonte de inspiração para o projeto ([Projeto](/Projeto/Projeto.md)). Nó central: o sistema em estudo. Ramos de 1º nível: domínios funcionais (Descoberta do Produto, Decisão de Compra, Transação & Pagamento, Pós-venda), o contexto de atores, o subsistema de conta e acesso, e o ramo de qualidades (RNFs). Folhas: elementos efetivamente observados na interface durante a engenharia reversa._
 
 ### Por que escolhi Mapa Mental (e não Rich Picture)
 
@@ -109,11 +109,59 @@ A tensão registrada opõe **loja oficial e vendedor autônomo**, que competem p
 
 ---
 
+## Mapa Mental — Patrick Anderson
+
+### O que é o artefato
+
+O mapa mental é uma representação radial: um conceito central vai sendo refinado em ramos, com palavras-chave curtas, cor e posição ajudando a memorizar e associar as ideias (BUZAN; BUZAN, 1993). Eppler (2006), ao comparar mapas mentais, mapas conceituais, diagramas conceituais e metáforas visuais, delimita bem o que cada formato entrega: o mapa mental organiza rápido o que já se sabe sobre um domínio, mas é fraco para representar relações nomeadas entre ramos diferentes — para isso serve o mapa conceitual, que rotula as arestas (NOVAK; CAÑAS, 2008).
+
+Essa delimitação define o que o artefato pode afirmar aqui: composição e subordinação. Ele não afirma ordem, condição, causa nem conflito.
+
+### O artefato
+
+[![Mapa Mental do G1_ProjetoComercioEletronico — Patrick](../../../assets/SubEquipe01/MapaMental.svg)](../../../assets/SubEquipe01/MapaMental.svg ":ignore")
+
+<sub>Clique na imagem para abrir o visualizador em tela cheia, com zoom e arraste.</sub>
+
+> _Figura 3 — Mapa mental do G1_ProjetoComercioEletronico organizado pelos pontos em que o comprador precisa confiar. Seis ramos de 1º nível: atores e papéis, jornada de compra, conta e acesso, pontos de confiança, qualidades (RNF) e riscos do domínio. Fonte: Autor, 2026._
+
+### Por que escolhi o mapa mental
+
+Quando entrei nesta parte, a subequipe já tinha dois artefatos publicados: o mapa mental do Pedro Luciano, que inventaria o domínio, e o rich picture do Guilherme, que mostra os atores e a tensão entre eles. Repetir qualquer uma das duas leituras não acrescentaria informação. O que faltava não era outra técnica, era outra pergunta.
+
+A pergunta que escolhi foi: em que momentos o comprador precisa confiar, e no que exatamente ele confia? Ela produz uma hierarquia — selo de loja oficial, reputação do vendedor, intermediação do pagamento, código de rastreio —, e não uma cena com pontos de vista em conflito. É por isso que o mapa mental cabe melhor aqui do que o rich picture: o que eu precisava organizar era composição, não uma situação mal estruturada. Eppler (2006) coloca a escolha nesses termos, de o formato seguir a tarefa e não a preferência.
+
+A escolha também tinha um destino prático dentro da entrega. O ramo *Jornada de Compra → Transação* enumera os estados de tela que eu inventariei na engenharia reversa do carrinho e do checkout, e o ramo *Qualidades (RNF)* é o que expõe o trade-off que o SIG do grupo foi feito para representar.
+
+### Elos com os outros artefatos
+
+| Ramo do mapa | Artefato de destino | Como reaparece |
+| -- | -- | -- |
+| `Jornada de Compra → Transação` | [Engenharia Reversa](/Base/Relatórios/SubEquipe01/EngenhariaReversa.md) | Cada folha vira um estado de tela inventariado no recorte de carrinho, endereço e checkout |
+| `Jornada de Compra → Transação` | [Modelagem BPMN](/Base/Relatórios/SubEquipe01/BPMN.md) | Atividades da raia do comprador no modelo de checkout |
+| `Qualidades (RNF)` | [NFR Framework](/Base/Relatórios/SubEquipe01/NFR.md) | Aponta o trade-off entre qualidades que o SIG de Usabilidade formaliza; meu galho ali é `Prevenção de Erros` |
+| `Pontos de Confiança` | [Rich Picture](/Base/Relatórios/SubEquipe01/ArtefatoGeneralista.md) do Guilherme | Os mesmos *concerns* da Jenny, aqui como composição em vez de balão de pensamento |
+| `Riscos do Domínio` | [NFR Framework](/Base/Relatórios/SubEquipe01/NFR.md) | Contexto que justifica os *claims* do grafo |
+
+### Limites do artefato
+
+- **"Pontos de Confiança" não é um ramo, é uma leitura transversal.** Selo de loja oficial, mascaramento do cartão e código de rastreio pertencem, respectivamente, a Decisão, Transação e Pós-venda. Agrupei os três em um ramo próprio porque é isso que a minha pergunta faz aparecer, e o preço é a duplicação: o mesmo elemento fica implícito em dois lugares. Um mapa conceitual, com arestas rotuladas do tipo "mitiga", resolveria isso (NOVAK; CAÑAS, 2008), mas o escopo da entrega pede mapa mental ou rich picture.
+- **O mapa não mostra o que cada qualidade custa.** `Segurança` e `Usabilidade` aparecem como ramos irmãos, o que sugere independência. Não são: exigir reautenticação no pagamento melhora a integridade e piora a facilidade de uso. Representar esse trade-off exige o NFR Framework (CHUNG et al., 2000), e é por isso que o ramo de qualidades é um ponteiro para o SIG.
+- **O mapa não separa o observado do inferido.** `Intermediação do pagamento` entrou a partir do que a interface mostra ao comprador; a existência de uma custódia de valores é hipótese. Quem faz essa distinção é a engenharia reversa, onde cada achado inferido está marcado.
+
+---
+
 ## Referências
 
 BUZAN, Tony; BUZAN, Barry. **The Mind Map Book**. London: BBC Books, 1993.
 
 CHECKLAND, Peter. **Systems Thinking, Systems Practice**. Chichester: John Wiley & Sons, 1981.
+
+CHUNG, Lawrence; NIXON, Brian A.; YU, Eric; MYLOPOULOS, John. **Non-Functional Requirements in Software Engineering**. Boston: Kluwer Academic Publishers, 2000.
+
+EPPLER, Martin J. A comparison between concept maps, mind maps, conceptual diagrams, and visual metaphors as complementary tools for knowledge construction and sharing. **Information Visualization**, v. 5, n. 3, p. 202–210, 2006.
+
+NOVAK, Joseph D.; CAÑAS, Alberto J. **The Theory Underlying Concept Maps and How to Construct and Use Them**. Technical Report IHMC CmapTools 2006-01 Rev 01-2008. Pensacola: Florida Institute for Human and Machine Cognition, 2008.
 
 MONK, Andrew; HOWARD, Steve. The Rich Picture: A Tool for Reasoning About Work Context. **Interactions**, v. 5, n. 2, p. 21–30, mar./abr. 1998.
 
@@ -126,3 +174,4 @@ MONK, Andrew; HOWARD, Steve. The Rich Picture: A Tool for Reasoning About Work C
 | 1.0    | 24/08/2026 | Estruturação inicial                                | José Joaquim da Silva Neto | Pedro Henrique Gomes |
 | 1.1    | 26/08/2026 | Adição do Mapa Mental e da justificativa da escolha | Pedro Luciano de Azevedo   | --                   |
 | 1.2    | 26/08/2026 | Adição do Rich Picture e dos textos explicativos    | Guilherme Costa Zanella    | --                   |
+| 1.3    | 27/08/2026 | Adição do mapa mental do Patrick, com justificativa da escolha e elos com os demais artefatos | Patrick Anderson | -- |
