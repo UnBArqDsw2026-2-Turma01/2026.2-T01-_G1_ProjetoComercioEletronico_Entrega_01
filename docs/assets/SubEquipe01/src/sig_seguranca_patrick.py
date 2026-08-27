@@ -69,9 +69,9 @@ NODES = {
                text="Declarar obrigatoriedade com required"),
     "O5": dict(cx=1430, cy=790, w=228, h=108, kind="oper",
                text="Reautenticar antes de confirmar"),
-    "C1": dict(cx=300,  cy=655, w=250, h=104, kind="claim",
-               text="Claim: dados de entrega trafegam em parâmetro de URL entre subdomínios — T03 e T04"),
-    "C2": dict(cx=1180, cy=1010, w=272, h=104, kind="claim",
+    "C1": dict(cx=300,  cy=652, w=256, h=112, kind="claim",
+               text="Claim: dados de entrega trafegam em parâmetro de URL entre subdomínios — T-B03 e T-B04"),
+    "C2": dict(cx=1180, cy=1010, w=278, h=112, kind="claim",
                text="Claim: reautenticar apenas quando o meio de pagamento é novo limita a fricção a parte das compras"),
 }
 
@@ -151,7 +151,7 @@ def node_text(n):
     else:
         claim = n["kind"] == "claim"
         fs = 10.5 if claim else 12.5
-        lines = wrap(n["text"], 32 if claim else 20)
+        lines = wrap(n["text"], 28 if claim else 20)
         lh = fs + 3.5
         y0 = n["cy"] - (len(lines) - 1) * lh / 2.0 + fs * 0.35
         for i, ln in enumerate(lines):
@@ -218,9 +218,9 @@ def build():
             cx, cy = anchor(NODES[cid], par["cy"])
             p.append(f'<line x1="{cx:.1f}" y1="{cy:.1f}" x2="{px:.1f}" y2="{py:.1f}" '
                      f'stroke="#2c5aa0" stroke-width="2" marker-end="url(#arw)"/>')
-        p.append(f'<path d="M {px - 50},{py + 40:.1f} A 50,50 0 0 1 {px + 50},{py + 40:.1f}" '
+        p.append(f'<path d="M {px - 50},{py + 50:.1f} A 50,50 0 0 1 {px + 50},{py + 50:.1f}" '
                  f'fill="none" stroke="#2c5aa0" stroke-width="1.8"/>')
-        p.append(f'<text x="{px:.1f}" y="{py + 32:.1f}" text-anchor="middle" '
+        p.append(f'<text x="{px:.1f}" y="{py + 42:.1f}" text-anchor="middle" '
                  f'font-family="{FONT}" font-size="11" font-weight="700" '
                  f'fill="#2c5aa0">AND</text>')
 
@@ -265,7 +265,9 @@ def build():
         (x1, y1), (x2, y2) = anchor(NODES[a], NODES[b]["cy"]), anchor(NODES[b], NODES[a]["cy"])
         p.append(pill(x1 + (x2 - x1) * t, y1 + (y2 - y1) * t, lab, lab.startswith("+")))
     for a, b, lab, lane, chan, dy in CORREL:
-        p.append(pill(chan, (lane + NODES[b]["cy"] + dy) / 2.0, lab, lab.startswith("+")))
+        dst = NODES[b]
+        tx = dst["cx"] - dst["w"] / 2.0
+        p.append(pill((chan + tx) / 2.0, dst["cy"] + dy, lab, lab.startswith("+")))
 
     p.append(legend())
     p.append('</svg>')

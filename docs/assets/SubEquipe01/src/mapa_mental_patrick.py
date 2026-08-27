@@ -12,7 +12,8 @@ import html
 import os
 
 FONT = "Helvetica,Arial,sans-serif"
-ROW = 30.0          # espacamento vertical entre folhas
+VGAP = 13.0         # respiro vertical entre nos irmaos
+BRANCH_GAP = 26.0   # respiro extra entre ramos de primeiro nivel
 GAP = 42.0          # espacamento horizontal entre colunas
 COLW = {1: 196, 2: 182, 3: 214}
 PAD_X, PAD_Y = 40, 96
@@ -97,17 +98,20 @@ def measure(node, level):
 
 
 class Slots:
+    """Cursor vertical que reserva espaco proporcional a altura de cada folha."""
+
     def __init__(self):
         self.y = 0.0
 
-    def take(self):
-        self.y += ROW
-        return self.y - ROW / 2.0
+    def take(self, h):
+        cy = self.y + h / 2.0
+        self.y += h + VGAP
+        return cy
 
 
 def assign_y(node, slots):
     if not node["children"]:
-        node["cy"] = slots.take()
+        node["cy"] = slots.take(node["h"])
     else:
         for c in node["children"]:
             assign_y(c, slots)
@@ -173,10 +177,10 @@ def build():
     slots_l, slots_r = Slots(), Slots()
     for br in LEFT:
         assign_y(br["node"], slots_l)
-        slots_l.y += ROW * 0.9          # respiro entre ramos
+        slots_l.y += BRANCH_GAP
     for br in RIGHT:
         assign_y(br["node"], slots_r)
-        slots_r.y += ROW * 0.9
+        slots_r.y += BRANCH_GAP
 
     hl, hr = slots_l.y, slots_r.y
     height = max(hl, hr) + PAD_Y + 60

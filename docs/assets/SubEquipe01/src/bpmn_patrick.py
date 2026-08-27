@@ -65,13 +65,15 @@ def pool(x, y, w, h, name, lanes=None, collapsed=False, note=""):
             out.append(f'<rect x="{x + band}" y="{ly}" width="26" height="{lh}" '
                        f'fill="#ffffff" stroke="{INK}" stroke-width="1.2"/>')
             lcx, lcy = x + band + 13, ly + lh / 2.0
-            out.append(txt(lcx, lcy, lname, 10.5, "600",
+            lfs = min(10.5, max(7.5, (lh - 14) / (0.62 * max(len(lname), 1))))
+            out.append(txt(lcx, lcy + lfs * 0.34, lname, round(lfs, 1), "600",
                            extra=f' transform="rotate(-90 {lcx:.1f} {lcy:.1f})"'))
             ly += lh
     out.append(f'<rect x="{x}" y="{y}" width="{band}" height="{h}" fill="{POOL_BAND}" '
                f'stroke="{INK}" stroke-width="1.8"/>')
     cx, cy = x + band / 2.0, y + h / 2.0
-    out.append(txt(cx, cy + 4, name, 12.5, "700",
+    fs = min(12.5, max(8.5, (h - 16) / (0.62 * max(len(name), 1))))
+    out.append(txt(cx, cy + fs * 0.34, name, round(fs, 1), "700",
                    extra=f' transform="rotate(-90 {cx:.1f} {cy:.1f})"'))
     if collapsed and note:
         out.append(txt(x + w / 2.0, y + h / 2.0 + 4, note, 11.5, "400", fill="#5b6570"))
@@ -151,7 +153,7 @@ def event(cx, cy, kind="start", etype="none", label="", boundary=False, r=19):
                    f'stroke="{INK}" stroke-width="1.8"/>')
     out.append(_event_glyph(etype, cx, cy))
     if label:
-        for i, ln in enumerate(wrap(label, 20)):
+        for i, ln in enumerate(wrap(label, 15)):
             out.append(txt(cx, cy + r + 15 + i * 13, ln, 10.5, "400", fill="#5b6570"))
     return "".join(out)
 
@@ -286,14 +288,14 @@ def legend(x, y, w, items, h=112):
             out.append(f'<rect x="{cur}" y="{row - 13}" width="32" height="26" rx="6" '
                        f'fill="{TASK_FILL[kind]}" stroke="{TASK_LINE[kind]}" '
                        f'stroke-width="1.6"/>')
-            out.append(_marker(kind, cur + 4, row - 11))
+            out.append(_marker(kind, cur + 9, row - 9.5))
             cur += 40
         elif kind == "sub":
             out.append(f'<rect x="{cur}" y="{row - 13}" width="32" height="26" rx="6" '
                        f'fill="#ffffff" stroke="{INK}" stroke-width="1.6"/>')
-            out.append(f'<rect x="{cur + 11}" y="{row + 1}" width="11" height="11" '
+            out.append(f'<rect x="{cur + 10.5}" y="{row - 5.5}" width="11" height="11" '
                        f'fill="#ffffff" stroke="{INK}" stroke-width="1.1"/>')
-            out.append(f'<path d="M {cur + 14},{row + 6.5} h 5 M {cur + 16.5},{row + 4} v 5" '
+            out.append(f'<path d="M {cur + 13.5},{row} h 5 M {cur + 16},{row - 2.5} v 5" '
                        f'stroke="{INK}" stroke-width="1.1"/>')
             cur += 40
         elif kind in ("message", "timer", "error", "terminate"):
@@ -349,25 +351,25 @@ def diagrama_checkout():
     b.append(pool(40, 80, 1880, 310, "Comprador"))
     b.append(pool(40, 410, 1880, 500, "G1_ProjetoComercioEletronico",
                   lanes=[("Catálogo e Carrinho", 200), ("Entrega", 150), ("Pagamentos", 150)]))
-    b.append(pool(40, 930, 1880, 62, "Vendedor", collapsed=True,
+    b.append(pool(40, 926, 1880, 74, "Vendedor", collapsed=True,
                   note="pool colapsada — o processo interno do vendedor está fora deste recorte"))
 
     # --- raia do comprador
     b.append(seq([(149, 230), (182, 230)]))
     b.append(seq([(358, 230), (382, 230)]))
     b.append(seq([(558, 230), (613, 230)]))
-    b.append(seq([(640, 257), (640, 299)], "não", "conditional"))
+    b.append(seq([(640, 257), (640, 299)], "Não", "conditional"))
     b.append(seq([(728, 335), (830, 335), (830, 266)]))
-    b.append(seq([(667, 230), (742, 230)], "sim", "conditional"))
+    b.append(seq([(667, 230), (742, 230)], "Sim", "conditional"))
     b.append(seq([(918, 230), (983, 230)]))
-    b.append(seq([(1010, 203), (1010, 166)], "não", "conditional"))
+    b.append(seq([(1010, 203), (1010, 166)], "Não", "conditional"))
     b.append(seq([(922, 130), (860, 130), (860, 194)]))
-    b.append(seq([(1037, 230), (1102, 230)], "sim", "conditional"))
+    b.append(seq([(1037, 230), (1102, 230)], "Sim", "conditional"))
     b.append(seq([(1278, 230), (1351, 230)]))
-    b.append(seq([(890, 266), (890, 310), (1150, 310), (1150, 321)]))
+    b.append(seq([(890, 266), (890, 298), (1050, 298), (1050, 311)]))
 
     # --- raia da plataforma
-    b.append(seq([(149, 490), (192, 490)]))
+    b.append(seq([(169, 490), (192, 490)]))
     b.append(seq([(368, 490), (385, 490), (385, 685), (402, 685)]))
     b.append(seq([(578, 685), (602, 685)]))
     b.append(seq([(778, 685), (785, 685), (785, 835), (792, 835)]))
@@ -378,19 +380,19 @@ def diagrama_checkout():
     b.append(seq([(1468, 490), (1590, 490), (1590, 658)]))
     b.append(seq([(1468, 685), (1563, 685)]))
     b.append(seq([(1617, 685), (1671, 685)]))
-    b.append(seq([(1140, 871), (1140, 890), (1320, 890), (1320, 854)]))
+    b.append(seq([(1140, 871), (1140, 890), (1180, 890), (1180, 835), (1231, 835)]))
 
     # --- fluxos de mensagem
-    b.append(msg([(250, 266), (250, 350), (130, 350), (130, 471)], "itens selecionados"))
-    b.append(msg([(480, 649), (480, 266)], "frete e prazo"))
+    b.append(msg([(250, 266), (250, 350), (150, 350), (150, 471)], "Itens selecionados"))
+    b.append(msg([(480, 649), (480, 266)], "Frete e prazo"))
     b.append(msg([(660, 371), (660, 649)], "CEP e endereço"))
-    b.append(msg([(860, 266), (860, 799)], "dados do pagamento"))
-    b.append(msg([(940, 799), (940, 166)], "erro por campo"))
-    b.append(msg([(1160, 266), (1160, 799)], "confirmação"))
-    b.append(msg([(1380, 721), (1380, 930)], "pedido a preparar"))
+    b.append(msg([(860, 266), (860, 799)], "Dados do pagamento"))
+    b.append(msg([(940, 799), (940, 166)], "Erro por campo"))
+    b.append(msg([(1160, 266), (1160, 799)], "Confirmação"))
+    b.append(msg([(1380, 721), (1380, 926)], "Pedido a preparar"))
 
     # --- associações de dados
-    b.append(assoc([(198, 532), (232, 522)]))
+    b.append(assoc([(368, 490), (532, 490)]))
     b.append(assoc([(1424, 526), (1516, 545)]))
 
     # --- tarefas, eventos e gateways
@@ -408,29 +410,29 @@ def diagrama_checkout():
     b.append(task(1380, 490, "Registrar o pedido", "service"))
     b.append(task(1380, 685, "Notificar o vendedor", "service"))
 
-    b.append(data_store(170, 545, "Catálogo"))
+    b.append(data_store(560, 490, "Catálogo"))
     b.append(data_object(1540, 556, "Pedido"))
 
     b.append(gateway(640, 230, "xor", "Endereço de entrega definido?"))
-    b.append(gateway(1010, 230, "xor", "Dados do formulário válidos?", pos="below"))
+    b.append(gateway(1010, 230, "xor", "Dados válidos?", pos="below"))
     b.append(gateway(1250, 685, "and"))
     b.append(gateway(1590, 685, "and"))
 
     b.append(event(130, 230, "start", "none", "Decidiu comprar"))
     b.append(event(1370, 230, "end", "none", "Pedido confirmado"))
-    b.append(event(1150, 340, "end", "terminate", "Checkout expirado"))
+    b.append(event(1050, 330, "end", "terminate", "Checkout expirado"))
     b.append(event(890, 266, "start", "timer", "", boundary=True, r=15))
-    b.append(event(130, 490, "start", "message", "Carrinho aberto"))
+    b.append(event(150, 490, "start", "message", "Carrinho aberto"))
     b.append(event(1690, 685, "end", "none", "Pedido registrado"))
-    b.append(event(1320, 835, "end", "error", "Pagamento recusado"))
+    b.append(event(1250, 835, "end", "error", "Pagamento recusado"))
     b.append(event(1140, 871, "start", "error", "", boundary=True, r=15))
 
     b.append(annotation(560, 770, 220, 50,
                         ["Validação só na submissão (RN-B06):",
                          "++ Integridade / − Tempo de Resposta"], (792, 835)))
-    b.append(annotation(1330, 300, 230, 46,
+    b.append(annotation(1200, 302, 236, 46,
                         ["Evento não observado —", "inferido a partir do domínio"],
-                        (1169, 340)))
+                        (1069, 330)))
 
     b.append(legend(40, 1012, 1880, [
         ("seq", "fluxo de sequência"), ("msg", "fluxo de mensagem"),
@@ -454,17 +456,17 @@ def diagrama_anuncio():
     b.append(pool(40, 80, 1800, 300, "Vendedor"))
     b.append(pool(40, 400, 1800, 300, "G1_ProjetoComercioEletronico",
                   lanes=[("Anúncios", 150), ("Catálogo", 150)]))
-    b.append(pool(40, 720, 1800, 58, "Comprador", collapsed=True,
+    b.append(pool(40, 716, 1800, 74, "Comprador", collapsed=True,
                   note="pool colapsada — a descoberta do anúncio pelo comprador é outro recorte"))
 
     # --- raia do vendedor
     b.append(seq([(139, 225), (172, 225)]))
     b.append(seq([(348, 225), (403, 225)]))
-    b.append(seq([(430, 252), (430, 294)], "outros", "conditional"))
-    b.append(seq([(457, 225), (512, 225)], "produtos", "conditional"))
+    b.append(seq([(430, 252), (430, 294)], "Outros", "conditional"))
+    b.append(seq([(457, 225), (512, 225)], "Produtos", "conditional"))
     b.append(seq([(688, 225), (743, 225)]))
-    b.append(seq([(770, 198), (770, 156), (842, 156)], "não", "conditional"))
-    b.append(seq([(797, 225), (842, 225)], "sim", "conditional"))
+    b.append(seq([(770, 198), (770, 156), (842, 156)], "Não", "conditional"))
+    b.append(seq([(797, 225), (842, 225)], "Sim", "conditional"))
     b.append(seq([(1018, 156), (1150, 156), (1150, 189)]))
     b.append(seq([(1018, 225), (1062, 225)]))
     b.append(seq([(1238, 225), (1272, 225)]))
@@ -473,21 +475,21 @@ def diagrama_anuncio():
     b.append(seq([(1448, 330), (1570, 330), (1570, 261)]))
 
     # --- raia da plataforma
-    b.append(seq([(139, 475), (182, 475)]))
+    b.append(seq([(169, 475), (182, 475)]))
     b.append(seq([(358, 475), (370, 475), (370, 625), (382, 625)]))
     b.append(seq([(558, 625), (620, 625), (620, 475), (682, 475)]))
     b.append(seq([(858, 475), (963, 475)]))
-    b.append(seq([(1017, 475), (1112, 475)], "sim", "conditional"))
-    b.append(seq([(990, 502), (990, 601)], "não", "conditional"))
+    b.append(seq([(1017, 475), (1112, 475)], "Sim", "conditional"))
+    b.append(seq([(990, 502), (990, 601)], "Não", "conditional"))
     b.append(seq([(1288, 475), (1381, 475)]))
 
     # --- fluxos de mensagem
-    b.append(msg([(240, 261), (240, 330), (120, 330), (120, 456)], "domínio escolhido"))
-    b.append(msg([(470, 589), (470, 300), (560, 300), (560, 261)], "sugestões do catálogo"))
-    b.append(msg([(1540, 261), (1540, 345), (770, 345), (770, 439)], "anúncio submetido"))
-    b.append(msg([(1009, 620), (1040, 620), (1040, 415), (1360, 415), (1360, 366)],
-                 "erro no anúncio"))
-    b.append(msg([(1270, 511), (1270, 560), (1400, 560), (1400, 720)], "anúncio disponível"))
+    b.append(msg([(240, 261), (240, 330), (150, 330), (150, 456)], "Domínio escolhido"))
+    b.append(msg([(540, 589), (540, 261)], "Sugestões do catálogo"))
+    b.append(msg([(1540, 261), (1540, 372), (770, 372), (770, 439)], "Anúncio submetido"))
+    b.append(msg([(1009, 620), (1040, 620), (1040, 390), (1360, 390), (1360, 366)],
+                 "Erro no anúncio"))
+    b.append(msg([(1270, 511), (1270, 560), (1400, 560), (1400, 716)], "Anúncio disponível"))
 
     b.append(assoc([(270, 511), (270, 592)]))
     b.append(assoc([(1200, 511), (1200, 600)]))
@@ -517,7 +519,7 @@ def diagrama_anuncio():
 
     b.append(event(120, 225, "start", "none", "Decidiu vender"))
     b.append(event(1730, 225, "end", "none", "Anúncio publicado"))
-    b.append(event(120, 475, "start", "message", "Rascunho solicitado"))
+    b.append(event(150, 475, "start", "message", "Rascunho solicitado"))
     b.append(event(990, 620, "intermediate", "message", "Devolve o erro"))
     b.append(event(1400, 475, "end", "none", "Anúncio no ar"))
 
