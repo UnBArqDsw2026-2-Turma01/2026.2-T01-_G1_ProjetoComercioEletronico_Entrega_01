@@ -1,13 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>G1_ProjetoComercioEletronico</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Description">
+  <meta name="description" content="GitPages do G1_ProjetoComercioEletronico - Arquitetura e Desenho de Software - UnB/FCTE">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css">
+  <style>
+    /* Diagramas Mermaid: centraliza e permite rolagem horizontal em telas estreitas */
+    .mermaid { text-align: center; overflow-x: auto; }
+    .mermaid svg { max-width: 100%; height: auto; }
+  </style>
 </head>
 <body>
   <div id="app"></div>
@@ -15,11 +20,37 @@
     window.$docsify = {
       loadSidebar: true,
       name: 'Projeto Comércio Eletrônico',
-      repo: 'https://github.com/UnBArqDsw2026-2-Turma01/2026.2-T01-_G1_ProjetoComercioEletronico_Entrega_01.git'
+      repo: 'https://github.com/UnBArqDsw2026-2-Turma01/2026.2-T01-_G1_ProjetoComercioEletronico_Entrega_01.git',
+      markdown: {
+        renderer: {
+          // Blocos ```mermaid viram <div class="mermaid"> para renderizacao pelo Mermaid.
+          // Qualquer outra linguagem segue o renderizador padrao do Docsify.
+          code: function (code, lang) {
+            if (lang === 'mermaid') {
+              return '<div class="mermaid">' + code + '</div>';
+            }
+            return this.origin.code.apply(this, arguments);
+          }
+        }
+      },
+      plugins: [
+        function (hook) {
+          hook.doneEach(function () {
+            if (window.mermaid) {
+              window.mermaid.run({ querySelector: '.mermaid' });
+            }
+          });
+        }
+      ]
     }
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+  <!-- Mermaid: diagramas versionados como codigo dentro dos proprios .md -->
+  <script src="//cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({ startOnLoad: false, theme: 'default', securityLevel: 'loose' });
+  </script>
 </body>
 </html>
