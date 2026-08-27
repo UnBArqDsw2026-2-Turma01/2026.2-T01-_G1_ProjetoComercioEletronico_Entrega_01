@@ -12,10 +12,54 @@
     /* Diagramas Mermaid: centraliza e permite rolagem horizontal em telas estreitas */
     .mermaid { text-align: center; overflow-x: auto; }
     .mermaid svg { max-width: 100%; height: auto; }
+
+    /* Imagens de diagrama: indicam que sao clicaveis */
+    .markdown-section img { max-width: 100%; cursor: zoom-in; }
+
+    /* ---------- visualizador em tela cheia ---------- */
+    #dgm { position: fixed; inset: 0; z-index: 9999; display: none;
+           background: rgba(16, 23, 32, .94); }
+    #dgm.open { display: block; }
+    #dgm .dgm-scroll { position: absolute; inset: 0; overflow: auto; padding: 16px;
+                       -webkit-overflow-scrolling: touch; }
+    #dgm .dgm-scroll img { display: block; margin: 0 auto; background: #fff;
+                           border-radius: 6px; cursor: grab; }
+    #dgm .dgm-scroll img.dragging { cursor: grabbing; }
+    #dgm .dgm-bar { position: absolute; top: 14px; right: 16px; display: flex; gap: 8px;
+                    z-index: 2; }
+    #dgm .dgm-bar button { font: 600 13px/1 -apple-system, BlinkMacSystemFont,
+                           "Segoe UI", Helvetica, Arial, sans-serif;
+                           color: #1c2530; background: #fff; border: 1px solid #c9d2dc;
+                           border-radius: 6px; padding: 8px 12px; cursor: pointer; }
+    #dgm .dgm-bar button:hover { background: #eef2f7; }
+    #dgm .dgm-hint { position: absolute; bottom: 14px; left: 50%;
+                     transform: translateX(-50%); color: #dbe3ec; font: 12px/1.4
+                     -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+                     sans-serif; background: rgba(0,0,0,.45); padding: 6px 12px;
+                     border-radius: 14px; }
+    @media (max-width: 600px) {
+      #dgm .dgm-bar button { padding: 7px 9px; font-size: 12px; }
+      #dgm .dgm-hint { display: none; }
+    }
   </style>
 </head>
 <body>
   <div id="app"></div>
+
+  <!-- Visualizador em tela cheia dos diagramas -->
+  <div id="dgm" role="dialog" aria-modal="true" aria-label="Visualização do diagrama">
+    <div class="dgm-bar">
+      <button type="button" data-act="out" title="Diminuir">&minus;</button>
+      <button type="button" data-act="in" title="Aumentar">+</button>
+      <button type="button" data-act="fit">Ajustar</button>
+      <button type="button" data-act="full">100%</button>
+      <button type="button" data-act="open">Abrir arquivo</button>
+      <button type="button" data-act="close">Fechar &times;</button>
+    </div>
+    <div class="dgm-scroll"><img alt=""></div>
+    <div class="dgm-hint">Arraste para navegar &middot; role para rolar &middot; Esc fecha</div>
+  </div>
+
   <script>
     window.$docsify = {
       loadSidebar: true,
@@ -39,18 +83,128 @@
             if (window.mermaid) {
               window.mermaid.run({ querySelector: '.mermaid' });
             }
+            if (window.__dgmBind) window.__dgmBind();
           });
         }
       ]
     }
   </script>
+
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
   <!-- Mermaid: diagramas versionados como codigo dentro dos proprios .md -->
   <script src="//cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
   <script>
-    mermaid.initialize({ startOnLoad: false, theme: 'default', securityLevel: 'loose' });
+    if (window.mermaid) {
+      mermaid.initialize({ startOnLoad: false, theme: 'default', securityLevel: 'loose' });
+    }
+  </script>
+
+  <script>
+  // Visualizador em tela cheia: abre a imagem no tamanho natural, com zoom e
+  // arraste. Serve para os diagramas largos (BPMN, SIG e mapa mental), que ficam
+  // ilegiveis reduzidos a largura da coluna de texto.
+  (function () {
+    var box = document.getElementById('dgm');
+    var scroll = box.querySelector('.dgm-scroll');
+    var img = box.querySelector('img');
+    var href = '';
+    var scale = 1;
+
+    function apply() {
+      if (!img.naturalWidth) return;
+      img.style.width = Math.round(img.naturalWidth * scale) + 'px';
+      img.style.height = 'auto';
+    }
+
+    function fit() {
+      if (!img.naturalWidth) return;
+      scale = Math.min(1, (scroll.clientWidth - 40) / img.naturalWidth);
+      apply();
+    }
+
+    function open(src, alt) {
+      href = src;
+      img.alt = alt || '';
+      img.style.width = '';
+      img.onload = function () {
+        // abre no tamanho natural: e o ponto do recurso, poder ler os rotulos
+        scale = 1;
+        apply();
+        scroll.scrollLeft = Math.max(0, (img.offsetWidth - scroll.clientWidth) / 2);
+        scroll.scrollTop = 0;
+      };
+      img.src = src;
+      box.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      box.classList.remove('open');
+      document.body.style.overflow = '';
+      img.src = '';
+    }
+
+    box.querySelector('.dgm-bar').addEventListener('click', function (e) {
+      var b = e.target.closest('button');
+      if (!b) return;
+      var act = b.getAttribute('data-act');
+      if (act === 'close') close();
+      else if (act === 'in') { scale = Math.min(6, scale * 1.25); apply(); }
+      else if (act === 'out') { scale = Math.max(0.1, scale / 1.25); apply(); }
+      else if (act === 'fit') fit();
+      else if (act === 'full') { scale = 1; apply(); }
+      else if (act === 'open' && href) window.open(href, '_blank', 'noopener');
+    });
+
+    box.addEventListener('click', function (e) {
+      if (e.target === box || e.target === scroll) close();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (!box.classList.contains('open')) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === '+' || e.key === '=') { scale = Math.min(6, scale * 1.25); apply(); }
+      else if (e.key === '-') { scale = Math.max(0.1, scale / 1.25); apply(); }
+      else if (e.key === '0') fit();
+    });
+
+    // arraste para navegar
+    var drag = null;
+    img.addEventListener('mousedown', function (e) {
+      drag = { x: e.clientX, y: e.clientY, l: scroll.scrollLeft, t: scroll.scrollTop };
+      img.classList.add('dragging');
+      e.preventDefault();
+    });
+    window.addEventListener('mousemove', function (e) {
+      if (!drag) return;
+      scroll.scrollLeft = drag.l - (e.clientX - drag.x);
+      scroll.scrollTop = drag.t - (e.clientY - drag.y);
+    });
+    window.addEventListener('mouseup', function () {
+      drag = null;
+      img.classList.remove('dragging');
+    });
+
+    // liga os cliques das imagens do conteudo ao visualizador
+    window.__dgmBind = function () {
+      var sec = document.querySelector('.markdown-section');
+      if (!sec) return;
+      sec.querySelectorAll('img').forEach(function (el) {
+        if (el.dataset.dgm) return;
+        el.dataset.dgm = '1';
+        var link = el.closest('a');
+        var target = link || el;
+        target.addEventListener('click', function (e) {
+          // ctrl/cmd/meio: mantem o comportamento normal de abrir o arquivo
+          if (e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1) return;
+          e.preventDefault();
+          open(el.currentSrc || el.src, el.alt);
+        });
+      });
+    };
+  })();
   </script>
 </body>
 </html>

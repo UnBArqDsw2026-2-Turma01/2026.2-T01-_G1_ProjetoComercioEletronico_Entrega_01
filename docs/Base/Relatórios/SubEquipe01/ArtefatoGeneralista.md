@@ -14,9 +14,9 @@ Na engenharia de software, esse tipo de representação se enquadra no que a lit
 
 ### O artefato
 
-[![Mapa Mental do G1_ProjetoComercioEletronico](../../../assets/SubEquipe01/MapaMental_PedroLuciano.png)](../../../assets/SubEquipe01/MapaMental_PedroLuciano.png ":ignore")
+[![Mapa Mental do G1_ProjetoComercioEletronico — Pedro Luciano](../../../assets/SubEquipe01/MapaMental_PedroLuciano.png)](../../../assets/SubEquipe01/MapaMental_PedroLuciano.png ":ignore")
 
-<sub>_Clique no diagrama para abri-lo em tamanho real._</sub>
+<sub>Clique na imagem para abrir o visualizador em tela cheia, com zoom e arraste.</sub>
 
 > _Figura 1 — Mapa Mental do G1_ProjetoComercioEletronico, elaborado a partir do comércio eletrônico tomado como fonte de inspiração para o projeto ([Projeto](/Projeto/Projeto.md)). Nó central: o sistema em estudo. Ramos de 1º nível: domínios funcionais (Descoberta do Produto, Decisão de Compra, Transação & Pagamento, Pós-venda), o contexto de atores, o subsistema de conta e acesso, e o ramo de qualidades (RNFs). Folhas: elementos efetivamente observados na interface durante a engenharia reversa._
 
@@ -56,6 +56,8 @@ Para Monk e Howard, _concerns_ são os objetivos de alto nível que restringem s
 ### O artefato
 
 [![Rich Picture do fluxo de compra](../../../assets/SubEquipe01/rich-picture-Guilherme.jpg)](../../../assets/SubEquipe01/rich-picture-Guilherme.jpg ":ignore")
+
+<sub>Clique na imagem para abrir o visualizador em tela cheia, com zoom e arraste.</sub>
 
 <sub>_Clique na imagem para abri-la em tamanho real._</sub>
 
@@ -119,9 +121,9 @@ Essa delimitação define o que o artefato pode afirmar aqui: composição e sub
 
 ### O artefato
 
-[![Mapa Mental do G1_ProjetoComercioEletronico](../../../assets/SubEquipe01/MapaMental_Patrick.svg)](../../../assets/SubEquipe01/MapaMental_Patrick.svg ":ignore")
+[![Mapa Mental do G1_ProjetoComercioEletronico — Patrick](../../../assets/SubEquipe01/MapaMental_Patrick.svg)](../../../assets/SubEquipe01/MapaMental_Patrick.svg ":ignore")
 
-<sub>_Clique no diagrama para abri-lo em tamanho real._</sub>
+<sub>Clique na imagem para abrir o visualizador em tela cheia, com zoom e arraste.</sub>
 
 > _Figura 3 — Mapa mental do G1_ProjetoComercioEletronico organizado pelos pontos em que o comprador precisa confiar. Seis ramos de primeiro nível: atores, jornada de compra, conta e acesso, pontos de confiança, qualidades (RNF) e riscos do domínio. Fonte: Autor, 2026._
 

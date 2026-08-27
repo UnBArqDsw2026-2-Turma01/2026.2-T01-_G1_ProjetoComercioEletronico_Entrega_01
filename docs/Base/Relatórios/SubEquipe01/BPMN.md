@@ -28,7 +28,7 @@ python3 docs/assets/SubEquipe01/src/bpmn_patrick.py
 
 [![BPMN do fluxo de carrinho, endereço e checkout](../../../assets/SubEquipe01/BPMN_Checkout_Patrick.svg)](../../../assets/SubEquipe01/BPMN_Checkout_Patrick.svg ":ignore")
 
-<sub>_Clique no diagrama para abri-lo em tamanho real._</sub>
+<sub>Clique na imagem para abrir o visualizador em tela cheia, com zoom e arraste.</sub>
 
 > _Figura 6 — Fluxo de carrinho, endereço de entrega e checkout, com o comprador em uma pool e a plataforma em outra, dividida em três raias. Fonte: Autor, 2026._
 
@@ -38,7 +38,7 @@ O laço de correção depois do gateway `Dados do formulário válidos?` é a pa
 
 [![BPMN da publicação de anúncio pelo vendedor](../../../assets/SubEquipe01/BPMN_PublicacaoAnuncio_Patrick.svg)](../../../assets/SubEquipe01/BPMN_PublicacaoAnuncio_Patrick.svg ":ignore")
 
-<sub>_Clique no diagrama para abri-lo em tamanho real._</sub>
+<sub>Clique na imagem para abrir o visualizador em tela cheia, com zoom e arraste.</sub>
 
 > _Figura 7 — Fluxo de publicação de anúncio, do lado do vendedor. A pool do comprador aparece colapsada porque a descoberta do anúncio é outro recorte. Fonte: Autor, 2026._
 

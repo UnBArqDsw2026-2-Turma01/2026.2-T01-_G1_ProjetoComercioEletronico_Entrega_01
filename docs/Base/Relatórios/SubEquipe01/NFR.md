@@ -20,7 +20,7 @@ A avaliação se dá por propagação de rótulos: partindo das operacionalizaç
 
 [![SIG de Segurança do Checkout](../../../assets/SubEquipe01/SIG_Seguranca_Patrick.svg)](../../../assets/SubEquipe01/SIG_Seguranca_Patrick.svg ":ignore")
 
-<sub>_Clique no diagrama para abri-lo em tamanho real._</sub>
+<sub>Clique na imagem para abrir o visualizador em tela cheia, com zoom e arraste.</sub>
 
 > _Figura 5 — SIG de Segurança do checkout. Nuvem azul de borda fina: softgoal NFR. Nuvem verde de borda grossa: operacionalização. Nuvem tracejada: claim. Nuvem laranja, no painel à direita: softgoal que não é de segurança e que foi atingido por correlação. Fonte: Autor, 2026._
 
