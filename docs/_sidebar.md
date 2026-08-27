@@ -14,7 +14,6 @@
 
 - **Base**
   - [1. Desenho de Software (Base)](/Base/1.Base.md)
-  - [Design Sprint](/Base/DesignSprint.md)
   - 1.1. Relatórios
     - [1.1.1. SubEquipe_01](/Base/Relatórios/1.1.1.SubEquipe_01.md)
       - [Artefato Generalista](/Base/Relatórios/SubEquipe01/ArtefatoGeneralista.md)
@@ -28,7 +27,10 @@
       - [Modelagem BPMN](/Base/Relatórios/SubEquipe02/BPMN.md)
       - [IA Generativa](/Base/Relatórios/SubEquipe02/IAGenerativa.md)
     - [1.1.3. SubEquipe_03](/Base/Relatórios/1.1.3.SubEquipe_03.md)
+      - [Design Sprint](/Base/Relatórios/SubEquipe03/DesignSprint.md)
       - [Artefato Generalista](/Base/Relatórios/SubEquipe03/ArtefatoGeneralista.md)
+      - [Léxico](/Base/Relatórios/SubEquipe03/Lexico.md)
+      - [Engenharia Reversa](/Base/Relatórios/SubEquipe03/EngenhariaReversa.md)
       - [NFR Framework](/Base/Relatórios/SubEquipe03/NFR.md)
       - [Modelagem BPMN](/Base/Relatórios/SubEquipe03/BPMN.md)
       - [IA Generativa](/Base/Relatórios/SubEquipe03/IAGenerativa.md)
