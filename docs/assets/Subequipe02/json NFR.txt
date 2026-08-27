@@ -1,0 +1,322 @@
+{
+  "actors": [],
+  "orphans": [
+    {
+      "id": "07cedc37-3438-4939-bde1-e2019de89c9e",
+      "text": "modulo de busca[comercio eletronico]",
+      "type": "nfr.NFR",
+      "x": 571,
+      "y": 264
+    },
+    {
+      "id": "39b91c84-8296-4235-b1f0-5cb5627815aa",
+      "text": "Desempenho [busca]",
+      "type": "nfr.NFR",
+      "x": 266,
+      "y": 363.5
+    },
+    {
+      "id": "98cc364f-6db3-4bb3-a732-2c4de8509313",
+      "text": "Usabilidade [busca]",
+      "type": "nfr.NFR",
+      "x": 846,
+      "y": 383.5
+    },
+    {
+      "id": "c2ac5432-0c4e-4f9e-90bc-ad63ac42e0cb",
+      "text": "Baixa Latência de Resposta",
+      "type": "nfr.NFR",
+      "x": 78,
+      "y": 475.5
+    },
+    {
+      "id": "ad299338-1b3a-4350-8684-d996ee3abdaa",
+      "text": "Eficiência de Payload/Rede",
+      "type": "nfr.NFR",
+      "x": 272,
+      "y": 476
+    },
+    {
+      "id": "80a9bfc0-040f-4f0f-ac9e-b7b5dde3c679",
+      "text": "Relevância dos Resultados",
+      "type": "nfr.NFR",
+      "x": 765,
+      "y": 486.5
+    },
+    {
+      "id": "826ab987-1c4e-4dd3-81b4-a519df204f38",
+      "text": "Facilidade de Refinamento",
+      "type": "nfr.NFR",
+      "x": 913,
+      "y": 506.5
+    },
+    {
+      "id": "93160528-dc8c-497e-aa94-89ac1f2d9eec",
+      "text": "Tolerância a Falhas de Digitação",
+      "type": "nfr.NFR",
+      "x": 1095,
+      "y": 458.5
+    },
+    {
+      "id": "ba1344c4-cf7c-46d3-8ccc-aca846b3e5e5",
+      "text": "Op: Autocomplete com Debounce (250ms)",
+      "type": "nfr.Operationalization",
+      "x": 45,
+      "y": 717,
+      "customProperties": {
+        "status": "Satisficed"
+      }
+    },
+    {
+      "id": "efbf5ea6-5832-4931-ad54-a4bef9468825",
+      "text": "Op: Cache de Borda / CDN em Termos Populares",
+      "type": "nfr.Operationalization",
+      "x": 196,
+      "y": 759,
+      "customProperties": {
+        "Status": "Satisficed"
+      }
+    },
+    {
+      "id": "4b35bb62-f6d4-4a58-9070-9bb5ca767489",
+      "text": "Op: Lazy Loading e Imagens WebP",
+      "type": "nfr.Operationalization",
+      "x": 395,
+      "y": 732,
+      "customProperties": {
+        "Status": "Satisficed"
+      }
+    },
+    {
+      "id": "919ec541-c153-4bf1-8284-4ab5aaf6204c",
+      "text": "Op: Sugestões Preditivas por Categoria",
+      "type": "nfr.Operationalization",
+      "x": 567,
+      "y": 496,
+      "customProperties": {
+        "label": "Satisficed"
+      }
+    },
+    {
+      "id": "a75442ea-2afa-4869-97b3-47660ae6afcf",
+      "text": "Op: Filtros Facetados via Fetch/AJAX",
+      "type": "nfr.Operationalization",
+      "x": 791,
+      "y": 669,
+      "customProperties": {
+        "Status": "Satisficed"
+      }
+    },
+    {
+      "id": "be3b3892-a80a-4330-99fb-860830233c1e",
+      "text": "Op: Algoritmo de Correção Fonética / Typos",
+      "type": "nfr.Operationalization",
+      "x": 840,
+      "y": 786,
+      "customProperties": {
+        "Status": "Satisficed"
+      }
+    },
+    {
+      "id": "734f171e-c8a9-4daa-a3cc-b7e516132675",
+      "text": "Claim: Tempo de resposta medido no DevTools < 150ms",
+      "type": "nfr.Claim",
+      "x": 125,
+      "y": 897
+    }
+  ],
+  "dependencies": [],
+  "links": [
+    {
+      "id": "5fc42332-5864-4804-af2d-8f91fcf2ce3c",
+      "type": "nfr.ContributionLink",
+      "source": "ba1344c4-cf7c-46d3-8ccc-aca846b3e5e5",
+      "target": "c2ac5432-0c4e-4f9e-90bc-ad63ac42e0cb",
+      "label": "+"
+    },
+    {
+      "id": "04f9d8f1-9da6-47f8-bfbd-0d5bd5a6acfd",
+      "type": "nfr.ContributionLink",
+      "source": "efbf5ea6-5832-4931-ad54-a4bef9468825",
+      "target": "c2ac5432-0c4e-4f9e-90bc-ad63ac42e0cb",
+      "label": "++"
+    },
+    {
+      "id": "9cff81b1-c1da-475a-9d83-f20fe9bcfe37",
+      "type": "nfr.ContributionLink",
+      "source": "4b35bb62-f6d4-4a58-9070-9bb5ca767489",
+      "target": "ad299338-1b3a-4350-8684-d996ee3abdaa",
+      "label": "+"
+    },
+    {
+      "id": "1eb72d54-9192-4e05-9f11-547444e5f80d",
+      "type": "nfr.ContributionLink",
+      "source": "4b35bb62-f6d4-4a58-9070-9bb5ca767489",
+      "target": "c2ac5432-0c4e-4f9e-90bc-ad63ac42e0cb",
+      "label": "+"
+    },
+    {
+      "id": "363c9c3b-f968-49da-a730-bfaf7cddab18",
+      "type": "nfr.ContributionLink",
+      "source": "919ec541-c153-4bf1-8284-4ab5aaf6204c",
+      "target": "80a9bfc0-040f-4f0f-ac9e-b7b5dde3c679",
+      "label": "+"
+    },
+    {
+      "id": "d6e266b9-82bc-4c58-be57-762a2eb9164c",
+      "type": "nfr.ContributionLink",
+      "source": "a75442ea-2afa-4869-97b3-47660ae6afcf",
+      "target": "826ab987-1c4e-4dd3-81b4-a519df204f38",
+      "label": "++"
+    },
+    {
+      "id": "e9735dc7-4198-46fd-818e-f8c631b4cd6a",
+      "type": "nfr.ContributionLink",
+      "source": "a75442ea-2afa-4869-97b3-47660ae6afcf",
+      "target": "ad299338-1b3a-4350-8684-d996ee3abdaa",
+      "label": "+"
+    },
+    {
+      "id": "15eb8d77-5d45-42b0-8cc4-6e655c890a30",
+      "type": "nfr.ContributionLink",
+      "source": "be3b3892-a80a-4330-99fb-860830233c1e",
+      "target": "93160528-dc8c-497e-aa94-89ac1f2d9eec",
+      "label": "+"
+    },
+    {
+      "id": "bc53a534-4763-466d-8072-32883ac3f253",
+      "type": "nfr.CorrelationLink",
+      "source": "be3b3892-a80a-4330-99fb-860830233c1e",
+      "target": "c2ac5432-0c4e-4f9e-90bc-ad63ac42e0cb",
+      "label": "–"
+    },
+    {
+      "id": "f33fbfe7-1bd4-4bce-8e49-6041f998fe2d",
+      "type": "nfr.CorrelationLink",
+      "source": "919ec541-c153-4bf1-8284-4ab5aaf6204c",
+      "target": "ad299338-1b3a-4350-8684-d996ee3abdaa",
+      "label": "–"
+    },
+    {
+      "id": "3f0dad5f-ae08-4d75-8c2a-96320d4d1349",
+      "type": "nfr.ArgumentLink",
+      "source": "734f171e-c8a9-4daa-a3cc-b7e516132675",
+      "target": "04f9d8f1-9da6-47f8-bfbd-0d5bd5a6acfd"
+    },
+    {
+      "id": "1de46b7c-3a49-43df-a3ae-e1cc1c9a09df",
+      "type": "nfr.AndRefinementLink",
+      "source": "39b91c84-8296-4235-b1f0-5cb5627815aa",
+      "target": "07cedc37-3438-4939-bde1-e2019de89c9e"
+    },
+    {
+      "id": "61f6e768-933e-47ab-b5ec-8680cb4421a6",
+      "type": "nfr.AndRefinementLink",
+      "source": "98cc364f-6db3-4bb3-a732-2c4de8509313",
+      "target": "07cedc37-3438-4939-bde1-e2019de89c9e"
+    },
+    {
+      "id": "c2043bdc-69b5-4733-abe7-888d5636a0bd",
+      "type": "nfr.AndRefinementLink",
+      "source": "c2ac5432-0c4e-4f9e-90bc-ad63ac42e0cb",
+      "target": "39b91c84-8296-4235-b1f0-5cb5627815aa"
+    },
+    {
+      "id": "e7dd8e05-f9e7-49c4-8cf7-30ccf4284d94",
+      "type": "nfr.AndRefinementLink",
+      "source": "ad299338-1b3a-4350-8684-d996ee3abdaa",
+      "target": "39b91c84-8296-4235-b1f0-5cb5627815aa"
+    },
+    {
+      "id": "3925bed1-c9b1-4df3-86d1-4dd0ece55945",
+      "type": "nfr.AndRefinementLink",
+      "source": "80a9bfc0-040f-4f0f-ac9e-b7b5dde3c679",
+      "target": "98cc364f-6db3-4bb3-a732-2c4de8509313"
+    },
+    {
+      "id": "4f79554b-a67b-4d18-86a6-bb0634c1f6a8",
+      "type": "nfr.AndRefinementLink",
+      "source": "826ab987-1c4e-4dd3-81b4-a519df204f38",
+      "target": "98cc364f-6db3-4bb3-a732-2c4de8509313"
+    },
+    {
+      "id": "76ce6f59-b3a7-4dff-9614-ea08d6dc3ad2",
+      "type": "nfr.AndRefinementLink",
+      "source": "93160528-dc8c-497e-aa94-89ac1f2d9eec",
+      "target": "98cc364f-6db3-4bb3-a732-2c4de8509313"
+    }
+  ],
+  "display": {
+    "07cedc37-3438-4939-bde1-e2019de89c9e": {
+      "width": 118.87564086914062,
+      "height": 86.00421905517578
+    },
+    "c2ac5432-0c4e-4f9e-90bc-ad63ac42e0cb": {
+      "width": 112.8762435913086,
+      "height": 74.70697784423828
+    },
+    "ad299338-1b3a-4350-8684-d996ee3abdaa": {
+      "width": 107.87664794921875,
+      "height": 76.20661163330078
+    },
+    "80a9bfc0-040f-4f0f-ac9e-b7b5dde3c679": {
+      "width": 106.87673950195312,
+      "height": 71.70771026611328
+    },
+    "826ab987-1c4e-4dd3-81b4-a519df204f38": {
+      "width": 121.87515258789062,
+      "height": 80.70551300048828
+    },
+    "93160528-dc8c-497e-aa94-89ac1f2d9eec": {
+      "width": 115.87551879882812,
+      "height": 87.7035903930664
+    },
+    "ba1344c4-cf7c-46d3-8ccc-aca846b3e5e5": {
+      "width": 125.87482643127441,
+      "height": 90.2032241821289
+    },
+    "efbf5ea6-5832-4931-ad54-a4bef9468825": {
+      "width": 118.87542724609375,
+      "height": 87.7040786743164
+    },
+    "4b35bb62-f6d4-4a58-9070-9bb5ca767489": {
+      "width": 129.87432861328125,
+      "height": 106.19962310791016
+    },
+    "919ec541-c153-4bf1-8284-4ab5aaf6204c": {
+      "width": 112.87606811523438,
+      "height": 98.7013931274414
+    },
+    "a75442ea-2afa-4869-97b3-47660ae6afcf": {
+      "width": 143.87301635742188,
+      "height": 95.7018814086914
+    },
+    "be3b3892-a80a-4330-99fb-860830233c1e": {
+      "width": 174.86978149414062,
+      "height": 115.69705963134766
+    },
+    "734f171e-c8a9-4daa-a3cc-b7e516132675": {
+      "width": 125.07490825653076,
+      "height": 88.2037124633789
+    },
+    "04f9d8f1-9da6-47f8-bfbd-0d5bd5a6acfd": {
+      "vertices": [
+        {
+          "x": 222,
+          "y": 718
+        }
+      ]
+    }
+  },
+  "tool": "dsm3-goals",
+  "metamodelVersion": "1.0",
+  "saveDate": "Wed, 26 Aug 2026 18:16:10 GMT",
+  "diagram": {
+    "width": 2000,
+    "height": 1300,
+    "name": "Example NFR model",
+    "customProperties": {
+      "Description": "This tool supports two things that are often troublesome to develop with generic modelling frameworks:\n - draw complex shapes (clouds) without distorting when they are resized\n - create links from an element to a link (claim links)"
+    }
+  }
+}
