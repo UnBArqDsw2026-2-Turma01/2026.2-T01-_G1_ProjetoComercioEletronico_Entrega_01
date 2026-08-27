@@ -57,6 +57,32 @@ Usei IA principalmente em três frentes: entender conceitos que eu não dominava
 
 ---
 
+## Ponto de vista — Patrick Anderson
+
+### Lições aprendidas
+
+**Inspecionar é diferente de olhar.** Comecei anotando o que aparecia na tela e produzi uma lista correta e pouco útil: "tem um campo de CEP", "tem um botão Continuar". O material só virou artefato quando abri as Ferramentas de Desenvolvedor e li os atributos dos campos. Foi ali que apareceu o que sustenta o meu recorte: CEP com `maxlength="8"` e sem máscara, telefone com o mesmo limite de caracteres de um nome de rua e, principalmente, **nenhum campo declarando `required`**. A obrigatoriedade existe, mas mora só no texto do rótulo, e por negação — o único campo marcado é o opcional. Nada disso apareceria percorrendo a tela mais dez vezes.
+
+**Um SIG sem contribuição negativa não informa nada.** A primeira versão do meu galho só tinha `+` e `++`: cada decisão melhorava algo e não piorava nada, o que é obviamente falso. O grafo só passou a dizer alguma coisa quando forcei a pergunta inversa — o que piora quando isto melhora? Aí `Reversibilidade` recebeu o `−−` da rolagem infinita e o galho terminou em W⁻. Ficou menos bonito e muito mais informativo.
+
+**Saber onde parar também é resultado.** Meu recorte terminava no pagamento, e eu não percorri o pagamento, porque isso exigiria confirmar uma compra real. Foi frustrante parar no ponto mais rico do fluxo. O que aprendi é que a resposta certa não era esconder: foi marcar cada linha inferida como inferida nas tabelas e explicar a decisão. Um relatório que apresentasse as últimas transições como observadas seria mais completo e menos verdadeiro.
+
+**Olhar o outro lado explicou o lado que eu já tinha olhado.** Levantei também o fluxo do vendedor, que a entrega não exigia. Foi ele que deu causa a dois achados que, do lado do comprador, apareciam soltos: a plataforma tenta vincular todo anúncio novo a um item de catálogo já existente, e é esse vínculo que produz as ofertas concorrentes na ficha do produto e o agrupamento por vendedor no carrinho. O que parecia decisão de layout do carrinho é consequência de uma decisão tomada lá no cadastro do anúncio.
+
+**Notação tem regra, e conferir a regra custa tempo.** No NFR Framework, o claim se liga à ligação e não ao nó. No BPMN, fluxo de sequência não atravessa pool. Boa parte do trabalho foi conferir esses detalhes na fonte, não desenhar.
+
+### Uso da IA Generativa (senso crítico)
+
+Usei IA generativa na maior parte da minha entrega, e o resultado foi desigual de um jeito que vale registrar, porque o padrão não é aleatório.
+
+**Onde funcionou: conferir, não produzir.** O uso de maior retorno foi pedir que ela checasse a documentação contra as Diretrizes da disciplina. Foi assim que apareceu um problema que ninguém do grupo tinha visto: as Diretrizes determinam, para todos os projetos, não usar o nome real da fonte de inspiração, e a nossa documentação a nomeava em vários pontos. É o tipo de tarefa em que a leitura mecânica de um documento contra o outro ganha da atenção humana cansada. O mesmo valeu para verificação de consistência interna — foi conferindo referência por referência que apareceu que a página do SIG citava identificadores de requisito que tinham deixado de existir quando a engenharia reversa mudou de numeração.
+
+**Onde falhou.** Duas falhas concretas. A primeira: ao sugerir uma ferramenta de diagramação, afirmou que o resultado renderizaria no GitPages do grupo. Não renderizava — a página não tinha o plugin necessário. Só descobri porque fui verificar o arquivo, e não porque ela sinalizou incerteza. A segunda: pedi que apontasse o que eu poderia estar deixando passar no fluxo de checkout, e vieram sugestões corretas e genéricas. **Nenhum** dos achados que sustentam o meu recorte veio dali; todos vieram de abrir o inspetor e olhar. Isso não é defeito de configuração — a IA não estava lá, e não pode observar o artefato.
+
+**O que mudou no meu método.** Passei a tratar cada apontamento como pista a conferir na fonte, e não como resposta. Renderizei os diagramas e olhei o resultado antes de publicar, e conferi cada rótulo de contribuição do SIG contra Chung et al. (2000). Fica também um registro incômodo: a IA acertou uma diretriz que três pessoas tinham lido e não viram, e errou ao afirmar algo sobre uma página que não tinha aberto — as duas coisas com exatamente o mesmo tom de segurança. É esse detalhe, mais do que qualquer ganho de produtividade, que eu levo desta entrega.
+
+---
+
 ## Referências
 
 CHIKOFSKY, Elliot J.; CROSS II, James H. Reverse engineering and design recovery: a taxonomy. **IEEE Software**, v. 7, n. 1, p. 13–17, jan. 1990.
@@ -74,3 +100,4 @@ OBJECT MANAGEMENT GROUP. **Business Process Model and Notation (BPMN), Version 2
 | 1.0 | 24/08/2026 | Estruturação inicial | José Joaquim da Silva Neto | Pedro Henrique Gomes |
 | 1.1 | 26/08/2026 | Adição do ponto de vista individual sobre lições aprendidas e uso da IA Generativa | Pedro Luciano de Azevedo | -- |
 | 1.2 | 27/08/2026 | Adição do ponto de vista individual sobre lições aprendidas e uso da IA Generativa | Guilherme Costa Zanella | -- |
+| 1.3 | 27/08/2026 | Adição do ponto de vista individual sobre lições aprendidas e uso da IA Generativa | Patrick Anderson | -- |
