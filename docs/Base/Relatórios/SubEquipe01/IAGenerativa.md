@@ -33,6 +33,30 @@ Usei IA generativa em três frentes, com resultados bem diferentes:
 
 ---
 
+## Ponto de vista — Guilherme Costa Zanella
+
+### Lições aprendidas
+
+**Rich Picture não é diagrama.** Minha primeira tentativa foi pensar nele como um fluxograma informal — caixas, setas, um sistema no centro. Não funcionava, porque o método de Monk e Howard pede o oposto: o usuário no centro, não o sistema, e o que o desenho precisa capturar são tensões e preocupações, não apenas fluxos. Um Rich Picture bem-sucedido tem boneco palito, balão de fala e uma cara de rascunho — se ele parece formal demais, provavelmente errei o gênero.
+
+**Desenhar à mão obriga a decidir o que importa.** Num fluxograma digital, é fácil colocar todos os elementos que existem. No papel, cada elemento custa espaço e tempo, e isso força uma triagem: o que realmente é uma tensão do usuário, e o que é só detalhe de tela que já está registrado em outro artefato. Foi um exercício de síntese antes de ser um exercício de desenho.
+
+**Ata de reunião é rastreabilidade, não formalidade.** No começo eu tratava a ata como obrigação burocrática. Ela virou útil quando passou a registrar não só "o que foi decidido", mas também quem ficou responsável por qual parte — foi a ata do dia 24/08 que documentou a divisão de tarefas que sustenta boa parte da tabela de contribuições da subequipe.
+
+**O SIG não é intuitivo na primeira leitura.** Entender a notação do NFR Framework — a diferença entre softgoal, operacionalização e claim, e por que o claim se liga à ligação e não ao nó — exigiu ir aos slides da professora várias vezes, não só ler uma vez e aplicar. É uma notação com regras específicas, parecida nisso com o BPMN.
+
+### Uso da IA Generativa
+
+Usei IA principalmente em três frentes: entender conceitos que eu não dominava (NFR Framework), estruturar artefatos de coordenação (atas, templates de wiki) e tentar gerar o Rich Picture. O resultado foi bem diferente entre essas frentes.
+
+**Onde funcionou: explicar e estruturar.** Pedir para a IA explicar o NFR Framework do zero, com exemplos, foi mais eficiente do que tentar entender só pelos slides isoladamente — ela servia como um segundo professor para tirar dúvidas pontuais, não como substituto da fonte. Da mesma forma, gerar os templates de markdown da Wiki (estrutura do index, das páginas de subequipe, da página de participações) e formatar a ata a partir da transcrição da reunião foram tarefas mecânicas de estruturação onde a IA economizou bastante tempo sem risco de perder informação.
+
+**Onde falhou: gerar o Rich Picture.** Tentei pedir que a IA gerasse o Rich Picture diretamente como um canvas/SVG. O resultado saiu estruturado demais — mais parecido com um diagrama técnico do que com o desenho informal que o método pede. Fazia sentido em retrospecto: a IA tende a organizar elementos em grade e hierarquia, que é exatamente o oposto do que um Rich Picture precisa comunicar. Tive que abandonar essa abordagem e em vez desenhar à mão.
+
+**O que mudou no meu método.** Passei a usar a IA de dois jeitos diferentes dependendo da tarefa: para artefatos estruturados (atas, templates, explicações de conceito), aceito o resultado como ponto de partida direto. Para artefatos que dependem de julgamento visual ou informalidade — como o Rich Picture —, uso a IA só para me orientar sobre o processo, e faço a execução eu mesmo. Foi um caso claro de a ferramenta certa depender do tipo de saída esperada, não só da tarefa.
+
+---
+
 ## Referências
 
 CHIKOFSKY, Elliot J.; CROSS II, James H. Reverse engineering and design recovery: a taxonomy. **IEEE Software**, v. 7, n. 1, p. 13–17, jan. 1990.
@@ -49,3 +73,4 @@ OBJECT MANAGEMENT GROUP. **Business Process Model and Notation (BPMN), Version 2
 | -- | -- | -- | -- | -- |
 | 1.0 | 24/08/2026 | Estruturação inicial | José Joaquim da Silva Neto | Pedro Henrique Gomes |
 | 1.1 | 26/08/2026 | Adição do ponto de vista individual sobre lições aprendidas e uso da IA Generativa | Pedro Luciano de Azevedo | -- |
+| 1.2 | 27/08/2026 | Adição do ponto de vista do Guilherme sobre lições aprendidas e uso da IA Generativa | Guilherme Costa Zanella | -- |
