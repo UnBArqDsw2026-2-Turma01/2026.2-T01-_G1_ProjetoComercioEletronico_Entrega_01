@@ -1,70 +1,91 @@
 # Modelagem BPMN
 
-Conforme decidido na [reunião de 24/08/2026](/Atas/Subequipe1/ata24_08.md), o modelo BPMN parte de um dos fluxos identificados pela [Engenharia Reversa](/Base/Relatórios/SubEquipe01/EngenhariaReversa.md), e cada integrante ficou responsável por uma parte do diagrama. Esta página reúne os modelos da Subequipe 01.
+Conforme decidido na [reunião de 24/08/2026](/Atas/Subequipe1/ata24_08.md), o modelo BPMN parte dos fluxos identificados pela [Engenharia Reversa](/Base/Relatórios/SubEquipe01/EngenhariaReversa.md), e cada integrante ficou responsável por uma parte. Esta página reúne os modelos da Subequipe 01.
 
 ---
 
-## Fluxo de Carrinho, Endereço e Entrada de Checkout — Patrick Anderson Carvalho dos Santos
-
-> **Nota de escopo:** este modelo cobre o recorte que eu registrei na engenharia reversa. O modelo consolidado do fluxo de **busca e escolha de produto**, construído em conjunto pela subequipe no Miro, é complementar a este e cobre o trecho anterior da jornada.
+## Checkout e publicação de anúncio — Patrick Anderson Carvalho dos Santos
 
 ### O que é a notação
 
-**BPMN** (*Business Process Model and Notation*) é o padrão da OMG para modelagem de processos de negócio (OMG, 2011). A escolha da notação para este artefato não é neutra: entre os diagramas disponíveis, o BPMN é o único que distingue **quem faz** (*pools* e *lanes*) de **o que é trocado entre os participantes** (*fluxo de mensagem*) — e essa distinção é exatamente o que a engenharia reversa de caixa-preta precisa expressar, porque tudo que eu observei foi **troca**, e o que acontece dentro da plataforma é inferência.
+BPMN é o padrão da OMG para modelagem de processos de negócio (OMG, 2011). A escolha não é neutra para este trabalho: entre os diagramas disponíveis, o BPMN é o único que separa **quem faz** — *pools* e raias — do **que é trocado entre os participantes** — o fluxo de mensagem. Essa separação é exatamente o que uma engenharia reversa de caixa-preta precisa expressar, porque tudo que se observa é troca, e o que acontece dentro da plataforma é inferência.
 
-Três regras da notação são estruturais e foram respeitadas com atenção:
+Três regras da notação são estruturais e foram seguidas com atenção:
 
-1. **Fluxo de sequência não atravessa *pool*.** Comunicação entre participantes é sempre **fluxo de mensagem** — linha tracejada, com círculo vazado na origem e ponta de seta aberta no destino. Todas as ligações entre a raia do Comprador e a da plataforma neste modelo são fluxos de mensagem.
-2. **Gateway não é decisão do sistema, é bifurcação do fluxo.** O gateway exclusivo (losango com X) marca que exatamente um caminho é seguido. A condição fica no rótulo do fluxo de saída (`sim` / `não`), não dentro do losango.
-3. **Cada *pool* com fluxo de sequência tem início e fim próprios.** As duas raias abertas deste modelo têm o seu evento de início e o seu evento de fim.
+1. **Fluxo de sequência não atravessa pool.** Comunicação entre participantes é sempre fluxo de mensagem — linha tracejada, círculo vazado na origem, ponta de seta aberta no destino.
+2. **Gateway não decide nada por conta própria.** O losango marca a bifurcação; a condição fica no rótulo do fluxo de saída.
+3. **Cada pool com fluxo de sequência tem início e fim próprios.** As raias abertas dos dois modelos têm o seu evento de início e o seu evento de fim.
 
-### O artefato
+Os dois diagramas são gerados por [`bpmn_patrick.py`](https://github.com/UnBArqDsw2026-2-Turma01/2026.2-T01-_G1_ProjetoComercioEletronico_Entrega_01/blob/main/docs/assets/SubEquipe01/src/bpmn_patrick.py):
+
+```bash
+python3 docs/assets/SubEquipe01/src/bpmn_patrick.py
+```
+
+---
+
+### Modelo 1 — Carrinho, endereço e checkout
 
 [![BPMN do fluxo de carrinho, endereço e checkout](../../../assets/SubEquipe01/BPMN_Checkout_Patrick.svg)](../../../assets/SubEquipe01/BPMN_Checkout_Patrick.svg ":ignore")
 
 <sub>_Clique no diagrama para abri-lo em tamanho real._</sub>
 
-> _Figura 6 — Modelo BPMN do fluxo de carrinho, endereço de entrega e entrada de checkout do G1_ProjetoComercioEletronico. Fonte: Autor, 2026._
+> _Figura 6 — Fluxo de carrinho, endereço de entrega e checkout, com o comprador em uma pool e a plataforma em outra, dividida em três raias. Fonte: Autor, 2026._
 
-Como o Mapa Mental e o SIG, o diagrama é **gerado por script** — o código está em [`bpmn_checkout_patrick.py`](https://github.com/UnBArqDsw2026-2-Turma01/2026.2-T01-_G1_ProjetoComercioEletronico_Entrega_01/blob/main/docs/assets/SubEquipe01/src/bpmn_checkout_patrick.py), com tarefas, gateways, fluxos e anotações declarados em estruturas de dados:
+O laço de correção depois do gateway `Dados do formulário válidos?` é a parte mais informativa do desenho, e ele existe por causa de um defeito. Em um sistema que validasse campo a campo na perda de foco, o laço seria curto e local. Como a validação só acontece na submissão (RN-B06), o comprador preenche o formulário inteiro, envia, e só então descobre o erro — o que no modelo aparece como um retorno que atravessa o gateway.
 
-```bash
-python3 docs/assets/SubEquipe01/src/bpmn_checkout_patrick.py
-```
+### Modelo 2 — Publicação de anúncio pelo vendedor
+
+[![BPMN da publicação de anúncio pelo vendedor](../../../assets/SubEquipe01/BPMN_PublicacaoAnuncio_Patrick.svg)](../../../assets/SubEquipe01/BPMN_PublicacaoAnuncio_Patrick.svg ":ignore")
+
+<sub>_Clique no diagrama para abri-lo em tamanho real._</sub>
+
+> _Figura 7 — Fluxo de publicação de anúncio, do lado do vendedor. A pool do comprador aparece colapsada porque a descoberta do anúncio é outro recorte. Fonte: Autor, 2026._
+
+O detalhe que este modelo torna visível é a ordem: a tarefa de serviço `Criar rascunho do anúncio` acontece **antes** de qualquer dado do produto ser informado, disparada apenas pela escolha do domínio (RN-C01). Foi um achado da observação da URL, não do percurso — o identificador do rascunho aparece no endereço logo depois do primeiro clique.
+
+---
 
 ### Recursos da notação utilizados
 
-As Diretrizes pedem explicitamente "usar os vários recursos de modelagem […] da notação BPMN". O modelo emprega:
+As Diretrizes pedem para usar os vários recursos de modelagem da notação. Os dois modelos empregam:
 
 | Recurso | Onde aparece | Por que estava lá |
 | -- | -- | -- |
-| *Pool* aberta | `Comprador`, `G1_ProjetoComercioEletronico` | Dois participantes com processo próprio observável |
-| *Pool* colapsada | `Vendedor` | Participa do processo — recebe o pedido — mas seu processo interno está fora do recorte; colapsar é a forma correta de dizer isso |
-| Evento de início / fim | Um par por *pool* aberta | Fecha o ciclo de vida de cada processo |
-| Tarefa de usuário | Toda a raia do Comprador | Atividades executadas por pessoa na interface |
-| Tarefa de serviço | Toda a raia da plataforma | Atividades automatizadas, **todas inferidas** |
-| Gateway exclusivo | `Endereço definido?`, `Dados válidos?` | As duas únicas bifurcações que a observação sustenta |
-| Fluxo de mensagem | 7 ligações entre *pools* | Cada troca observada entre comprador e plataforma |
-| Anotação de texto | Sobre `Validar dados na submissão` | Registra o conflito herdado do SIG |
+| *Pool* aberta | `Comprador`, `Vendedor`, `G1_ProjetoComercioEletronico` | Participantes com processo próprio observável |
+| *Pool* colapsada | `Vendedor` no modelo 1, `Comprador` no modelo 2 | Participam do processo, mas seu interior está fora do recorte |
+| Raias | Catálogo e Carrinho, Entrega, Pagamentos, Anúncios | Separam responsabilidades dentro da plataforma |
+| Evento de início simples e de mensagem | Um par por pool aberta | O da plataforma é de mensagem porque é o comprador quem dispara |
+| Evento de fim simples, de erro e de terminação | Fim dos dois modelos | Erro: pagamento recusado. Terminação: checkout expirado |
+| Evento de borda (temporizador e erro) | Sobre `Informar meio de pagamento` e `Autorizar pagamento` | Interrompem a atividade em curso |
+| Evento intermediário de mensagem | `Devolve o erro`, no modelo 2 | Dispara a mensagem de erro ao vendedor |
+| Tarefa de usuário e de serviço | Raias do comprador/vendedor e da plataforma | Distinguem o que é feito por pessoa do que é automatizado |
+| Subprocesso colapsado | `Validar dados do formulário`, `Validar dados do anúncio` | Atividade composta cujo interior não foi observado |
+| Gateway exclusivo e paralelo | Bifurcações e o par registrar/notificar | Só as bifurcações que a observação sustenta |
+| Fluxo de mensagem | 12 ligações entre pools nos dois modelos | Cada troca observada |
+| Objeto e depósito de dados | `Pedido`, `Rascunho`, `Catálogo` | Dados que o processo lê ou produz |
+| Anotação de texto | Sobre `Validar dados do formulário` e `Criar rascunho do anúncio` | Ligam o modelo ao SIG e marcam o que é inferido |
 
-### Rastreabilidade — de onde vem cada elemento
+### Rastreabilidade
 
-| Elemento do modelo | Origem |
+| Elemento | Origem |
 | -- | -- |
-| `Adicionar item ao carrinho` → `Agrupar itens por vendedor` | T01 e T02; RN-P01 — o carrinho agrupa por vendedor |
-| `Calcular frete e prazo por CEP` → `Revisar itens do carrinho` | RN-P04 e ficha do produto; o frete é conhecido antes do checkout |
-| `Cadastrar endereço de entrega` e o gateway que leva a ele | T03 e T04 — o endereço é escolhido em tela própria, fora do carrinho |
-| Fluxo de mensagem `CEP e endereço` | Formulário de endereço, seção 5 da engenharia reversa |
-| Gateway `Dados do formulário válidos?` e `Corrigir o campo apontado` | RN-P06 e T05 — a validação ocorre **na submissão**, e é isso que justifica o laço de correção existir *depois* do envio, e não durante o preenchimento |
-| Anotação sobre `Validar dados na submissão` | Correlação `−` do [SIG de Segurança](/Base/Relatórios/SubEquipe01/NFR.md) sobre `Tempo de Resposta [Checkout]` |
-| `Confirmar a compra`, `Registrar o pedido`, `Notificar o vendedor` | **Inferidos** — o percurso foi interrompido antes do pagamento |
+| `Adicionar item ao carrinho` → `Agrupar itens por vendedor` | T-B01, T-B02 e RN-B01 |
+| `Calcular frete e prazo por CEP` → `Revisar itens do carrinho` | RN-A04 — o frete é conhecido antes do checkout |
+| `Cadastrar endereço de entrega` e o gateway que leva a ele | T-B03 e T-B04 |
+| Gateway `Dados do formulário válidos?` e o laço de correção | RN-B06 e T-B05 |
+| Anotação sobre `Validar dados do formulário` | Correlação `−` do [SIG](/Base/Relatórios/SubEquipe01/NFR.md) sobre `Tempo de Resposta` |
+| `Criar rascunho do anúncio` e sua anotação | RN-C01 e RN-C02 |
+| Gateway `Encontrou no catálogo?` | RN-C04 e RN-C06 |
+| `Publicar no catálogo` e o depósito `Catálogo` | RN-C04 e RN-B09 — o vínculo com o catálogo explica as ofertas concorrentes na ficha |
+| `Confirmar a compra`, `Registrar o pedido`, `Autorizar pagamento` | Inferidos — o percurso parou antes do pagamento |
 
-### Senso crítico
+### Limites dos modelos
 
-- **O laço de correção é a parte mais informativa do modelo, e ele existe por causa de um defeito.** Em um sistema que validasse campo a campo na perda de foco, esse laço seria curto e local. Como a validação só acontece na submissão (RN-P06), o comprador percorre o formulário inteiro, envia, e só então descobre o erro — o que no modelo aparece como um retorno que atravessa o gateway. **O desenho torna visível o custo de uma decisão de implementação**, e é o melhor argumento que eu tenho a favor de modelar antes de propor requisito.
-- **A raia da plataforma é hipótese, e o diagrama não sinaliza isso graficamente.** Todas as seis tarefas de serviço foram inferidas do comportamento observável; nenhuma foi observada. A notação BPMN não tem um recurso próprio para marcar "atividade inferida", e eu optei por registrar a distinção **no texto** — nesta tabela e no relatório de engenharia reversa — em vez de inventar uma convenção gráfica que ninguém mais leria. É uma limitação assumida, não resolvida.
-- **Modelei um caminho feliz com duas exceções, e o processo real tem mais.** Ficaram de fora: item que sai de estoque enquanto está no carrinho, pagamento recusado, CEP fora de área de entrega. Nenhum deles foi observado, e adicioná-los por dedução encheria o diagrama de caminhos que eu não posso sustentar. Preferi um modelo menor e verificável — o que é coerente com a orientação das Diretrizes de que a ideia não é quantidade, e sim qualidade.
-- **Modelar depois do SIG mudou o diagrama.** A anotação de texto sobre `Validar dados na submissão` só está ali porque o SIG já tinha registrado que validar no servidor cobra em `Tempo de Resposta`. Se eu tivesse desenhado o BPMN primeiro, ele seria só uma sequência de caixas. Os três artefatos em cadeia — mapa mental, engenharia reversa, SIG, BPMN — foram mais lentos de produzir nessa ordem, e é a razão de haver rastro entre eles em vez de quatro desenhos independentes.
+- **A raia da plataforma é hipótese, e o diagrama não sinaliza isso graficamente.** Todas as tarefas de serviço foram derivadas do comportamento observável. A notação não tem recurso próprio para marcar "atividade inferida", e preferi registrar a distinção no texto a inventar uma convenção gráfica que ninguém mais leria.
+- **Modelei o caminho feliz com poucas exceções.** Ficaram de fora: item que sai de estoque enquanto está no carrinho, CEP fora de área de entrega, anúncio recusado por política. Nenhum foi observado, e adicioná-los por dedução encheria o desenho de caminhos que não posso sustentar.
+- **O evento temporizador sobre o pagamento é inferido.** Está no modelo porque expiração de sessão de checkout é comportamento padrão do domínio, mas eu não a observei. A anotação ao lado diz isso.
+- **Modelar depois do SIG mudou o desenho.** A anotação sobre `Validar dados do formulário` só existe porque o SIG já tinha registrado que validar no servidor cobra em tempo de resposta. Se o BPMN viesse primeiro, seria só uma sequência de caixas.
 
 ---
 
@@ -83,4 +104,4 @@ CHUNG, Lawrence; NIXON, Brian A.; YU, Eric; MYLOPOULOS, John. **Non-Functional R
 | Versão | Data | Descrição | Autor(es) | Revisor(es) |
 | -- | -- | -- | -- | -- |
 | 1.0 | 24/08/2026 | Estruturação inicial | José Joaquim da Silva Neto | Pedro Henrique Gomes |
-| 1.1 | 27/08/2026 | Adição do modelo BPMN do fluxo de carrinho, endereço e entrada de checkout, gerado por script, com 3 pools, 2 gateways, 7 fluxos de mensagem, anotação de texto e tabela de rastreabilidade | Patrick Anderson Carvalho dos Santos | -- |
+| 1.1 | 27/08/2026 | Adição dos modelos de checkout e de publicação de anúncio, com tabela de recursos da notação e rastreabilidade | Patrick Anderson Carvalho dos Santos | -- |
