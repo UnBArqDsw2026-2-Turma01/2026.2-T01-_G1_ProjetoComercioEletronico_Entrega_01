@@ -35,4 +35,7 @@
       - [Modelagem BPMN](/Base/Relatórios/SubEquipe03/BPMN.md)
       - [IA Generativa](/Base/Relatórios/SubEquipe03/IAGenerativa.md)
   - [1.2. Participações - Base](/Base/1.2.ParticipacoesBase.md)
+    - [SubEquipe 01](/Base/Participacoes/ParticipacoesSubequipe01.md)
+    - [SubEquipe 02](/Base/Participacoes/ParticipacoesSubequipe02.md)
+    - [SubEquipe 03](/Base/Participacoes/ParticipacoesSubequipe03.md)
   - [1.3. Iniciativas Extras - Base](/Base/1.3.IniciativasExtras.md)
