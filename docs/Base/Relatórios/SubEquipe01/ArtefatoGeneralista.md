@@ -1,6 +1,6 @@
 # Artefato Generalista
 
-Conforme decidido na [reunião de 24/08/2026](/Atas/subEquipe1/ata24_08.md), cada integrante da Subequipe 01 produz o **seu próprio** artefato generalista, escolhendo entre Rich Picture e Mapa Mental, e justificando a escolha. Esta página reúne os artefatos individuais.
+Conforme decidido na [reunião de 24/08/2026](/Atas/Subequipe1/ata24_08.md), cada integrante da Subequipe 01 produz o **seu próprio** artefato generalista, escolhendo entre Rich Picture e Mapa Mental, e justificando a escolha. Esta página reúne os artefatos individuais.
 
 ---
 
@@ -14,11 +14,11 @@ Na engenharia de software, esse tipo de representação se enquadra no que a lit
 
 ### O artefato
 
-[![Mapa Mental do Mercado Livre](../../../assets/SubEquipe01/MapaMental_PedroLuciano.png)](../../../assets/SubEquipe01/MapaMental_PedroLuciano.png ":ignore")
+[![Mapa Mental do G1_ProjetoComercioEletronico](../../../assets/SubEquipe01/MapaMental_PedroLuciano.png)](../../../assets/SubEquipe01/MapaMental_PedroLuciano.png ":ignore")
 
 <sub>_Clique no diagrama para abri-lo em tamanho real._</sub>
 
-> _Figura 1 — Mapa Mental do Mercado Livre, usado como base de inspiração para o projeto ([Projeto](/Projeto/Projeto.md)). Nó central: o sistema em estudo. Ramos de 1º nível: domínios funcionais (Descoberta do Produto, Decisão de Compra, Transação & Pagamento, Pós-venda), o contexto de atores, o subsistema de conta e acesso, e o ramo de qualidades (RNFs). Folhas: elementos efetivamente observados na interface durante a engenharia reversa._
+> _Figura 1 — Mapa Mental do G1_ProjetoComercioEletronico, elaborado a partir do comércio eletrônico tomado como fonte de inspiração para o projeto ([Projeto](/Projeto/Projeto.md)). Nó central: o sistema em estudo. Ramos de 1º nível: domínios funcionais (Descoberta do Produto, Decisão de Compra, Transação & Pagamento, Pós-venda), o contexto de atores, o subsistema de conta e acesso, e o ramo de qualidades (RNFs). Folhas: elementos efetivamente observados na interface durante a engenharia reversa._
 
 ### Por que escolhi Mapa Mental (e não Rich Picture)
 
@@ -109,11 +109,134 @@ A tensão registrada opõe **loja oficial e vendedor autônomo**, que competem p
 
 ---
 
+## Mapa Mental — Patrick Anderson Carvalho dos Santos
+
+### O que é o artefato
+
+O **Mapa Mental** é uma representação gráfica radial: parte-se de um conceito central e refina-se o assunto em ramos hierárquicos, usando palavras-chave curtas, cor e posição espacial como apoio à memória e à associação (BUZAN; BUZAN, 1993). Eppler (2006), ao comparar mapas mentais, mapas conceituais, diagramas conceituais e metáforas visuais, delimita com precisão o que cada um entrega: o mapa mental é **multi-hierárquico e centrado em um único tópico**, ótimo para *elicitar* e *organizar* rapidamente o que uma pessoa sabe sobre um domínio, e fraco em representar relações nomeadas entre ramos distintos — para isso serve o mapa conceitual, com arestas rotuladas (NOVAK; CAÑAS, 2008).
+
+Essa delimitação importa aqui porque define o que este artefato **pode** e o que ele **não pode** afirmar. Ele afirma composição e subordinação; ele não afirma sequência, condição, causa nem conflito.
+
+### O artefato
+
+```mermaid
+mindmap
+  root((G1_ProjetoComercioEletronico))
+    Atores e Papéis
+      Comprador
+      Vendedor Autônomo
+      Loja Oficial
+      Plataforma Intermediária
+      Operadora de Pagamento
+      Transportadora
+      Atendimento e Mediação
+    Jornada de Compra
+      Descoberta
+        Busca por termo
+        Sugestões ao digitar
+        Filtros facetados
+        Ordenação
+      Decisão
+        Ficha do produto
+        Frete e prazo por CEP
+        Reputação do vendedor
+        Avaliações e perguntas
+      Transação
+        Carrinho
+        Identificação
+        Endereço de entrega
+        Meio de pagamento
+        Revisão do pedido
+        Confirmação
+      Pós-venda
+        Acompanhamento do pedido
+        Avaliação da compra
+        Devolução e reembolso
+        Mediação de disputa
+    Conta e Acesso
+      Cadastro
+      Autenticação
+      Sessão e dispositivos
+      Endereços salvos
+      Meios de pagamento salvos
+    Pontos de Confiança
+      Antes de pagar
+        Selo de loja oficial
+        Nota e volume de avaliações
+        Histórico do vendedor
+        Política de garantia
+      No ato de pagar
+        Intermediação do pagamento
+        Mascaramento dos dados do cartão
+        Confirmação explícita do valor
+      Depois de pagar
+        Código de rastreio
+        Prazo prometido
+        Canal de reclamação
+        Reembolso
+    Qualidades RNF
+      Segurança
+        Integridade
+        Confidencialidade
+        Disponibilidade
+      Usabilidade
+      Desempenho
+      Confiabilidade
+    Riscos do Domínio
+      Anúncio fraudulento
+      Estorno indevido
+      Abandono de carrinho
+      Vazamento de dados pessoais
+```
+
+> _Figura 3 — Mapa Mental do G1_ProjetoComercioEletronico sob a ótica de **confiança transacional**. Nó central: o sistema em estudo. Ramos de 1º nível: atores, jornada, subsistema de conta, pontos de confiança, qualidades e riscos. Diagrama escrito em Mermaid e versionado como código-fonte neste próprio arquivo. Fonte: Autor, 2026._
+
+### Por que escolhi Mapa Mental (e não Rich Picture)
+
+**1. O papel que sobrou para mim na subequipe era o de recorte, não o de cena.**
+A Subequipe 01 já tinha, quando comecei, um Mapa Mental composicional (Pedro Luciano) e um Rich Picture situacional (Guilherme Zanella). Produzir um terceiro Rich Picture seria repetir a leitura que o Guilherme já entregou. O que faltava não era outra técnica: era **outra pergunta** feita ao mesmo domínio. A minha pergunta é "em que momentos o comprador precisa confiar, e no que exatamente ele confia?" — e essa pergunta produz uma hierarquia, não uma cena. Eppler (2006) é explícito ao dizer que a escolha entre esses formatos deve seguir a tarefa cognitiva, não o gosto.
+
+**2. O artefato precisava sustentar dois artefatos posteriores meus, não um.**
+O ramo *Transação* enumera exatamente os estados que eu inventariei na [Engenharia Reversa](/Base/Relatórios/SubEquipe01/EngenhariaReversa.md) do fluxo de checkout, e o ramo *Qualidades RNF → Segurança* nomeia o softgoal raiz e a decomposição de primeiro nível do meu [SIG de Segurança](/Base/Relatórios/SubEquipe01/NFR.md). O ramo *Pontos de Confiança* é a ponte entre os dois: cada folha dele reaparece como **operacionalização** no SIG. A rastreabilidade ponto a ponto está tabelada na seção seguinte.
+
+**3. O artefato precisava ser código, não imagem.**
+Esta é a razão que me fez escolher **Mermaid** e não uma ferramenta de desenho. Um `.png` exportado de ferramenta gráfica é opaco ao versionamento: o `git diff` mostra que o binário mudou, não *o que* mudou. Escrito em Mermaid, o mapa é texto — cada nó novo aparece como uma linha adicionada no *diff* do commit, e a revisão em *pull request* discute o conteúdo do modelo, não a captura de tela dele. Isso responde diretamente a uma exigência das Diretrizes: "MOSTRAR QUADRO DE PARTICIPAÇÕES & COMMITS". Um artefato-como-código **é** o comprobatório, e não depende de um quadro à parte afirmando quem o fez.
+
+Como efeito colateral, foi preciso habilitar o Mermaid no GitPages do grupo — o `docs/index.html` rodava Docsify sem o renderizador. A alteração está registrada em [Iniciativas Extras](/Base/1.3.IniciativasExtras.md) e beneficia as três subequipes.
+
+### Rastreabilidade e elos com outros artefatos
+
+| Ramo / folha do Mapa Mental | Artefato de destino | Como reaparece lá |
+| -- | -- | -- |
+| `Jornada → Transação` (6 folhas) | Engenharia Reversa — fluxo de checkout | Cada folha vira um **estado de tela** inventariado |
+| `Jornada → Transação → Meio de pagamento` | Engenharia Reversa | Origem das regras RN-P01 a RN-P04 (máscaras, validação e obrigatoriedade) |
+| `Qualidades RNF → Segurança` | SIG (NFR Framework) | **Softgoal raiz** do meu galho |
+| `Segurança → Integridade / Confidencialidade / Disponibilidade` | SIG | Decomposição AND de 1º nível do softgoal raiz |
+| `Pontos de Confiança → No ato de pagar` | SIG | **Operacionalizações** do galho de Confidencialidade |
+| `Pontos de Confiança → Antes de pagar` | Rich Picture (Guilherme) | Mesmos *concerns* de Jenny, aqui como composição em vez de balão de pensamento |
+| `Riscos do Domínio` | SIG | Justificam os *claims* que sustentam as decisões do grafo |
+| `Jornada → Transação` | BPMN | Sequência de atividades da *pool* do comprador |
+
+### Senso crítico sobre o artefato
+
+- **A hierarquia esconde que "Pontos de Confiança" não é um ramo — é uma leitura transversal.** Selo de loja oficial, mascaramento de cartão e código de rastreio pertencem, respectivamente, a Decisão, Transação e Pós-venda. Eu os agrupei em um ramo próprio porque é isso que a minha pergunta faz emergir, mas o preço é real: o mesmo elemento aparece implicitamente em dois lugares. Um mapa **conceitual**, com arestas rotuladas do tipo "mitiga" ligando `Anúncio fraudulento` a `Histórico do vendedor`, representaria isso sem duplicar (NOVAK; CAÑAS, 2008). Escolhi manter a duplicação porque o artefato pedido no escopo desta entrega é mapa mental, e porque a relação "mitiga" é exatamente o que o SIG vai formalizar como contribuição.
+- **O mapa não diz o que custa.** `Segurança` e `Usabilidade` estão lado a lado como ramos irmãos, o que sugere independência. É falso: exigir reautenticação no pagamento melhora Integridade e piora Facilidade de Uso. O mapa mental não tem notação para esse trade-off — só o NFR Framework tem, via contribuições negativas e propagação de rótulos (CHUNG et al., 2000). O ramo de qualidades é, portanto, um **ponteiro** para o SIG, não uma resposta.
+- **O mapa não diz o que é observado e o que é inferido.** `Intermediação do pagamento` foi colocado no mapa a partir do que a interface exibe ao comprador; a existência real de uma custódia de valores é hipótese, não observação. O artefato não distingue os dois status. Quem faz essa distinção é a Engenharia Reversa, onde marquei explicitamente cada achado inferido.
+- **Mermaid restringe o desenho.** O renderizador de `mindmap` não permite controlar posição, cor por ramo nem ícones com liberdade, e trunca rótulos longos. Perdi expressividade visual em troca de rastreabilidade em commit. Considero a troca vantajosa nesta entrega — cuja avaliação exige comprobatórios de autoria — mas reconheço que, para um artefato cujo objetivo fosse comunicar a um público não técnico, um desenho livre comunicaria melhor.
+
+---
+
 ## Referências
 
 BUZAN, Tony; BUZAN, Barry. **The Mind Map Book**. London: BBC Books, 1993.
 
 CHECKLAND, Peter. **Systems Thinking, Systems Practice**. Chichester: John Wiley & Sons, 1981.
+
+CHUNG, Lawrence; NIXON, Brian A.; YU, Eric; MYLOPOULOS, John. **Non-Functional Requirements in Software Engineering**. Boston: Kluwer Academic Publishers, 2000.
+
+EPPLER, Martin J. A comparison between concept maps, mind maps, conceptual diagrams, and visual metaphors as complementary tools for knowledge construction and sharing. **Information Visualization**, v. 5, n. 3, p. 202–210, 2006.
+
+NOVAK, Joseph D.; CAÑAS, Alberto J. **The Theory Underlying Concept Maps and How to Construct and Use Them**. Technical Report IHMC CmapTools 2006-01 Rev 01-2008. Pensacola: Florida Institute for Human and Machine Cognition, 2008.
 
 MONK, Andrew; HOWARD, Steve. The Rich Picture: A Tool for Reasoning About Work Context. **Interactions**, v. 5, n. 2, p. 21–30, mar./abr. 1998.
 
@@ -126,3 +249,4 @@ MONK, Andrew; HOWARD, Steve. The Rich Picture: A Tool for Reasoning About Work C
 | 1.0    | 24/08/2026 | Estruturação inicial                                | José Joaquim da Silva Neto | Pedro Henrique Gomes |
 | 1.1    | 26/08/2026 | Adição do Mapa Mental e da justificativa da escolha | Pedro Luciano de Azevedo   | --                   |
 | 1.2    | 26/08/2026 | Adição do Rich Picture e dos textos explicativos    | Guilherme Costa Zanella    | --                   |
+| 1.3    | 27/08/2026 | Adição do Mapa Mental em Mermaid sob a ótica de confiança transacional, com justificativa da escolha, tabela de rastreabilidade e senso crítico | Patrick Anderson Carvalho dos Santos | -- |
