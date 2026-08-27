@@ -1,6 +1,6 @@
 # Engenharia Reversa e BPMN — Seção de Busca
 
-Esta página documenta o processo de engenharia reversa aplicado ao fluxo de busca do Mercado Livre. O objetivo deste levantamento é estruturar os achados visuais e de interação para fundamentar o modelo de processos de negócio (BPMN) da Subequipe 02.
+Esta página documenta o processo de engenharia reversa aplicado ao fluxo de busca de um processo de comércio eletrônico. O objetivo deste levantamento é estruturar os achados visuais e de interação para fundamentar o modelo de processos de negócio (BPMN) da Subequipe 02.
 
 ---
 
@@ -16,7 +16,7 @@ A engenharia reversa de software é o processo de exame e compreensão de um sis
 
 A primeira etapa do processo consistiu no mapeamento dos elementos gráficos visíveis (estado estático) na interface de busca:
 
-*   **Logo (Mercado Livre):** Botão de retorno à página inicial.
+*   **Logo:** Botão de retorno à página inicial.
 *   **Módulo de Localização:** Indicador textual e interativo exibindo "Enviar para [Cidade] [CEP]" acompanhado de um ícone de pino de mapa.
 *   **Barra de Pesquisa (Input Field):** Campo de texto central com o *placeholder* "Buscar produtos, marcas e muito mais...".
 *   **Botão de Submissão:** Ícone de lupa localizado à direita, dentro da barra de pesquisa.
@@ -68,7 +68,7 @@ Os achados da engenharia reversa foram consolidados no diagrama BPMN abaixo, ilu
 ### Mapeamento dos Elementos
 
 *   **Comportamento de Auto-complete:** Modelado com um *Intermediate Message Throw Event* ("Requisitar sugestões de auto-completar"), seguido por *Service Tasks* para o backend ("Processar algoritmo de predição") e frontend ("Renderizar janela suspensa").
-*   **Disparo da Busca:** Representado por um *Exclusive Gateway (XOR)* ("Origem do disparo?"), dividindo o fluxo entre o uso do termo exato (Lupa/Enter) ou substituição pelo termo selecionado (Clique na Sugestão). Uma *User Task* confirma o termo.
+*   **Disparo da Busca:** Representado por um *Exclusive Gateway (XOR)* ("Origem do disparo?"), dividindo o fluxo entre o uso do termo exato (Lupa/Enter) ou substituição pelo termo selecionado (Clique na Sugestão).
 *   **Controle de Foco/Blur:** Representado por um *Event-Based Gateway / Cancel Event* ("Foco removido"), abortando o fluxo de auto-completar e retornando ao estado inicial sem onerar o backend principal.
 *   **Transição para a SERP:** Finaliza com *Service Tasks* para recuperar e renderizar a grade de resultados, culminando em *End Events* que diferenciam a exibição de produtos encontrados do estado de zero resultados.
 

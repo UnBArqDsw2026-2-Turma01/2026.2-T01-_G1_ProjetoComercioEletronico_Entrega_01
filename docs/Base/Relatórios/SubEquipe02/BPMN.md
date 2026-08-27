@@ -4,8 +4,8 @@ Este documento detalha o fluxo do sistema de busca, auto-completar e exibição 
 
 ## O que é o artefato
 
-A *Business Process Management Notation* (BPMN) é uma notação padronizada para diagramação de fluxos de processos de negócio.
-* Esta notação foi adotada pelo consórcio internacional *Object Management Group* (OMG).
+A *Business Process Management Notation* (BPMN) é uma notação padronizada para diagramação de fluxos para o gerenciamento de processos de negócio.
+* Notação que foi aderida pelo consórcio internacional *Object Management Group* (OMG).
 * O modelo utiliza conectores para mostrar a ordem de sequenciamento das atividades e dos eventos que ocorrem no fluxo.
 * Os elementos gráficos podem ser utilizados para definir o caminho principal de execução de um processo.
 
@@ -22,10 +22,10 @@ A *Business Process Management Notation* (BPMN) é uma notação padronizada par
 A construção deste artefato seguiu as regras de notação para representar o sistema de forma concisa:
 
 * **Piscina e Raias:** O fluxo está contido em uma única piscina (Seção de Busca) dividida em três raias: Comprador, Interface e API de Busca. As raias são comumente utilizadas para organizar e categorizar atividades, representando sistemas e papéis internos.
-* **Atividades:** As caixas representam ações ou operações executadas no processo. A identificação foi feita utilizando um verbo na terceira pessoa do singular (ex: "Insere", "Requisita", "Processa", "Renderiza"), conforme a convenção da notação. 
-* **Evento Timer (Intermediário):** O ícone de relógio ("Aguarda 300ms") indica uma espera dentro do processo, ou seja, uma demora programada entre as atividades. 
-* **Gateway Exclusivo Baseado em Eventos:** Utilizado na decisão "Origem do disparo?", pois atua como um ponto de ramificação onde os caminhos alternativos são baseados em eventos. Dependendo da ação (clique do comprador ou remoção do foco), apenas um caminho prossegue.
-* **Gateway Exclusivo:** Utilizado logo após a renderização do *grid* para criar fluxos alternativos exclusivos (produtos encontrados ou zero resultados). Neste ponto de decisão, apenas um caminho poderá ser seguido.
+* **Conectores:** Mostram a ordem de sequenciamento das atividades e dos eventos contidos em um fluxo de trabalho. Neste caso, utilizou-se apenas de fluxos de sequência, uma vez que fluxos de mensagens são destinados a mensagens entre dois participantes distintos, o que não foi considerado dentro de uma mesma piscina.
+* **Atividades:** Representação de partes do processo nas quais alguma espécie de trabalho será realizada, nesta representação em específico, foram utilizadas tarefas de tipagem de serviço, envio e humana.
+* **Evento:** Sub-processo especializado que não surge a partir de um fluxo normal derivado de um processo anterior. Neste caso, o Timer, ícone de relógio, indica uma espera dentro do processo, ou seja, uma demora programada entre as atividades. 
+* **Gateway Exclusivo:** Controla fluxo de sequência, Utilizado na decisão "Origem do disparo?", pois atua como um ponto de ramificação onde os caminhos alternativos são baseados em eventos e logo após a renderização do *grid* para criar fluxos alternativos exclusivos.
 
 ---
 
