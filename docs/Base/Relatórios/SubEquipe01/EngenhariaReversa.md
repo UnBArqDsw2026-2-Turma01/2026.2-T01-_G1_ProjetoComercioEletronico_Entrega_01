@@ -329,5 +329,6 @@ NIELSEN, Jakob. Enhancing the explanatory power of usability heuristics. In: **P
 
 | Versão | Data | Descrição | Autor(es) | Revisor(es) |
 | -- | -- | -- | -- | -- |
+| 1.0 | 26/08/2026 | Busca e escolha de produto e adicição da parte inicial | Pedro Luciano de Azevedo | -- |
 | 1.1 | 27/08/2026 | Adição dos recortes de carrinho, endereço e entrada de checkout e de publicação de anúncio pelo vendedor: inspeção do DOM, transições de estado, validadores de campo, diagramas de fluxo de navegação, regras de negócio e requisitos derivados | Patrick Anderson | -- |
 | 1.2 | 27/08/2026 | Adição da Rastreabilidade e Limite do Levantamento | Guilherme Costa Zanella | -- |
