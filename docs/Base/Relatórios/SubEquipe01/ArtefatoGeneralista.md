@@ -1,6 +1,6 @@
 # Artefato Generalista
 
-Conforme decidido na [reunião de 24/08/2026](/Atas/subEquipe1/ata24_08.md), cada integrante da Subequipe 01 produz o **seu próprio** artefato generalista, escolhendo entre Rich Picture e Mapa Mental, e justificando a escolha. Esta página reúne os artefatos individuais.
+Conforme decidido na [reunião de 24/08/2026](/Atas/Subequipe1/ata24_08.md), cada integrante da Subequipe 01 produz o **seu próprio** artefato generalista, escolhendo entre Rich Picture e Mapa Mental, e justificando a escolha. Esta página reúne os artefatos individuais.
 
 ---
 

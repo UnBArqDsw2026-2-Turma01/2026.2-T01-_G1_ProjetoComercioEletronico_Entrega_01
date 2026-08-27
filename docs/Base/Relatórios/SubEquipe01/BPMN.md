@@ -16,12 +16,6 @@ Três regras da notação são estruturais e foram seguidas com atenção:
 2. **Gateway não decide nada por conta própria.** O losango marca a bifurcação; a condição fica no rótulo do fluxo de saída.
 3. **Cada pool com fluxo de sequência tem início e fim próprios.** As raias abertas dos dois modelos têm o seu evento de início e o seu evento de fim.
 
-Os dois diagramas são gerados por [`bpmn_patrick.py`](https://github.com/UnBArqDsw2026-2-Turma01/2026.2-T01-_G1_ProjetoComercioEletronico_Entrega_01/blob/main/docs/assets/SubEquipe01/src/bpmn_patrick.py):
-
-```bash
-python3 docs/assets/SubEquipe01/src/bpmn_patrick.py
-```
-
 ---
 
 ### Modelo 1 — Carrinho, endereço e checkout
@@ -36,7 +30,7 @@ O laço de correção depois do gateway `Dados do formulário válidos?` é a pa
 
 ### Modelo 2 — Publicação de anúncio pelo vendedor
 
-[![BPMN da publicação de anúncio pelo vendedor](../../../assets/SubEquipe01/BPMN_PublicacaoAnuncio_Patrick.svg)](../../../assets/SubEquipe01/BPMN_PublicacaoAnuncio_Patrick.svg ":ignore")
+[![BPMN da publicação de anúncio pelo vendedor](../../../assets/SubEquipe01/BPMN_PublicacaoAnuncio.svg)](../../../assets/SubEquipe01/BPMN_PublicacaoAnuncio.svg ":ignore")
 
 <sub>Clique na imagem para abrir o visualizador em tela cheia, com zoom e arraste.</sub>
 
@@ -64,7 +58,7 @@ As Diretrizes pedem para usar os vários recursos de modelagem da notação. Os 
 | Gateway exclusivo e paralelo                   | Bifurcações e o par registrar/notificar                           | Só as bifurcações que a observação sustenta                     |
 | Fluxo de mensagem                              | 12 ligações entre pools nos dois modelos                          | Cada troca observada                                            |
 | Objeto e depósito de dados                     | `Pedido`, `Rascunho`, `Catálogo`                                  | Dados que o processo lê ou produz                               |
-| Anotação de texto                              | Sobre `Validar dados do formulário` e `Criar rascunho do anúncio` | Ligam o modelo ao SIG e marcam o que é inferido                 |
+| Anotação de texto                              | Sobre `Validar dados do formulário` e `Criar rascunho do anúncio` | Registram achados do levantamento e marcam o que é inferido     |
 
 ### Rastreabilidade
 
@@ -84,7 +78,7 @@ As Diretrizes pedem para usar os vários recursos de modelagem da notação. Os 
 - _A raia da plataforma é hipótese, e o diagrama não sinaliza isso graficamente._ Todas as tarefas de serviço foram derivadas do comportamento observável. A notação não tem recurso próprio para marcar "atividade inferida", e preferi registrar a distinção no texto a inventar uma convenção gráfica que ninguém mais leria.
 - _Modelei o caminho feliz com poucas exceções._ Ficaram de fora: item que sai de estoque enquanto está no carrinho, CEP fora de área de entrega, anúncio recusado por política. Nenhum foi observado, e adicioná-los por dedução encheria o desenho de caminhos que não posso sustentar.
 - _O evento temporizador sobre o pagamento é inferido._ Está no modelo porque expiração de sessão de checkout é comportamento padrão do domínio, mas eu não a observei. A anotação ao lado diz isso.
-- _Modelar depois do SIG mudou o desenho._ A anotação sobre Validar dados do formulário só existe porque o SIG já tinha registrado que validar no servidor cobra em tempo de resposta. Se o BPMN viesse primeiro, seria só uma sequência de caixas.
+- _Modelar depois da engenharia reversa mudou o desenho._ A anotação sobre Validar dados do formulário só existe porque o levantamento já tinha registrado que a validação ocorre apenas na submissão, e não campo a campo. Se o BPMN viesse primeiro, seria só uma sequência de caixas.
 
 ---
 
