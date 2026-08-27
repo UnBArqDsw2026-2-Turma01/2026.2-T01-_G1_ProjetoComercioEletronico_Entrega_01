@@ -26,7 +26,7 @@ python3 docs/assets/SubEquipe01/src/bpmn_patrick.py
  
 ### Modelo 1 — Carrinho, endereço e checkout
  
-[![BPMN do fluxo de carrinho, endereço e checkout](../../../assets/SubEquipe01/BPMN_Checkout_Patrick.svg)](../../../assets/SubEquipe01/BPMN_Checkout_Patrick.svg ":ignore")
+[![BPMN do fluxo de carrinho, endereço e checkout](../../../assets/SubEquipe01/BPMN_Checkout.svg)](../../../assets/SubEquipe01/BPMN_Checkout.svg ":ignore")
  
 <sub>Clique na imagem para abrir o visualizador em tela cheia, com zoom e arraste.</sub>
  
