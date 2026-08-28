@@ -1,0 +1,241 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2160 1460" width="2160" height="1460" font-family="Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif">
+<rect width="2160" height="1460" fill="#ffffff"/>
+<text x="40.0" y="52.0" font-size="27.0" fill="#0f172a" text-anchor="start" font-weight="700">SIG de Usabilidade — notação do NFR Framework</text>
+<text x="40.0" y="82.0" font-size="14.5" fill="#475569" text-anchor="start">G1_ProjetoComercioEletronico · Subequipe 01 · Pedro Luciano de Azevedo · operacionalizações levantadas por engenharia reversa do fluxo de busca e escolha de produto</text>
+<line x1="40" y1="102" x2="2120" y2="102" stroke="#e2e8f0" stroke-width="1.5"/>
+<line x1="412.4" y1="369.7" x2="956.6" y2="223.2" stroke="#334155" stroke-width="2.2"/>
+<polygon points="969.2,219.8 955.1,217.8 958.1,228.6" fill="#334155"/>
+<line x1="874.6" y1="355.9" x2="1012.9" y2="244.2" stroke="#334155" stroke-width="2.2"/>
+<polygon points="1023.1,236.0 1009.4,239.8 1016.5,248.5" fill="#334155"/>
+<line x1="1285.0" y1="355.6" x2="1147.1" y2="244.2" stroke="#334155" stroke-width="2.2"/>
+<polygon points="1136.9,236.0 1143.5,248.5 1150.6,239.8" fill="#334155"/>
+<line x1="1777.7" y1="377.8" x2="1203.4" y2="223.2" stroke="#334155" stroke-width="2.2"/>
+<polygon points="1190.8,219.8 1201.9,228.6 1204.9,217.8" fill="#334155"/>
+<path d="M 805.1 264.0 Q 1080.0 284.0 1354.9 264.0" fill="none" stroke="#334155" stroke-width="2" />
+<text x="1080.0" y="302.0" font-size="12.5" fill="#64748b" text-anchor="middle" font-weight="700">AND</text>
+<line x1="198.1" y1="580.2" x2="265.1" y2="461.8" stroke="#334155" stroke-width="2.2"/>
+<polygon points="271.5,450.4 260.2,459.0 270.0,464.5" fill="#334155"/>
+<line x1="402.0" y1="580.5" x2="334.9" y2="461.8" stroke="#334155" stroke-width="2.2"/>
+<polygon points="328.5,450.4 330.0,464.5 339.8,459.0" fill="#334155"/>
+<path d="M 258.2 474.0 Q 300.0 494.0 341.8 474.0" fill="none" stroke="#334155" stroke-width="2" />
+<text x="300.0" y="512.0" font-size="12.5" fill="#64748b" text-anchor="middle" font-weight="700">AND</text>
+<line x1="718.0" y1="580.5" x2="785.4" y2="461.2" stroke="#334155" stroke-width="2.2"/>
+<polygon points="791.8,449.9 780.5,458.5 790.3,464.0" fill="#334155"/>
+<line x1="921.8" y1="580.1" x2="854.6" y2="461.2" stroke="#334155" stroke-width="2.2"/>
+<polygon points="848.2,449.9 849.7,464.0 859.5,458.5" fill="#334155"/>
+<path d="M 778.2 474.0 Q 820.0 494.0 861.8 474.0" fill="none" stroke="#334155" stroke-width="2" />
+<text x="820.0" y="512.0" font-size="12.5" fill="#64748b" text-anchor="middle" font-weight="700">AND</text>
+<line x1="1238.2" y1="580.1" x2="1305.3" y2="461.3" stroke="#334155" stroke-width="2.2"/>
+<polygon points="1311.7,450.0 1300.5,458.5 1310.2,464.1" fill="#334155"/>
+<line x1="1441.9" y1="580.3" x2="1374.7" y2="461.3" stroke="#334155" stroke-width="2.2"/>
+<polygon points="1368.3,450.0 1369.8,464.1 1379.5,458.5" fill="#334155"/>
+<path d="M 1298.2 474.0 Q 1340.0 494.0 1381.8 474.0" fill="none" stroke="#334155" stroke-width="2" />
+<text x="1340.0" y="512.0" font-size="12.5" fill="#64748b" text-anchor="middle" font-weight="700">AND</text>
+<line x1="1758.3" y1="579.8" x2="1825.7" y2="460.6" stroke="#334155" stroke-width="2.2"/>
+<polygon points="1832.1,449.3 1820.9,457.9 1830.6,463.4" fill="#334155"/>
+<line x1="1961.7" y1="579.9" x2="1894.3" y2="460.6" stroke="#334155" stroke-width="2.2"/>
+<polygon points="1887.9,449.3 1889.4,463.4 1899.1,457.9" fill="#334155"/>
+<path d="M 1818.2 474.0 Q 1860.0 494.0 1901.8 474.0" fill="none" stroke="#334155" stroke-width="2" />
+<text x="1860.0" y="512.0" font-size="12.5" fill="#64748b" text-anchor="middle" font-weight="700">AND</text>
+<line x1="186.0" y1="957.9" x2="173.2" y2="695.1" stroke="#15803d" stroke-width="2.0"/>
+<polygon points="172.5,682.1 167.6,695.4 178.8,694.8" fill="#15803d"/>
+<line x1="220.3" y1="960.0" x2="391.9" y2="689.9" stroke="#15803d" stroke-width="2.0"/>
+<polygon points="398.9,678.9 387.2,686.9 396.7,692.9" fill="#15803d"/>
+<line x1="478.1" y1="958.0" x2="439.5" y2="694.8" stroke="#15803d" stroke-width="2.0"/>
+<polygon points="437.6,681.9 434.0,695.6 445.0,694.0" fill="#15803d"/>
+<line x1="512.8" y1="959.6" x2="657.1" y2="691.2" stroke="#15803d" stroke-width="2.0"/>
+<polygon points="663.3,679.7 652.2,688.5 662.1,693.8" fill="#15803d"/>
+<line x1="541.5" y1="964.4" x2="885.9" y2="682.4" stroke="#b91c1c" stroke-width="2.0"/>
+<polygon points="896.0,674.2 882.4,678.1 889.5,686.8" fill="#b91c1c"/>
+<line x1="770.2" y1="958.3" x2="705.7" y2="694.2" stroke="#15803d" stroke-width="2.0"/>
+<polygon points="702.6,681.6 700.3,695.5 711.1,692.9" fill="#15803d"/>
+<line x1="834.3" y1="964.2" x2="1149.6" y2="683.8" stroke="#15803d" stroke-width="2.0"/>
+<polygon points="1159.3,675.1 1145.8,679.6 1153.3,688.0" fill="#15803d"/>
+<line x1="805.2" y1="959.2" x2="922.5" y2="692.6" stroke="#b91c1c" stroke-width="2.0"/>
+<polygon points="927.7,680.7 917.3,690.4 927.6,694.9" fill="#b91c1c"/>
+<line x1="1031.3" y1="962.5" x2="745.5" y2="684.0" stroke="#15803d" stroke-width="2.0"/>
+<polygon points="736.1,675.0 741.5,688.0 749.4,680.0" fill="#15803d"/>
+<line x1="1389.7" y1="958.4" x2="1454.3" y2="694.2" stroke="#15803d" stroke-width="2.0"/>
+<polygon points="1457.4,681.6 1448.9,692.9 1459.7,695.6" fill="#15803d"/>
+<line x1="1603.2" y1="972.7" x2="1033.7" y2="673.9" stroke="#b91c1c" stroke-width="2.0"/>
+<polygon points="1022.2,667.9 1031.1,678.9 1036.3,669.0" fill="#b91c1c"/>
+<line x1="1647.4" y1="960.0" x2="1503.0" y2="691.3" stroke="#b91c1c" stroke-width="2.0"/>
+<polygon points="1496.8,679.9 1498.0,694.0 1507.9,688.7" fill="#b91c1c"/>
+<line x1="1681.9" y1="958.1" x2="1720.5" y2="694.8" stroke="#15803d" stroke-width="2.0"/>
+<polygon points="1722.4,682.0 1715.0,694.0 1726.0,695.6" fill="#15803d"/>
+<line x1="1939.6" y1="959.9" x2="1768.5" y2="690.7" stroke="#b91c1c" stroke-width="2.0"/>
+<polygon points="1761.6,679.7 1763.8,693.7 1773.3,687.7" fill="#b91c1c"/>
+<line x1="1974.0" y1="957.9" x2="1986.8" y2="695.1" stroke="#15803d" stroke-width="2.0"/>
+<polygon points="1987.5,682.1 1981.2,694.8 1992.4,695.4" fill="#15803d"/>
+<rect x="165.1" y="723.5" width="20.0" height="22" rx="6" fill="#ffffff" stroke="#15803d" stroke-width="1.4"/>
+<text x="175.1" y="740.5" font-size="14.5" fill="#15803d" text-anchor="middle" font-weight="700">+</text>
+<rect x="349.5" y="721.3" width="31.0" height="22" rx="6" fill="#ffffff" stroke="#15803d" stroke-width="1.4"/>
+<text x="365.0" y="738.3" font-size="14.5" fill="#15803d" text-anchor="middle" font-weight="700">++</text>
+<rect x="435.3" y="723.4" width="20.0" height="22" rx="6" fill="#ffffff" stroke="#15803d" stroke-width="1.4"/>
+<text x="445.3" y="740.4" font-size="14.5" fill="#15803d" text-anchor="middle" font-weight="700">+</text>
+<rect x="619.2" y="721.9" width="31.0" height="22" rx="6" fill="#ffffff" stroke="#15803d" stroke-width="1.4"/>
+<text x="634.7" y="738.9" font-size="14.5" fill="#15803d" text-anchor="middle" font-weight="700">++</text>
+<rect x="818.6" y="718.3" width="20.0" height="22" rx="6" fill="#ffffff" stroke="#b91c1c" stroke-width="1.4"/>
+<text x="828.6" y="735.3" font-size="14.5" fill="#b91c1c" text-anchor="middle" font-weight="700">-</text>
+<rect x="700.0" y="723.2" width="31.0" height="22" rx="6" fill="#ffffff" stroke="#15803d" stroke-width="1.4"/>
+<text x="715.5" y="740.2" font-size="14.5" fill="#15803d" text-anchor="middle" font-weight="700">++</text>
+<rect x="1082.0" y="719.1" width="31.0" height="22" rx="6" fill="#ffffff" stroke="#15803d" stroke-width="1.4"/>
+<text x="1097.5" y="736.1" font-size="14.5" fill="#15803d" text-anchor="middle" font-weight="700">++</text>
+<rect x="894.4" y="722.6" width="20.0" height="22" rx="6" fill="#ffffff" stroke="#b91c1c" stroke-width="1.4"/>
+<text x="904.4" y="739.6" font-size="14.5" fill="#b91c1c" text-anchor="middle" font-weight="700">-</text>
+<rect x="782.2" y="718.6" width="20.0" height="22" rx="6" fill="#ffffff" stroke="#15803d" stroke-width="1.4"/>
+<text x="792.2" y="735.6" font-size="14.5" fill="#15803d" text-anchor="middle" font-weight="700">+</text>
+<rect x="1429.0" y="723.2" width="31.0" height="22" rx="6" fill="#ffffff" stroke="#15803d" stroke-width="1.4"/>
+<text x="1444.5" y="740.2" font-size="14.5" fill="#15803d" text-anchor="middle" font-weight="700">++</text>
+<rect x="1122.6" y="714.8" width="20.0" height="22" rx="6" fill="#ffffff" stroke="#b91c1c" stroke-width="1.4"/>
+<text x="1132.6" y="731.8" font-size="14.5" fill="#b91c1c" text-anchor="middle" font-weight="700">-</text>
+<rect x="1509.9" y="722.1" width="31.0" height="22" rx="6" fill="#ffffff" stroke="#b91c1c" stroke-width="1.4"/>
+<text x="1525.4" y="739.1" font-size="14.5" fill="#b91c1c" text-anchor="middle" font-weight="700">--</text>
+<rect x="1704.7" y="723.4" width="20.0" height="22" rx="6" fill="#ffffff" stroke="#15803d" stroke-width="1.4"/>
+<text x="1714.7" y="740.4" font-size="14.5" fill="#15803d" text-anchor="middle" font-weight="700">+</text>
+<rect x="1785.4" y="721.9" width="20.0" height="22" rx="6" fill="#ffffff" stroke="#b91c1c" stroke-width="1.4"/>
+<text x="1795.4" y="738.9" font-size="14.5" fill="#b91c1c" text-anchor="middle" font-weight="700">-</text>
+<rect x="1969.4" y="723.5" width="31.0" height="22" rx="6" fill="#ffffff" stroke="#15803d" stroke-width="1.4"/>
+<text x="1984.9" y="740.5" font-size="14.5" fill="#15803d" text-anchor="middle" font-weight="700">++</text>
+<path d="M 1221.3 190.0 A 21.3 21.3 0 0 1 1198.8 216.0 A 38.9 38.9 0 0 1 1138.7 233.7 A 48.9 48.9 0 0 1 1059.9 237.5 A 45.4 45.4 0 0 1 987.5 226.3 A 30.2 30.2 0 0 1 944.4 203.5 A 16.8 16.8 0 0 1 944.4 176.5 A 30.2 30.2 0 0 1 987.5 153.7 A 45.4 45.4 0 0 1 1059.9 142.5 A 48.9 48.9 0 0 1 1138.7 146.3 A 38.9 38.9 0 0 1 1198.8 164.0 A 21.3 21.3 0 0 1 1221.3 190.0 " fill="#f8fafc" stroke="#334155" stroke-width="2.0" stroke-linejoin="round"/>
+<text x="1080.0" y="187.0" font-size="15.0" fill="#0f172a" text-anchor="middle" font-weight="700">Usabilidade</text>
+<text x="1080.0" y="207.0" font-size="13.0" fill="#475569" text-anchor="middle">[G1_ProjetoComercioEletronico]</text>
+<text x="954.7" y="172.0" font-size="17.0" fill="#dc2626" text-anchor="middle" font-weight="700">!!</text>
+<circle cx="1201.3" cy="168.0" r="13" fill="#ffffff" stroke="#b91c1c" stroke-width="1.8"/>
+<text x="1201.3" y="173.0" font-size="13.0" fill="#b91c1c" text-anchor="middle" font-weight="700">W⁻</text>
+<path d="M 444.7 400.0 A 19.1 19.1 0 0 1 425.3 424.0 A 34.6 34.6 0 0 1 372.3 441.6 A 45.0 45.0 0 0 1 300.0 448.0 A 45.0 45.0 0 0 1 227.7 441.6 A 34.6 34.6 0 0 1 174.7 424.0 A 19.1 19.1 0 0 1 155.3 400.0 A 19.1 19.1 0 0 1 174.7 376.0 A 34.6 34.6 0 0 1 227.7 358.4 A 45.0 45.0 0 0 1 300.0 352.0 A 45.0 45.0 0 0 1 372.3 358.4 A 34.6 34.6 0 0 1 425.3 376.0 A 19.1 19.1 0 0 1 444.7 400.0 " fill="#f8fafc" stroke="#334155" stroke-width="2.0" stroke-linejoin="round"/>
+<text x="300.0" y="397.0" font-size="15.0" fill="#0f172a" text-anchor="middle" font-weight="700">Facilidade de Aprendizado</text>
+<text x="300.0" y="417.0" font-size="13.0" fill="#475569" text-anchor="middle">[Comprador novo]</text>
+<circle cx="424.7" cy="378.0" r="13" fill="#ffffff" stroke="#15803d" stroke-width="1.8"/>
+<text x="424.7" y="383.0" font-size="13.0" fill="#15803d" text-anchor="middle" font-weight="700">W⁺</text>
+<path d="M 929.6 400.0 A 19.4 19.4 0 0 1 912.2 426.0 A 30.9 30.9 0 0 1 865.5 443.7 A 38.0 38.0 0 0 1 804.4 447.5 A 35.5 35.5 0 0 1 748.2 436.3 A 25.0 25.0 0 0 1 714.9 413.5 A 16.8 16.8 0 0 1 714.9 386.5 A 25.0 25.0 0 0 1 748.2 363.7 A 35.5 35.5 0 0 1 804.4 352.5 A 38.0 38.0 0 0 1 865.5 356.3 A 30.9 30.9 0 0 1 912.2 374.0 A 19.4 19.4 0 0 1 929.6 400.0 " fill="#f8fafc" stroke="#334155" stroke-width="2.0" stroke-linejoin="round"/>
+<text x="820.0" y="397.0" font-size="15.0" fill="#0f172a" text-anchor="middle" font-weight="700">Eficiência de Uso</text>
+<text x="820.0" y="417.0" font-size="13.0" fill="#475569" text-anchor="middle">[Busca de produto]</text>
+<text x="726.4" y="382.0" font-size="17.0" fill="#dc2626" text-anchor="middle" font-weight="700">!!</text>
+<circle cx="909.6" cy="378.0" r="13" fill="#ffffff" stroke="#b91c1c" stroke-width="1.8"/>
+<text x="909.6" y="383.0" font-size="13.0" fill="#b91c1c" text-anchor="middle" font-weight="700">W⁻</text>
+<path d="M 1454.0 400.0 A 19.6 19.6 0 0 1 1435.9 426.0 A 32.0 32.0 0 0 1 1387.3 443.7 A 39.5 39.5 0 0 1 1323.8 447.5 A 36.9 36.9 0 0 1 1265.4 436.3 A 25.7 25.7 0 0 1 1230.6 413.5 A 16.8 16.8 0 0 1 1230.6 386.5 A 25.7 25.7 0 0 1 1265.4 363.7 A 36.9 36.9 0 0 1 1323.8 352.5 A 39.5 39.5 0 0 1 1387.3 356.3 A 32.0 32.0 0 0 1 1435.9 374.0 A 19.6 19.6 0 0 1 1454.0 400.0 " fill="#f8fafc" stroke="#334155" stroke-width="2.0" stroke-linejoin="round"/>
+<text x="1340.0" y="397.0" font-size="15.0" fill="#0f172a" text-anchor="middle" font-weight="700">Prevenção de Erros</text>
+<text x="1340.0" y="417.0" font-size="13.0" fill="#475569" text-anchor="middle">[Decisão de compra]</text>
+<circle cx="1434.0" cy="378.0" r="13" fill="#ffffff" stroke="#b91c1c" stroke-width="1.8"/>
+<text x="1434.0" y="383.0" font-size="13.0" fill="#b91c1c" text-anchor="middle" font-weight="700">W⁻</text>
+<path d="M 1950.0 400.0 A 18.4 18.4 0 0 1 1935.7 426.0 A 26.2 26.2 0 0 1 1897.4 443.7 A 31.2 31.2 0 0 1 1847.2 447.5 A 29.4 29.4 0 0 1 1801.1 436.3 A 22.1 22.1 0 0 1 1773.6 413.5 A 16.8 16.8 0 0 1 1773.6 386.5 A 22.1 22.1 0 0 1 1801.1 363.7 A 29.4 29.4 0 0 1 1847.2 352.5 A 31.2 31.2 0 0 1 1897.4 356.3 A 26.2 26.2 0 0 1 1935.7 374.0 A 18.4 18.4 0 0 1 1950.0 400.0 " fill="#f8fafc" stroke="#334155" stroke-width="2.0" stroke-linejoin="round"/>
+<text x="1860.0" y="397.0" font-size="15.0" fill="#0f172a" text-anchor="middle" font-weight="700">Satisfação</text>
+<text x="1860.0" y="417.0" font-size="13.0" fill="#475569" text-anchor="middle">[Comprador]</text>
+<circle cx="1930.0" cy="378.0" r="13" fill="#ffffff" stroke="#b91c1c" stroke-width="1.8"/>
+<text x="1930.0" y="383.0" font-size="13.0" fill="#b91c1c" text-anchor="middle" font-weight="700">W⁻</text>
+<path d="M 275.9 630.0 A 19.2 19.2 0 0 1 259.0 656.0 A 30.0 30.0 0 0 1 214.0 673.7 A 36.7 36.7 0 0 1 154.9 677.5 A 34.4 34.4 0 0 1 100.7 666.3 A 24.5 24.5 0 0 1 68.4 643.5 A 16.8 16.8 0 0 1 68.4 616.5 A 24.5 24.5 0 0 1 100.7 593.7 A 34.4 34.4 0 0 1 154.9 582.5 A 36.7 36.7 0 0 1 214.0 586.3 A 30.0 30.0 0 0 1 259.0 604.0 A 19.2 19.2 0 0 1 275.9 630.0 " fill="#f8fafc" stroke="#334155" stroke-width="2.0" stroke-linejoin="round"/>
+<text x="170.0" y="627.0" font-size="15.0" fill="#0f172a" text-anchor="middle" font-weight="700">Consistência</text>
+<text x="170.0" y="647.0" font-size="13.0" fill="#475569" text-anchor="middle">[Layout da listagem]</text>
+<circle cx="255.9" cy="608.0" r="13" fill="#ffffff" stroke="#15803d" stroke-width="1.8"/>
+<text x="255.9" y="613.0" font-size="13.0" fill="#15803d" text-anchor="middle" font-weight="700">W⁺</text>
+<path d="M 526.4 630.0 A 18.7 18.7 0 0 1 511.1 656.0 A 27.7 27.7 0 0 1 470.1 673.7 A 33.4 33.4 0 0 1 416.3 677.5 A 31.4 31.4 0 0 1 366.9 666.3 A 23.0 23.0 0 0 1 337.5 643.5 A 16.8 16.8 0 0 1 337.5 616.5 A 23.0 23.0 0 0 1 366.9 593.7 A 31.4 31.4 0 0 1 416.3 582.5 A 33.4 33.4 0 0 1 470.1 586.3 A 27.7 27.7 0 0 1 511.1 604.0 A 18.7 18.7 0 0 1 526.4 630.0 " fill="#f8fafc" stroke="#334155" stroke-width="2.0" stroke-linejoin="round"/>
+<text x="430.0" y="627.0" font-size="15.0" fill="#0f172a" text-anchor="middle" font-weight="700">Reconhecimento</text>
+<text x="430.0" y="647.0" font-size="13.0" fill="#475569" text-anchor="middle">[Navegação]</text>
+<circle cx="506.4" cy="608.0" r="13" fill="#ffffff" stroke="#15803d" stroke-width="1.8"/>
+<text x="506.4" y="613.0" font-size="13.0" fill="#15803d" text-anchor="middle" font-weight="700">✓</text>
+<path d="M 785.2 630.0 A 18.6 18.6 0 0 1 770.1 656.0 A 27.4 27.4 0 0 1 729.6 673.7 A 33.0 33.0 0 0 1 676.4 677.5 A 31.1 31.1 0 0 1 627.6 666.3 A 22.9 22.9 0 0 1 598.6 643.5 A 16.8 16.8 0 0 1 598.6 616.5 A 22.9 22.9 0 0 1 627.6 593.7 A 31.1 31.1 0 0 1 676.4 582.5 A 33.0 33.0 0 0 1 729.6 586.3 A 27.4 27.4 0 0 1 770.1 604.0 A 18.6 18.6 0 0 1 785.2 630.0 " fill="#f8fafc" stroke="#334155" stroke-width="2.0" stroke-linejoin="round"/>
+<text x="690.0" y="627.0" font-size="15.0" fill="#0f172a" text-anchor="middle" font-weight="700">Poucos Passos</text>
+<text x="690.0" y="647.0" font-size="13.0" fill="#475569" text-anchor="middle">[Busca → Produto]</text>
+<circle cx="765.2" cy="608.0" r="13" fill="#ffffff" stroke="#15803d" stroke-width="1.8"/>
+<text x="765.2" y="613.0" font-size="13.0" fill="#15803d" text-anchor="middle" font-weight="700">✓</text>
+<path d="M 1059.6 630.0 A 19.4 19.4 0 0 1 1042.2 656.0 A 30.9 30.9 0 0 1 995.5 673.7 A 38.0 38.0 0 0 1 934.4 677.5 A 35.5 35.5 0 0 1 878.2 666.3 A 25.0 25.0 0 0 1 844.9 643.5 A 16.8 16.8 0 0 1 844.9 616.5 A 25.0 25.0 0 0 1 878.2 593.7 A 35.5 35.5 0 0 1 934.4 582.5 A 38.0 38.0 0 0 1 995.5 586.3 A 30.9 30.9 0 0 1 1042.2 604.0 A 19.4 19.4 0 0 1 1059.6 630.0 " fill="#f8fafc" stroke="#334155" stroke-width="2.0" stroke-linejoin="round"/>
+<text x="950.0" y="627.0" font-size="15.0" fill="#0f172a" text-anchor="middle" font-weight="700">Tempo de Resposta</text>
+<text x="950.0" y="647.0" font-size="13.0" fill="#475569" text-anchor="middle">[Listagem]</text>
+<circle cx="1039.6" cy="608.0" r="13" fill="#ffffff" stroke="#b91c1c" stroke-width="1.8"/>
+<text x="1039.6" y="613.0" font-size="13.0" fill="#b91c1c" text-anchor="middle" font-weight="700">W⁻</text>
+<path d="M 1319.6 630.0 A 19.4 19.4 0 0 1 1302.2 656.0 A 30.9 30.9 0 0 1 1255.5 673.7 A 38.0 38.0 0 0 1 1194.4 677.5 A 35.5 35.5 0 0 1 1138.2 666.3 A 25.0 25.0 0 0 1 1104.9 643.5 A 16.8 16.8 0 0 1 1104.9 616.5 A 25.0 25.0 0 0 1 1138.2 593.7 A 35.5 35.5 0 0 1 1194.4 582.5 A 38.0 38.0 0 0 1 1255.5 586.3 A 30.9 30.9 0 0 1 1302.2 604.0 A 19.4 19.4 0 0 1 1319.6 630.0 " fill="#f8fafc" stroke="#334155" stroke-width="2.0" stroke-linejoin="round"/>
+<text x="1210.0" y="627.0" font-size="15.0" fill="#0f172a" text-anchor="middle" font-weight="700">Feedback Imediato</text>
+<text x="1210.0" y="647.0" font-size="13.0" fill="#475569" text-anchor="middle">[Filtros]</text>
+<circle cx="1299.6" cy="608.0" r="13" fill="#ffffff" stroke="#15803d" stroke-width="1.8"/>
+<text x="1299.6" y="613.0" font-size="13.0" fill="#15803d" text-anchor="middle" font-weight="700">✓</text>
+<path d="M 1570.8 630.0 A 18.9 18.9 0 0 1 1554.8 656.0 A 28.8 28.8 0 0 1 1511.9 673.7 A 34.9 34.9 0 0 1 1455.7 677.5 A 32.8 32.8 0 0 1 1404.0 666.3 A 23.7 23.7 0 0 1 1373.3 643.5 A 16.8 16.8 0 0 1 1373.3 616.5 A 23.7 23.7 0 0 1 1404.0 593.7 A 32.8 32.8 0 0 1 1455.7 582.5 A 34.9 34.9 0 0 1 1511.9 586.3 A 28.8 28.8 0 0 1 1554.8 604.0 A 18.9 18.9 0 0 1 1570.8 630.0 " fill="#f8fafc" stroke="#334155" stroke-width="2.0" stroke-linejoin="round"/>
+<text x="1470.0" y="627.0" font-size="15.0" fill="#0f172a" text-anchor="middle" font-weight="700">Reversibilidade</text>
+<text x="1470.0" y="647.0" font-size="13.0" fill="#475569" text-anchor="middle">[Navegação]</text>
+<circle cx="1550.8" cy="608.0" r="13" fill="#ffffff" stroke="#b91c1c" stroke-width="1.8"/>
+<text x="1550.8" y="613.0" font-size="13.0" fill="#b91c1c" text-anchor="middle" font-weight="700">W⁻</text>
+<path d="M 1852.8 630.0 A 20.1 20.1 0 0 1 1833.3 656.0 A 34.2 34.2 0 0 1 1781.0 673.7 A 42.5 42.5 0 0 1 1712.5 677.5 A 39.6 39.6 0 0 1 1649.6 666.3 A 27.1 27.1 0 0 1 1612.2 643.5 A 16.8 16.8 0 0 1 1612.2 616.5 A 27.1 27.1 0 0 1 1649.6 593.7 A 39.6 39.6 0 0 1 1712.5 582.5 A 42.5 42.5 0 0 1 1781.0 586.3 A 34.2 34.2 0 0 1 1833.3 604.0 A 20.1 20.1 0 0 1 1852.8 630.0 " fill="#f8fafc" stroke="#334155" stroke-width="2.0" stroke-linejoin="round"/>
+<text x="1730.0" y="627.0" font-size="15.0" fill="#0f172a" text-anchor="middle" font-weight="700">Estética Minimalista</text>
+<text x="1730.0" y="647.0" font-size="13.0" fill="#475569" text-anchor="middle">[Listagem]</text>
+<circle cx="1832.8" cy="608.0" r="13" fill="#ffffff" stroke="#b91c1c" stroke-width="1.8"/>
+<text x="1832.8" y="613.0" font-size="13.0" fill="#b91c1c" text-anchor="middle" font-weight="700">W⁻</text>
+<path d="M 2108.4 630.0 A 19.9 19.9 0 0 1 2089.6 656.0 A 33.1 33.1 0 0 1 2039.2 673.7 A 41.0 41.0 0 0 1 1973.2 677.5 A 38.3 38.3 0 0 1 1912.5 666.3 A 26.4 26.4 0 0 1 1876.4 643.5 A 16.8 16.8 0 0 1 1876.4 616.5 A 26.4 26.4 0 0 1 1912.5 593.7 A 38.3 38.3 0 0 1 1973.2 582.5 A 41.0 41.0 0 0 1 2039.2 586.3 A 33.1 33.1 0 0 1 2089.6 604.0 A 19.9 19.9 0 0 1 2108.4 630.0 " fill="#f8fafc" stroke="#334155" stroke-width="2.0" stroke-linejoin="round"/>
+<text x="1990.0" y="627.0" font-size="15.0" fill="#0f172a" text-anchor="middle" font-weight="700">Confiança Percebida</text>
+<text x="1990.0" y="647.0" font-size="13.0" fill="#475569" text-anchor="middle">[Vendedor]</text>
+<text x="1887.6" y="612.0" font-size="17.0" fill="#dc2626" text-anchor="middle" font-weight="700">!</text>
+<circle cx="2088.4" cy="608.0" r="13" fill="#ffffff" stroke="#15803d" stroke-width="1.8"/>
+<text x="2088.4" y="613.0" font-size="13.0" fill="#15803d" text-anchor="middle" font-weight="700">✓</text>
+<path d="M 328.9 1010.0 A 21.2 21.2 0 0 1 306.6 1036.0 A 38.6 38.6 0 0 1 246.9 1053.7 A 48.6 48.6 0 0 1 168.6 1057.5 A 45.1 45.1 0 0 1 96.7 1046.3 A 30.0 30.0 0 0 1 54.0 1023.5 A 16.8 16.8 0 0 1 54.0 996.5 A 30.0 30.0 0 0 1 96.7 973.7 A 45.1 45.1 0 0 1 168.6 962.5 A 48.6 48.6 0 0 1 246.9 966.3 A 38.6 38.6 0 0 1 306.6 984.0 A 21.2 21.2 0 0 1 328.9 1010.0 " fill="#eef2ff" stroke="#1e293b" stroke-width="4.5" stroke-linejoin="round"/>
+<text x="188.6" y="1007.0" font-size="15.0" fill="#0f172a" text-anchor="middle" font-weight="700">Breadcrumb de categorias</text>
+<text x="188.6" y="1027.0" font-size="13.0" fill="#475569" text-anchor="middle">[Trilha da vitrine]</text>
+<path d="M 617.2 1010.0 A 20.7 20.7 0 0 1 596.4 1036.0 A 36.4 36.4 0 0 1 540.4 1053.7 A 45.5 45.5 0 0 1 467.0 1057.5 A 42.4 42.4 0 0 1 399.6 1046.3 A 28.6 28.6 0 0 1 359.5 1023.5 A 16.8 16.8 0 0 1 359.5 996.5 A 28.6 28.6 0 0 1 399.6 973.7 A 42.4 42.4 0 0 1 467.0 962.5 A 45.5 45.5 0 0 1 540.4 966.3 A 36.4 36.4 0 0 1 596.4 984.0 A 20.7 20.7 0 0 1 617.2 1010.0 " fill="#eef2ff" stroke="#1e293b" stroke-width="4.5" stroke-linejoin="round"/>
+<text x="485.7" y="1007.0" font-size="15.0" fill="#0f172a" text-anchor="middle" font-weight="700">Autocompletar na busca</text>
+<text x="485.7" y="1027.0" font-size="13.0" fill="#475569" text-anchor="middle">[Campo de busca]</text>
+<path d="M 902.9 1010.0 A 20.0 20.0 0 0 1 883.8 1036.0 A 33.5 33.5 0 0 1 832.7 1053.7 A 41.6 41.6 0 0 1 765.8 1057.5 A 38.8 38.8 0 0 1 704.3 1046.3 A 26.7 26.7 0 0 1 667.7 1023.5 A 16.8 16.8 0 0 1 667.7 996.5 A 26.7 26.7 0 0 1 704.3 973.7 A 38.8 38.8 0 0 1 765.8 962.5 A 41.6 41.6 0 0 1 832.7 966.3 A 33.5 33.5 0 0 1 883.8 984.0 A 20.0 20.0 0 0 1 902.9 1010.0 " fill="#eef2ff" stroke="#1e293b" stroke-width="4.5" stroke-linejoin="round"/>
+<text x="782.9" y="1007.0" font-size="15.0" fill="#0f172a" text-anchor="middle" font-weight="700">Filtros facetados</text>
+<text x="782.9" y="1027.0" font-size="13.0" fill="#475569" text-anchor="middle">[Listagem de resultados]</text>
+<path d="M 1220.3 1010.0 A 21.2 21.2 0 0 1 1198.0 1036.0 A 38.6 38.6 0 0 1 1138.3 1053.7 A 48.6 48.6 0 0 1 1060.0 1057.5 A 45.1 45.1 0 0 1 988.1 1046.3 A 30.0 30.0 0 0 1 945.4 1023.5 A 16.8 16.8 0 0 1 945.4 996.5 A 30.0 30.0 0 0 1 988.1 973.7 A 45.1 45.1 0 0 1 1060.0 962.5 A 48.6 48.6 0 0 1 1138.3 966.3 A 38.6 38.6 0 0 1 1198.0 984.0 A 21.2 21.2 0 0 1 1220.3 1010.0 " fill="#eef2ff" stroke="#1e293b" stroke-width="4.5" stroke-linejoin="round"/>
+<text x="1080.0" y="1007.0" font-size="15.0" fill="#0f172a" text-anchor="middle" font-weight="700">Ordenação por relevância</text>
+<text x="1080.0" y="1027.0" font-size="13.0" fill="#475569" text-anchor="middle">[Listagem]</text>
+<path d="M 1473.6 1010.0 A 18.7 18.7 0 0 1 1458.3 1036.0 A 27.7 27.7 0 0 1 1417.2 1053.7 A 33.4 33.4 0 0 1 1363.4 1057.5 A 31.4 31.4 0 0 1 1314.0 1046.3 A 23.0 23.0 0 0 1 1284.6 1023.5 A 16.8 16.8 0 0 1 1284.6 996.5 A 23.0 23.0 0 0 1 1314.0 973.7 A 31.4 31.4 0 0 1 1363.4 962.5 A 33.4 33.4 0 0 1 1417.2 966.3 A 27.7 27.7 0 0 1 1458.3 984.0 A 18.7 18.7 0 0 1 1473.6 1010.0 " fill="#eef2ff" stroke="#1e293b" stroke-width="4.5" stroke-linejoin="round"/>
+<text x="1377.1" y="1007.0" font-size="15.0" fill="#0f172a" text-anchor="middle" font-weight="700">Filtros na URL</text>
+<text x="1377.1" y="1027.0" font-size="13.0" fill="#475569" text-anchor="middle">[Estado da busca]</text>
+<path d="M 1779.5 1010.0 A 19.1 19.1 0 0 1 1762.8 1036.0 A 29.9 29.9 0 0 1 1718.0 1053.7 A 36.5 36.5 0 0 1 1659.3 1057.5 A 34.1 34.1 0 0 1 1605.4 1046.3 A 24.4 24.4 0 0 1 1573.3 1023.5 A 16.8 16.8 0 0 1 1573.3 996.5 A 24.4 24.4 0 0 1 1605.4 973.7 A 34.1 34.1 0 0 1 1659.3 962.5 A 36.5 36.5 0 0 1 1718.0 966.3 A 29.9 29.9 0 0 1 1762.8 984.0 A 19.1 19.1 0 0 1 1779.5 1010.0 " fill="#eef2ff" stroke="#1e293b" stroke-width="4.5" stroke-linejoin="round"/>
+<text x="1674.3" y="1007.0" font-size="15.0" fill="#0f172a" text-anchor="middle" font-weight="700">Rolagem infinita</text>
+<text x="1674.3" y="1027.0" font-size="13.0" fill="#475569" text-anchor="middle">[Listagem]</text>
+<path d="M 2116.1 1010.0 A 19.1 19.1 0 0 1 2096.7 1034.0 A 34.6 34.6 0 0 1 2043.8 1051.6 A 45.0 45.0 0 0 1 1971.4 1058.0 A 45.0 45.0 0 0 1 1899.1 1051.6 A 34.6 34.6 0 0 1 1846.1 1034.0 A 19.1 19.1 0 0 1 1826.7 1010.0 A 19.1 19.1 0 0 1 1846.1 986.0 A 34.6 34.6 0 0 1 1899.1 968.4 A 45.0 45.0 0 0 1 1971.4 962.0 A 45.0 45.0 0 0 1 2043.8 968.4 A 34.6 34.6 0 0 1 2096.7 986.0 A 19.1 19.1 0 0 1 2116.1 1010.0 " fill="#eef2ff" stroke="#1e293b" stroke-width="4.5" stroke-linejoin="round"/>
+<text x="1971.4" y="1007.0" font-size="15.0" fill="#0f172a" text-anchor="middle" font-weight="700">Nota e reputação visíveis</text>
+<text x="1971.4" y="1027.0" font-size="13.0" fill="#475569" text-anchor="middle">[Cartão do produto]</text>
+<line x1="1300.0" y1="1148.0" x2="1625.9" y2="920.0" stroke="#92400e" stroke-width="1.8" stroke-dasharray="7 5"/>
+<circle cx="1625.9" cy="920.0" r="4.5" fill="#92400e"/>
+<path d="M 1519.5 1200.0 A 15.0 15.0 0 0 1 1506.3 1220.2 A 26.1 26.1 0 0 1 1468.2 1237.9 A 37.1 37.1 0 0 1 1409.8 1251.1 A 44.6 44.6 0 0 1 1338.1 1258.1 A 47.3 47.3 0 0 1 1261.9 1258.1 A 44.6 44.6 0 0 1 1190.2 1251.1 A 37.1 37.1 0 0 1 1131.8 1237.9 A 26.1 26.1 0 0 1 1093.7 1220.2 A 15.0 15.0 0 0 1 1080.5 1200.0 A 15.0 15.0 0 0 1 1093.7 1179.8 A 26.1 26.1 0 0 1 1131.8 1162.1 A 37.1 37.1 0 0 1 1190.2 1148.9 A 44.6 44.6 0 0 1 1261.9 1141.9 A 47.3 47.3 0 0 1 1338.1 1141.9 A 44.6 44.6 0 0 1 1409.8 1148.9 A 37.1 37.1 0 0 1 1468.2 1162.1 A 26.1 26.1 0 0 1 1506.3 1179.8 A 15.0 15.0 0 0 1 1519.5 1200.0 " fill="#fffbeb" stroke="#92400e" stroke-width="2.0" stroke-linejoin="round" stroke-dasharray="8 5"/>
+<text x="1300.0" y="1184.0" font-size="12.5" fill="#92400e" text-anchor="middle" font-weight="700">Claim: rolagem infinita quebra o retorno à listagem —</text>
+<text x="1300.0" y="1204.0" font-size="12.5" fill="#92400e" text-anchor="middle">o comprador perde posição e filtros ao voltar</text>
+<text x="1300.0" y="1224.0" font-size="12.5" fill="#92400e" text-anchor="middle">(Nielsen: controle e liberdade do usuário)</text>
+<line x1="1730.0" y1="1148.0" x2="1888.8" y2="880.0" stroke="#92400e" stroke-width="1.8" stroke-dasharray="7 5"/>
+<circle cx="1888.8" cy="880.0" r="4.5" fill="#92400e"/>
+<path d="M 1963.2 1200.0 A 14.2 14.2 0 0 1 1950.5 1219.2 A 25.0 25.0 0 0 1 1914.0 1236.2 A 35.9 35.9 0 0 1 1857.5 1249.4 A 43.8 43.8 0 0 1 1787.2 1257.2 A 47.4 47.4 0 0 1 1710.7 1258.8 A 46.2 46.2 0 0 1 1636.3 1254.0 A 40.4 40.4 0 0 1 1572.1 1243.4 A 30.7 30.7 0 0 1 1524.9 1228.1 A 19.2 19.2 0 0 1 1500.0 1209.7 A 12.0 12.0 0 0 1 1500.0 1190.3 A 19.2 19.2 0 0 1 1524.9 1171.9 A 30.7 30.7 0 0 1 1572.1 1156.6 A 40.4 40.4 0 0 1 1636.3 1146.0 A 46.2 46.2 0 0 1 1710.7 1141.2 A 47.4 47.4 0 0 1 1787.2 1142.8 A 43.8 43.8 0 0 1 1857.5 1150.6 A 35.9 35.9 0 0 1 1914.0 1163.8 A 25.0 25.0 0 0 1 1950.5 1180.8 A 14.2 14.2 0 0 1 1963.2 1200.0 " fill="#fffbeb" stroke="#92400e" stroke-width="2.0" stroke-linejoin="round" stroke-dasharray="8 5"/>
+<text x="1730.0" y="1184.0" font-size="12.5" fill="#92400e" text-anchor="middle" font-weight="700">Claim: nota e reputação em cada cartão poluem a listagem,</text>
+<text x="1730.0" y="1204.0" font-size="12.5" fill="#92400e" text-anchor="middle">mas sem elas o comprador não distingue ofertas</text>
+<text x="1730.0" y="1224.0" font-size="12.5" fill="#92400e" text-anchor="middle">equivalentes do mesmo produto (Monk &amp; Howard, 1998)</text>
+<rect x="40" y="1310" width="2080" height="118" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="64.0" y="1338.0" font-size="15.0" fill="#0f172a" text-anchor="start" font-weight="700">Legenda da notação (Chung, Nixon, Yu &amp; Mylopoulos, 2000)</text>
+<path d="M 199.0 1384.0 A 9.7 9.7 0 0 1 189.6 1396.4 A 16.4 16.4 0 0 1 164.5 1404.9 A 20.4 20.4 0 0 1 131.6 1406.8 A 19.0 19.0 0 0 1 101.4 1401.4 A 13.0 13.0 0 0 1 83.4 1390.5 A 8.0 8.0 0 0 1 83.4 1377.5 A 13.0 13.0 0 0 1 101.4 1366.6 A 19.0 19.0 0 0 1 131.6 1361.2 A 20.4 20.4 0 0 1 164.5 1363.1 A 16.4 16.4 0 0 1 189.6 1371.6 A 9.7 9.7 0 0 1 199.0 1384.0 " fill="#f8fafc" stroke="#334155" stroke-width="2.0" stroke-linejoin="round"/>
+<text x="140.0" y="1388.0" font-size="11.5" fill="#334155" text-anchor="middle">softgoal NFR</text>
+<path d="M 390.0 1384.0 A 10.7 10.7 0 0 1 378.1 1396.4 A 20.5 20.5 0 0 1 346.2 1404.9 A 26.0 26.0 0 0 1 304.3 1406.8 A 24.1 24.1 0 0 1 265.9 1401.4 A 15.7 15.7 0 0 1 243.0 1390.5 A 8.0 8.0 0 0 1 243.0 1377.5 A 15.7 15.7 0 0 1 265.9 1366.6 A 24.1 24.1 0 0 1 304.3 1361.2 A 26.0 26.0 0 0 1 346.2 1363.1 A 20.5 20.5 0 0 1 378.1 1371.6 A 10.7 10.7 0 0 1 390.0 1384.0 " fill="#eef2ff" stroke="#1e293b" stroke-width="4.5" stroke-linejoin="round"/>
+<text x="315.0" y="1388.0" font-size="11.5" fill="#1e293b" text-anchor="middle">operacionalização</text>
+<path d="M 564.0 1384.0 A 9.7 9.7 0 0 1 554.6 1396.4 A 16.4 16.4 0 0 1 529.5 1404.9 A 20.4 20.4 0 0 1 496.6 1406.8 A 19.0 19.0 0 0 1 466.4 1401.4 A 13.0 13.0 0 0 1 448.4 1390.5 A 8.0 8.0 0 0 1 448.4 1377.5 A 13.0 13.0 0 0 1 466.4 1366.6 A 19.0 19.0 0 0 1 496.6 1361.2 A 20.4 20.4 0 0 1 529.5 1363.1 A 16.4 16.4 0 0 1 554.6 1371.6 A 9.7 9.7 0 0 1 564.0 1384.0 " fill="#fffbeb" stroke="#92400e" stroke-width="2.0" stroke-linejoin="round" stroke-dasharray="8 5"/>
+<text x="505.0" y="1388.0" font-size="11.5" fill="#92400e" text-anchor="middle">claim</text>
+<path d="M 600 1376 Q 635 1394 670 1376" fill="none" stroke="#334155" stroke-width="2"/>
+<line x1="600.0" y1="1398.0" x2="609.1" y2="1376.0" stroke="#334155" stroke-width="2.0"/>
+<polygon points="614.0,1364.0 603.9,1373.9 614.2,1378.2" fill="#334155"/>
+<line x1="670.0" y1="1398.0" x2="660.9" y2="1376.0" stroke="#334155" stroke-width="2.0"/>
+<polygon points="656.0,1364.0 655.8,1378.2 666.1,1373.9" fill="#334155"/>
+<text x="635.0" y="1418.0" font-size="11.5" fill="#475569" text-anchor="middle">decomposição AND</text>
+<rect x="740.0" y="1362.0" width="34" height="22" rx="6" fill="#ffffff" stroke="#15803d" stroke-width="1.4"/>
+<text x="757.0" y="1378.0" font-size="14.5" fill="#15803d" text-anchor="middle" font-weight="700">++</text>
+<text x="757.0" y="1400.0" font-size="11.5" fill="#475569" text-anchor="middle">MAKE</text>
+<rect x="872.0" y="1362.0" width="34" height="22" rx="6" fill="#ffffff" stroke="#15803d" stroke-width="1.4"/>
+<text x="889.0" y="1378.0" font-size="14.5" fill="#15803d" text-anchor="middle" font-weight="700">+</text>
+<text x="889.0" y="1400.0" font-size="11.5" fill="#475569" text-anchor="middle">HELP</text>
+<rect x="1004.0" y="1362.0" width="34" height="22" rx="6" fill="#ffffff" stroke="#b91c1c" stroke-width="1.4"/>
+<text x="1021.0" y="1378.0" font-size="14.5" fill="#b91c1c" text-anchor="middle" font-weight="700">-</text>
+<text x="1021.0" y="1400.0" font-size="11.5" fill="#475569" text-anchor="middle">HURT</text>
+<rect x="1136.0" y="1362.0" width="34" height="22" rx="6" fill="#ffffff" stroke="#b91c1c" stroke-width="1.4"/>
+<text x="1153.0" y="1378.0" font-size="14.5" fill="#b91c1c" text-anchor="middle" font-weight="700">--</text>
+<text x="1153.0" y="1400.0" font-size="11.5" fill="#475569" text-anchor="middle">BREAK</text>
+<circle cx="1288.0" cy="1374.0" r="13" fill="#ffffff" stroke="#15803d" stroke-width="1.8"/>
+<text x="1288.0" y="1379.0" font-size="13.0" fill="#15803d" text-anchor="middle" font-weight="700">✓</text>
+<text x="1288.0" y="1400.0" font-size="11.5" fill="#475569" text-anchor="middle">satisfeito</text>
+<circle cx="1406.0" cy="1374.0" r="13" fill="#ffffff" stroke="#15803d" stroke-width="1.8"/>
+<text x="1406.0" y="1379.0" font-size="13.0" fill="#15803d" text-anchor="middle" font-weight="700">W⁺</text>
+<text x="1406.0" y="1400.0" font-size="11.5" fill="#475569" text-anchor="middle">fraco +</text>
+<circle cx="1524.0" cy="1374.0" r="13" fill="#ffffff" stroke="#b91c1c" stroke-width="1.8"/>
+<text x="1524.0" y="1379.0" font-size="13.0" fill="#b91c1c" text-anchor="middle" font-weight="700">W⁻</text>
+<text x="1524.0" y="1400.0" font-size="11.5" fill="#475569" text-anchor="middle">fraco −</text>
+<circle cx="1642.0" cy="1374.0" r="13" fill="#ffffff" stroke="#b91c1c" stroke-width="1.8"/>
+<text x="1642.0" y="1379.0" font-size="13.0" fill="#b91c1c" text-anchor="middle" font-weight="700">✗</text>
+<text x="1642.0" y="1400.0" font-size="11.5" fill="#475569" text-anchor="middle">negado</text>
+<text x="1790.0" y="1380.0" font-size="17.0" fill="#dc2626" text-anchor="middle" font-weight="700">!!</text>
+<text x="1790.0" y="1400.0" font-size="11.5" fill="#475569" text-anchor="middle">crítico</text>
+</svg>
