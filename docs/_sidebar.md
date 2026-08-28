@@ -12,6 +12,7 @@
   - SubEquipe 02
   - SubEquipe 03
     - [Reunião 24/08](/Atas/Subequipe3/Ata24_08.md)
+    - [Reunião 27/08](/Atas/Subequipe3/Ata27_08.md)
 
 - **Base**
   - [1. Desenho de Software (Base)](/Base/1.Base.md)
