@@ -37,6 +37,7 @@
       - [IA Generativa](/Base/Relatórios/SubEquipe02/IAGenerativa.md)
     - [1.1.3. SubEquipe_03](/Base/Relatórios/1.1.3.SubEquipe_03.md)
       - [Design Sprint](/Base/Relatórios/SubEquipe03/DesignSprint.md)
+      - [5W2H](/Base/Relatórios/SubEquipe03/5W2H.md)
       - [Artefato Generalista](/Base/Relatórios/SubEquipe03/ArtefatoGeneralista.md)
       - [Léxico](/Base/Relatórios/SubEquipe03/Lexico.md)
       - [Engenharia Reversa](/Base/Relatórios/SubEquipe03/EngenhariaReversa.md)
