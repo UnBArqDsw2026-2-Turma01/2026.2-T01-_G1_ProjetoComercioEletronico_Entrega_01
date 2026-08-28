@@ -8,9 +8,11 @@
   - SubEquipe 01
     - [Reunião 24/08](/Atas/Subequipe1/ata24_08.md)
     - [Reunião 26/08](/Atas/Subequipe1/ata26_08.md)
+    - [Reunião 27/08](/Atas/Subequipe1/ata27_08.md)
   - SubEquipe 02
   - SubEquipe 03
     - [Reunião 24/08](/Atas/Subequipe3/Ata24_08.md)
+    - [Reunião 27/08](/Atas/Subequipe3/Ata27_08.md)
 
 - **Base**
   - [1. Desenho de Software (Base)](/Base/1.Base.md)
@@ -35,4 +37,7 @@
       - [Modelagem BPMN](/Base/Relatórios/SubEquipe03/BPMN.md)
       - [IA Generativa](/Base/Relatórios/SubEquipe03/IAGenerativa.md)
   - [1.2. Participações - Base](/Base/1.2.ParticipacoesBase.md)
+    - [SubEquipe 01](/Base/Participacoes/ParticipacoesSubequipe01.md)
+    - [SubEquipe 02](/Base/Participacoes/ParticipacoesSubequipe02.md)
+    - [SubEquipe 03](/Base/Participacoes/ParticipacoesSubequipe03.md)
   - [1.3. Iniciativas Extras - Base](/Base/1.3.IniciativasExtras.md)
