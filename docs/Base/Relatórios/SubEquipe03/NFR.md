@@ -47,7 +47,7 @@ O foco do cadastro inicial na plataforma é a aquisição acelerada de usuários
 
 
 <p align="center">
-  <img src="../../../assets/Subequipe3/cadastro2.0Diagram.svg" alt="SIG Cadastro NFR Framework">
+  <img src="assets/Subequipe3/cadastro2.0Diagram.svg" alt="SIG Cadastro NFR Framework">
   <br>
   <em>Figura 1 — SIG do Subsistema de Cadastro.</em>
   <br>
@@ -93,12 +93,13 @@ O subsistema de Cadastro possui um equilíbrio notável. A decisão de fragmenta
 O grafo de login revela uma clara priorização da conversão e retenção (compra por impulso) sobre a segurança estrita. A arquitetura adota o modelo *Passwordless* e sessões persistentes de alto risco local.
 
 <p align="center">
-  <img src="../../../assets/Subequipe3/login2Diagram.svg" alt="SIG Login NFR Framework">
+  <img src="assets/Subequipe3/login2Diagram.svg" alt="SIG Login NFR Framework">
   <br>
   <em>Figura 1 — SIG do Subsistema de Login.</em>
   <br>
   <small>Autores: José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes.</small>
 </p>
+
 
 ### Operacionalizações e sua origem
 
@@ -155,3 +156,4 @@ Observações e inspeções empíricas realizadas diretamente na plataforma Merc
 | 1.0 | 24/08/2026 | Estruturação inicial | José Joaquim da Silva Neto | Pedro Henrique Gomes |
 | 1.1 | 27/08/2026 | Refinamento dos SIGs de Cadastro e Login (adição de trade-offs, Progressive Profiling e Autenticação Passwordless) | José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes | José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes |
 | 1.2 | 27/08/2026 |Adição de legendas da figura| José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes | José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes |
+| 1.2 | 27/08/2026 |Correção dos caminhos das figuras| Pedro Henrique Gomes | José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes |
