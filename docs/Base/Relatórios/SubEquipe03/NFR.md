@@ -97,7 +97,7 @@ O grafo de login revela uma clara priorização da conversão e retenção (comp
 | Operacionalização | Contribui para | Rótulo | Origem / Claim |
 | :--- | :--- | :--- | :--- |
 | Autenticação Passwordless via OTP | `Eficiência [Login]` | `++` | Remove a fricção e a necessidade de fluxos de "esqueci minha senha", maximizando retenção. |
-| Sessão Persistente (Long-Lived Cookie) | `Usabilidade [Sessão]` | `++` | A autenticação sobrevive ao desligamento do SO, eliminando a barreira de login em visitas futuras. |
+| Sessão Persistente (Long-Lived Cookie) | `Usabilidade [Login]` | `+` | A autenticação sobrevive ao desligamento do SO, eliminando a barreira de login em visitas futuras. |
 | Filas de Mensageria Express Lane | `Tempo de Resposta` | `++` | Isolamento de filas de mensageria garante que o SMS de login chegue com latência quase zero. |
 | Autenticação Multicanal Dinâmica | `Disponibilidade [Login]` | `++` | Oferecer SMS, E-mail e WhatsApp em paralelo evita o bloqueio da conta caso uma operadora falhe. |
 
