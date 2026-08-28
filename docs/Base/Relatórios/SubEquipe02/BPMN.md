@@ -40,4 +40,4 @@ SERRANO, Milene. **Arquitetura e Desenho de Software: AULA – Notação BPMN**.
 | Versão | Data | Descrição | Autor(es) | Revisor(es) |
 | -- | -- | -- | -- | -- |
 | 1.0 | 24/08/2026 | Estruturação inicial | José Joaquim da Silva Neto | Pedro Henrique Gomes |
-| 1.1 | 27/08/2026 | Criação da documentação e adição do fluxo de busca | Julia Oliveira Patricio |
+| 1.1 | 27/08/2026 | Criação da documentação e adição do fluxo de busca | Guilherme Davila, Julia Oliveira Patricio, Maria Clara Sena | -- |

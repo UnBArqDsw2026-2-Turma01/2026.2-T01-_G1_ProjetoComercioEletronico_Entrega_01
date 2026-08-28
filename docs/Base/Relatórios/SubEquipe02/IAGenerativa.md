@@ -49,6 +49,26 @@ A elaboração deste framework trouxe insights críticos para a equipe sobre as 
 2. **Importância dos Argumentos (Claims):** Apenas modelar diagramas conceituais não basta para provar a qualidade. A introdução de dados empíricos do DevTools atuou como o fator decisivo para provar que as metas de engenharia propostas na modelagem se sustentam em ambiente produtivo real.
 
 ---
+
+---
+
+# Uso de Inteligência Artificial Generativa: Lições Aprendidas (Maria Clara Sena)
+
+## Uso da IA Generativa
+
+Utilizei IA Generativa como apoio na **estruturação e no desenvolvimento** dos artefatos sob minha responsabilidade — o Mapa Mental do fluxo de busca (artefato generalista) e a redação das seções de Introdução e Metodologia do relatório do NFR Framework. A ferramenta ajudou a:
+
+*   **Organizar o conteúdo em ramos coerentes:** a partir dos elementos já levantados em equipe (atores, etapas do processo, requisitos de qualidade), a IA auxiliou a agrupá-los hierarquicamente e a manter a nomenclatura consistente entre o Mapa Mental, o SIG e o BPMN.
+*   **Gerar o diagrama em formato vetorial (SVG):** a estruturação visual do mapa (posicionamento dos ramos, cores por categoria, conectores) foi produzida com apoio da IA, o que agilizou a etapa de diagramação sem abrir mão da revisão manual de cada nó.
+*   **Padronizar a redação técnica:** apoio na formatação de tabelas Markdown, no histórico de versões e na coesão do texto entre os diferentes relatórios da subequipe.
+
+## Senso Crítico e Lições Aprendidas
+
+*   **Revisão do conteúdo é insubstituível:** mesmo com a estrutura pronta, cada ramo do mapa e cada afirmação do relatório precisou ser conferida contra o que foi de fato observado na engenharia reversa e discutido em equipe — a IA organiza, mas não decide o que é relevante para o domínio.
+*   **Rastreabilidade não é automática:** os elos entre o Mapa Mental, o SIG e o BPMN (por exemplo, o ramo *Qualidade (RNFs) → SIG*) precisaram ser conferidos manualmente para garantir que os nomes dos softgoals e das atividades realmente correspondessem entre os artefatos.
+*   **A IA acelera a forma, não o julgamento:** a maior contribuição foi reduzir o tempo gasto em formatação e estruturação repetitiva, deixando mais tempo para discutir com Guilherme e Julia as decisões de modelagem em si.
+
+---
 ## Histórico de Versões
 
 | Versão | Data | Descrição | Autor(es) | Revisor(es) |
@@ -56,3 +76,4 @@ A elaboração deste framework trouxe insights críticos para a equipe sobre as 
 | 1.0 | 24/08/2026 | Estruturação inicial | José Joaquim da Silva Neto | Pedro Henrique Gomes |
 | 1.1 | 27/08/2026 | Lições aprendidas sobre IA | Julia Oliveira Patricio | -- |
 | 1.2 | 27/08/2026 | Lições aprendidas sobre IA | Guilherme Davila | -- |
+| 1.3 | 27/08/2026 | Lições aprendidas sobre IA | Maria Clara Sena | -- |

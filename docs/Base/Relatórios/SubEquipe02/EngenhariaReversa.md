@@ -84,4 +84,4 @@ BRAGA, Rosana T. Vaccare. **Engenharia Reversa e Reengenharia**. SCE 186 – Eng
 
 | Versão | Data | Descrição | Autor(es) | Revisor(es) |
 |---|---|---|---|---|
-| 1.0 | 27/08/2026 | Criação da página, registro da engenharia reversa e modelagem BPMN | Julia Oliveira Patricio | -- |
+| 1.0 | 27/08/2026 | Criação da página, registro da engenharia reversa e modelagem BPMN | Guilherme Davila, Julia Oliveira Patricio, Maria Clara Sena | -- |
