@@ -142,4 +142,4 @@ Observações e inspeções empíricas realizadas diretamente na plataforma Merc
 | Versão | Data | Descrição | Autor(es) | Revisor(es) |
 | -- | -- | -- | -- | -- |
 | 1.0 | 24/08/2026 | Estruturação inicial | José Joaquim da Silva Neto | Pedro Henrique Gomes |
-| 1.1 | 27/08/2026 | Refinamento dos SIGs de Cadastro e Login (adição de trade-offs, Progressive Profiling e Autenticação Passwordless) | Pedro Henrique Gomes | José Joaquim da Silva Neto |
+| 1.1 | 27/08/2026 | Refinamento dos SIGs de Cadastro e Login (adição de trade-offs, Progressive Profiling e Autenticação Passwordless) | José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes | José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes |

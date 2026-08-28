@@ -36,6 +36,6 @@ MONK, Andrew; HOWARD, Steve. The Rich Picture: A Tool for Reasoning About Work C
 | Versão | Data | Descrição | Autor(es) | Revisor(es) |
 | -- | -- | -- | -- | -- |
 | 1.0 | 24/08/2026 | Estruturação inicial | José Joaquim da Silva Neto | Pedro Henrique Gomes |
-| 1.1 | 25/08/2026 | Adição da Rich Picture e do embasamento| José Joaquim da Silva Neto | Pedro Henrique Gomes |
-| 1.2 | 26/08/2026 | Adição de justificativas| José Joaquim da Silva Neto | João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes |
-| 1.3 | 27/08/2026 | Adição de justificativas| José Joaquim da Silva Neto | João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes |
+| 1.1 | 25/08/2026 | Adição da Rich Picture e do embasamento| José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes | José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes |
+| 1.2 | 26/08/2026 | Adição de justificativas| José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes | José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes |
+| 1.3 | 27/08/2026 | Adição de justificativas| José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes | José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes |
