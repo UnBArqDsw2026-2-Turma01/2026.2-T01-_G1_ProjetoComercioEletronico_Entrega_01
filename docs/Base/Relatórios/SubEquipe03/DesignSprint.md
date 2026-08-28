@@ -34,7 +34,7 @@ A metodologia escolhida pela subequipe 3 foi o Design Sprint, desenvolvida pela 
 
 ### Fase Entender - 24/08/26
 
-Na fase de Entender foi desenvolvido um mapa mental de brainstorming como artefato utilizado para organizar e relacionar as informações, problemas, ideias e percepções levantadas durante a fase Entender. Essa mapa mental concentra todas as ideias e entendimentos dos participantes da subequipe3. Nessa fase também foi desenvolvida a [Rich Picture](/Base/Relatórios/SubEquipe03/ArtefatoGeneralista.md) e definido o [Domínio Léxico](/Base/Relatórios/SubEquipe03/Lexico.md).
+Na fase de Entender foi desenvolvido um mapa mental de brainstorming como artefato utilizado para organizar e relacionar as informações, problemas, ideias e percepções levantadas durante a fase Entender. Essa mapa mental concentra todas as ideias e entendimentos dos participantes da subequipe3. Nessa fase também foi desenvolvida a [Rich Picture](/Base/Relatórios/SubEquipe03/ArtefatoGeneralista.md), definido o [Domínio Léxico](/Base/Relatórios/SubEquipe03/Lexico.md) e também o [5W2H](/Base/Relatórios/SubEquipe03/5W2H.md).
 
 <a id="brainstorming"></a>
 
@@ -97,3 +97,4 @@ Também nessa fase a equipe sentiu a necessidade de realizar uma nova reunião c
 | 1.2 | 28/08/2026 | Adição de legenda nas imagens | José Joaquim da Silva Neto | Pedro Henrique Gomes |
 | 1.3 | 28/08/2026 |Correção no caminho das imagens | José Joaquim da Silva Neto | Pedro Henrique Gomes |
 | 1.4 | 28/08/2026 | Adição de elos de rastreabilidade | José Joaquim da Silva Neto | Pedro Henrique Gomes |
+| 1.5 | 28/08/2026 | Adição de elo de rastreabilidade entre a metodologia e o 5W2H | José Joaquim da Silva Neto e Pedro Henrique Gomes | -- |
