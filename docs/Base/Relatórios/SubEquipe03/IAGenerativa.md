@@ -45,7 +45,21 @@ As decisões de modelagem, estrutura das raias, definição dos gateways, elemen
 
 ### Lições Aprendidas
 
+**O primeiro contato com o SIG e a quebra de expectativa.** Antes desta entrega, eu não conhecia o NFR Framework e os diagramas SIG (Softgoal Interdependency Graph). Minha visão inicial sobre requisitos não funcionais era de que eles formavam apenas uma lista de desejos teóricos ("o sistema deve ser rápido e seguro"). Aprender a notação do SIG me ensinou que um requisito não funcional se modela a partir de *trade-offs*: toda decisão técnica melhora algo ao custo de piorar outra coisa. 
+
+**O NFR Framework só tem valor se for empírico.** A chave para o meu trabalho virou quando passei a basear o grafo em telemetria real e atributos de código através da engenharia reversa de caixa-preta. Provar que a validação de segurança ocorre na interface de forma síncrona (evento `input` e não `focus_out`) ou identificar o uso de *Long-Lived Cookies* transformou o artefato. Ele deixou de ser uma abstração genérica para se tornar um mapa de decisões arquiteturais rigorosamente documentadas. 
+
+**A conversão governa a segurança.** Ler os fluxos na prática me forçou a modelar conflitos reais no SIG. Ficou claro que a plataforma aceita deliberadamente uma dívida de segurança (adotando autenticação *Passwordless* e sacrificando a confidencialidade contra ataques locais ou *SIM Swap*) para reduzir a fricção e reter o usuário. A segurança rígida não deixou de existir, ela apenas foi empurrada para o momento de ações financeiras. Aprender a expressar essa "dívida assumida" através das setas de contribuição negativa (Hurt/Break) foi o maior aprendizado da modelagem.
+
 ### Uso da IA Generativa (senso crítico)
+
+Utilizei a IA Generativa de forma intensiva, mas com uma separação estrita de responsabilidades: **eu fornecia o dado empírico e as regras de negócio, a IA atuava como tutora da notação e assistente de formatação.**
+
+**Onde a IA foi indispensável (Tutoria e Estrutura):** Onde a IA foi indispensável (Tutoria e Estrutura): Como eu não conhecia o SIG antes deste trabalho, a IA funcionou como um excelente "segundo professor" para tirar dúvidas rápidas sobre as regras da notação (por exemplo, a diferença de impacto entre MAKE, HELP, HURT e BREAK). Ela foi fundamental para me ajudar a entender a lógica de decomposição dos softgoals e a regra de propagação dos rótulos até a raiz, garantindo que os trade-offs que identifiquei fossem representados de forma estruturada e coerente com a teoria do framework.
+
+**Onde a IA falhou ou foi inútil (Geração de Conhecimento):** A IA não sabe fazer engenharia reversa. Se eu pedisse para ela "fazer o SIG do login do Mercado Livre", ela me entregaria um grafo genérico de e-mail e senha. Ela não sabia que a plataforma ofusca erros de e-mail inválido, não sabia que o OTP chega isolado em uma *Express Lane*, e não sabia do padrão de *Progressive Profiling* no cadastro. Todo o mapeamento de exceções, interceptação de rede e leitura de DOM teve que ser feito manualmente por mim. A IA só conseguiu ajudar a estruturar e formatar essas regras *depois* que eu as descobri na prática e as forneci no prompt.
+
+**Conclusão sobre o método:** A IA é uma ótima assistente de formatação e uma boa ferramenta para explicar frameworks desconhecidos, mas ela é cega para a realidade tátil do software. O trabalho de investigar, abrir o *DevTools*, provocar exceções no sistema e definir o que de fato é relevante colocar no SIG continua sendo um trabalho cem por cento humano.
 
 ---
 
