@@ -11,7 +11,7 @@ A *Business Process Management Notation* (BPMN) é uma notação padronizada par
 
 ## O artefato
 
-[![BPMN Fluxo de Busca](../../../assets/Subequipe02/BPMN-Subequipe02-JuliaPatricio.jpg)](../../../assets/SubEquipe02/BPMN-Subequipe02-JuliaPatricio.jpg ":ignore")
+[![BPMN Fluxo de Busca](../../../assets/Subequipe02/BPMN-Subequipe02-JuliaPatricio.jpg)](../../../assets/Subequipe02/BPMN-Subequipe02-JuliaPatricio.jpg ":ignore")
 
 <sub>*Clique na imagem para abri-la em tamanho real.*</sub>
 
