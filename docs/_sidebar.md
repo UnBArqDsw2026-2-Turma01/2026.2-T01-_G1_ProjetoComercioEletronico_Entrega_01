@@ -16,8 +16,8 @@
     - [Ata de reunião 24/08 - Presencial](/Atas/Subequipe3/Atra24_08_presencial.md)
     - [Ata de reunião 24/08](/Atas/Subequipe3/Ata24_08.md)
     - [Ata de reunião 27/08](/Atas/Subequipe3/Ata27_08.md)
-    - [Gravação de reunião 28/08]()
-    - [Ata de reunião 28/08]()
+    - [Gravação de reunião 28/08](/Atas/Subequipe3/Gravacao28_08.md)
+    - [Ata de reunião 28/08](/Atas/Subequipe3/Ata28_08.md)
 
 
 - **Base**
