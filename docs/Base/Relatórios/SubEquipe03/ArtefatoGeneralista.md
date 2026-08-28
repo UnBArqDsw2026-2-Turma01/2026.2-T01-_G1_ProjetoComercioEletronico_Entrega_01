@@ -7,7 +7,7 @@ Conforme discutido na [reunião do dia 24/08/2026](/Atas/Subequipe3/Ata24_08.md)
 # Rich Picture
 
 <p align="center">
-  <img src="assets/Subequipe3/RichpictureSubequipe03.png" alt="Rich Picture">
+  <img src="assets/Subequipe3/RichpictureSubequipe03.jpeg" alt="Rich Picture">
   <br>
   <em>Figura 1 — Rich Picture.</em>
   <br>
@@ -47,3 +47,4 @@ MONK, Andrew; HOWARD, Steve. The Rich Picture: A Tool for Reasoning About Work C
 | 1.2 | 26/08/2026 | Adição de justificativas| José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes | José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes |
 | 1.3 | 27/08/2026 | Adição de justificativas| José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes | José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes |
 | 1.4 | 27/08/2026 | Correção dos caminhos das imagens| Pedro Henrique Gomes | José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes |
+| 1.5 | 28/08/2026 | Atualização da Rich Picture| José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes | José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes |
