@@ -11,9 +11,12 @@
     - [Reunião 27/08](/Atas/Subequipe1/ata27_08.md)
   - SubEquipe 02
   - SubEquipe 03
-    - [Reunião 24/08 - Presencial](/Atas/Subequipe3/Atra24_08_presencial.md)
-    - [Reunião 24/08](/Atas/Subequipe3/Ata24_08.md)
-    - [Reunião 27/08](/Atas/Subequipe3/Ata27_08.md)
+    - [Ata de reunião 24/08 - Presencial](/Atas/Subequipe3/Atra24_08_presencial.md)
+    - [Ata de reunião 24/08](/Atas/Subequipe3/Ata24_08.md)
+    - [Ata de reunião 27/08](/Atas/Subequipe3/Ata27_08.md)
+    - [Gravação de reunião 28/08]()
+    - [Ata de reunião 28/08]()
+
 
 - **Base**
   - [1. Desenho de Software (Base)](/Base/1.Base.md)

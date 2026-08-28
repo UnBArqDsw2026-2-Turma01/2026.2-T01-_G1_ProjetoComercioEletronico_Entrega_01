@@ -62,7 +62,7 @@ Na fase de Decidir, a subequipe definiu qual fluxo específico do Mercado Livre 
 
 | Decisões |
 |   --     |
-| -- |
+| Fluxo decidido: login e cadastro  |
 | -- |
 | -- |
 | -- |
