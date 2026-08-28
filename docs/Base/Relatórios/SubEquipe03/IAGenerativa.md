@@ -87,4 +87,5 @@ Utilizei a IA Generativa de forma intensiva, mas com uma separação estrita de 
 | Versão | Data | Descrição | Autor(es) | Revisor(es) |
 | -- | -- | -- | -- | -- |
 | 1.0 | 24/08/2026 | Estruturação inicial | José Joaquim da Silva Neto | Pedro Henrique Gomes |
-| 1.1 | 27/08/2026 | Adição das visões | Júlia Santana Campos | João Paulo Barbosa Pereira Nunes |
+| 1.1 | 27/08/2026 | Adiciona ponto de vista | José Joaquim da Silva Neto | Pedro Henrique Gomes |
+| 1.2 | 27/08/2026 | Adição das visões | Júlia Santana Campos | João Paulo Barbosa Pereira Nunes |
