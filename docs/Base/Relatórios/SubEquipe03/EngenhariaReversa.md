@@ -143,4 +143,4 @@ Lidos isoladamente, os SIGs mostram decisões arquiteturais isoladas e o BPMN mo
 
 | Versão | Data | Descrição | Autor(es) | Revisor(es) |
 | :--- | :--- | :--- | :--- | :--- |
-| 1.0 | 27/08/2026 | Estruturação inicial do documento de Engenharia Reversa e integração da modelagem BPMN | Pedro Henrique Gomes, [Nome do Colega 2] | José Joaquim da Silva Neto |
+| 1.0 | 27/08/2026 | Estruturação inicial do documento de Engenharia Reversa e integração da modelagem BPMN | Pedro Henrique Gomes| José Joaquim da Silva Neto |
