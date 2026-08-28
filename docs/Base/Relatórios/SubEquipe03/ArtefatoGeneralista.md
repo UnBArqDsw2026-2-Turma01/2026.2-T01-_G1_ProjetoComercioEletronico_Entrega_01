@@ -9,13 +9,13 @@ Conforme discutido na [reunião do dia 24/08/2026](/Atas/Subequipe3/Ata24_08.md)
 <p align="center">
   <img src="assets/Subequipe3/RichpictureSubequipe03.png" alt="Rich Picture">
   <br>
-  <em>Figura 1 — Rich Picture</em>
+  <em>Figura 1 — Rich Picture.</em>
   <br>
-  <small>Autor: José Joaquim da Silva Neto.</small>
+  <small>Autores: José Joaquim da Silva Neto, João Paulo Nunes, Júlia Santana Campos e Pedro Henrique Gomes.</small>
 </p>
 
-
 > *Figura 1 — Rich Picture do processo de compra, pagamento e devolução no Mercado Livre. Atores: Usuário, Vendedor, Instituição Financeira, transportadoras e o Mediador (Aplicação), representado pela balança. Setas verdes indicam o fluxo de compra e pagamento; setas vermelhas indicam o fluxo de devolução, acionado quando "o produto chega errado/estragado". O ícone de polegares para baixo simboliza a insatisfação do cliente nesse processo.*
+
 
 ---
 
