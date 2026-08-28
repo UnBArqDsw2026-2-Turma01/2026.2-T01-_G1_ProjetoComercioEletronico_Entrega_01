@@ -1,14 +1,7 @@
 # Modelagem BPMN
 
 
-<iframe
-  width="100%"
-  height="600"
-  src="https://miro.com/welcomeonboard/MkRtVElRSE5UM2wxNk10NFk5MVV3TDlqbGp0Mno1ZE9UMGNGUzR6bVk2WkU4TlZOZDREWkl6bGtmb0VGNnh0YTFMWkgwSzI1SDRHRENUZWVTOEJhNXEvR1BFYTNIOUJWejBpUFFnbjdIaHd6cmRmVFl3dVhoVnRUdHJqQWxRMnNnbHpza3F6REdEcmNpNEFOMmJXWXBBPT0hdjE=?share_link_id=683326639749"
-  frameborder="0"
-  scrolling="no"
-  allowfullscreen>
-</iframe>
+<iframe width="768" height="432" src="https://miro.com/app/live-embed/uXjVHt6Risc=/?embedMode=view_only_without_ui&moveToViewport=-289,3,3343,1827&embedId=712880337848" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
 
 
 ## 1. Objetivo do Documento
