@@ -2,6 +2,7 @@
 
 > Técnica de Léxico Ampliado da Linguagem, aplicada ao domínio de comércio eletrônico do Mercado Livre. Cada símbolo é definido por uma **Noção** (denotação, sem julgamento) e um **Impacto** (conotação, consequências/ações no universo de discurso).
 
+Esse documento de Domínio Léxico do objeto de estudo Mercado Livre foi desenvolvido na fase entender da [Design Sprint](/Base/Relatórios/SubEquipe03/DesignSprint.md#fase-entender-240826), a partir do [Brainstorming](/Base/Relatórios/SubEquipe03/DesignSprint.md#brainstorming), desenvolvido para juntar ideias.
 ## Sumário
 
 - [Atores](#atores)
@@ -155,4 +156,5 @@
 
 | Versão | Data | Descrição | Autor(es) | Revisor(es) |
 | -- | -- | -- | -- | -- |
-| 1.0 | 27/08/2026 | Criação da págica e adição do domínio léxico | José Joaquim da Silva Neto | João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes |
+| 1.0 | 27/08/26 | Criação da págica e adição do domínio léxico | José Joaquim da Silva Neto | João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes |
+| 1.1 | 28/08/26 | Adicionando elos de rastreabilidade | José Joaquim da Silva Neto e Pedro Henrique Gomes | -- |
