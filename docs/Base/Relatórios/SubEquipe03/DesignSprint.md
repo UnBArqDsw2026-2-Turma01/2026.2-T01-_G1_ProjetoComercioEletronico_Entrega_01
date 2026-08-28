@@ -30,6 +30,8 @@ A metodologia escolhida pela subequipe 3 foi o Design Sprint, desenvolvida pela 
 
 <a id="fase-entender-240826"></a>
 
+## Fases da metodologia e elos de rastreabilidade 
+
 ### Fase Entender - 24/08/26
 
 Na fase de Entender foi desenvolvido um mapa mental de brainstorming como artefato utilizado para organizar e relacionar as informações, problemas, ideias e percepções levantadas durante a fase Entender. Essa mapa mental concentra todas as ideias e entendimentos dos participantes da subequipe3. Nessa fase também foi desenvolvida a [Rich Picture](/Base/Relatórios/SubEquipe03/ArtefatoGeneralista.md) e definido o [Domínio Léxico](/Base/Relatórios/SubEquipe03/Lexico.md).
@@ -62,7 +64,7 @@ Na fase de Decidir, a subequipe definiu qual fluxo específico do Mercado Livre 
 
 | Decisões |
 |   --     |
-| -- |
+| Fluxo decidido: login e cadastro  |
 | -- |
 | -- |
 | -- |
@@ -74,9 +76,14 @@ Na fase de Prototipar, foram construídos os artefatos formais dos dois focos do
 
 <a id="fase-testar-270826"></a>
 
-### Fase Testar - 27/08/26
+### Fase Testar - 27/08/26 e 28/08/26
 
 Na fase de testar a equipe realizou uma reunião com foco em testar e validar todo o trabalho realizado ao longo do processo da metodologia. [reunião do dia 27/08/2026](/Atas/Subequipe3/Ata27_08.md).
+
+Também nessa fase a equipe sentiu a necessidade de realizar uma nova reunião com o intuito de validar novamente todo o trabalho realizado.
+
+[Gravação da Reunião do dia 28/08/26]()<br>[Ata da Reunião do dia 28/08/26]()
+
 
 ---
 
@@ -89,3 +96,4 @@ Na fase de testar a equipe realizou uma reunião com foco em testar e validar to
 | 1.1 | 27/08/2026 | Adição da metodologia e rastreabilidade | José Joaquim da Silva Neto | João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes |
 | 1.2 | 28/08/2026 | Adição de legenda nas imagens | José Joaquim da Silva Neto | Pedro Henrique Gomes |
 | 1.3 | 28/08/2026 |Correção no caminho das imagens | José Joaquim da Silva Neto | Pedro Henrique Gomes |
+| 1.4 | 28/08/2026 | Adição de elos de rastreabilidade | José Joaquim da Silva Neto | Pedro Henrique Gomes |
