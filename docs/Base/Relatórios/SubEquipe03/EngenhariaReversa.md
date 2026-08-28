@@ -92,27 +92,7 @@ O comportamento mapeado na engenharia reversa e detalhado no BPMN pode ser resum
 
 **Fluxo de Autenticação Multicanal (Login):**
 
-```mermaid
-stateDiagram-v2
-    direction LR
-
-    Identificacao: Inserir E-mail/Telefone
-    Metodos: Escolher Método
-    OTP: Digitar Código (SMS/WhatsApp)
-    Senha: Digitar Senha
-    RateLimit: Bloqueio Temporário (Rate Limit)
-    Logado: Sessão Ativa
-
-    [*] --> Identificacao
-    Identificacao --> Metodos: Reconhece usuário
-    Metodos --> OTP: Escolhe sem senha
-    Metodos --> Senha: Escolhe senha
-    Senha --> RateLimit: Múltiplas falhas
-    OTP --> Logado: Código correto
-    Senha --> Logado: Senha correta
-    Logado --> [*]
-
-``` 
+![alt text](image.png)
 
 ## 7. O que só aparece juntando as frentes
 
@@ -139,8 +119,85 @@ Lidos isoladamente, os SIGs mostram decisões arquiteturais isoladas e o BPMN mo
 
 ---
 
+## 10. Requisitos Funcionais (Revisitados)
+
+Esta seção consolida em requisitos funcionais (RF) as funcionalidades observadas — explícita e implicitamente — nos Recortes A, B e C. As declarações seguem a estrutura *"O sistema deve..."* / *"O [ator] deve ser capaz de..."*, com atores identificados e redação testável e independente. As incongruências do texto original que foram corrigidas estão detalhadas ao final.
+
+### 10.1 Atores
+
+| Ator | Descrição |
+| :--- | :--- |
+| **Usuário Não Autenticado** | Visitante anônimo, sem conta ou sem sessão ativa. |
+| **Cliente** | Usuário autenticado que utiliza a plataforma para comprar. |
+| **Vendedor** | Usuário autenticado habilitado a anunciar e vender. |
+| **Sistema** | Plataforma de IAM e seus serviços de verificação, sessão e antifraude. |
+
+### 10.2 Cadastro e Perfil
+
+| ID | Requisito Funcional | Ator | Base |
+| :--- | :--- | :--- | :--- |
+| RF01 | O Usuário Não Autenticado deve ser capaz de criar uma conta por meio de provedores de identidade externos (OAuth), no mínimo Google e Apple. | Usuário Não Autenticado | RN-A03 / 3.1 |
+| RF02 | O Usuário Não Autenticado deve ser capaz de criar uma conta manualmente informando um endereço de e-mail. | Usuário Não Autenticado | 3.1 |
+| RF03 | O sistema deve apresentar o formulário de cadastro manual em múltiplas etapas (wizard), solicitando em cada etapa apenas o subconjunto mínimo de dados necessário para avançar. | Sistema | 3.1 |
+| RF04 | O sistema não deve exigir CPF/CNPJ para a criação da conta básica. | Sistema | RN-A01 |
+| RF05 | O sistema deve solicitar e validar o CPF/CNPJ apenas quando o Cliente iniciar uma compra com pagamento ou quando o usuário solicitar habilitação como Vendedor (*Progressive Profiling*), bloqueando a conclusão dessas operações até o preenchimento. | Cliente / Vendedor | RN-A01 |
+| RF06 | Durante a definição da senha, o sistema deve exibir um medidor de força atualizado dinamicamente a cada caractere digitado (evento `input`), sem exigir a submissão do formulário. | Sistema | RN-A02 / 3.1 |
+| RF07 | O sistema deve validar os critérios de segurança da senha no servidor no ato da submissão, recusando o cadastro quando a política mínima não for atendida, independentemente do feedback exibido no cliente. | Sistema | RN-A02 / 5 / 9 |
+| RF08 | Para cadastros manuais por e-mail, o sistema deve verificar a titularidade do e-mail por meio de código de uso único (OTP) antes de ativar a conta. | Sistema | RN-A03 (contraposição) |
+| RF09 | Para cadastros via OAuth, o sistema deve considerar o e-mail fornecido pelo provedor como verificado e dispensar a etapa de OTP. | Sistema | RN-A03 |
+
+### 10.3 Autenticação e Login
+
+| ID | Requisito Funcional | Ator | Base |
+| :--- | :--- | :--- | :--- |
+| RF10 | O sistema deve oferecer um campo único de identificação inicial que aceite e-mail, número de telefone ou nome de usuário. | Usuário Não Autenticado | 4.1 |
+| RF11 | Após a identificação, o sistema deve apresentar dinamicamente apenas os métodos de verificação habilitados para a conta, dentre: OTP por SMS, OTP por WhatsApp, OTP/link por e-mail e senha. | Sistema | 4.1 / 6 |
+| RF12 | O Usuário Não Autenticado deve ser capaz de concluir o login exclusivamente por OTP (*passwordless*), sem que o sistema exija o cadastro ou a redefinição de senha posteriormente. | Usuário Não Autenticado | RN-B01 |
+| RF13 | O sistema deve permitir, alternativamente, a autenticação por senha para contas que possuam senha definida. | Usuário Não Autenticado | 4.1 |
+| RF14 | Quando a tentativa for classificada como suspeita pelo motor de risco, o sistema deve exigir um segundo fator de autenticação (2FA) adicional ao método primário antes de conceder acesso. | Sistema | 5.2 / 7 / 9 |
+| RF15 | O Usuário Não Autenticado deve ser capaz de solicitar o reenvio do código OTP e de alternar o canal de entrega durante o fluxo de verificação. | Usuário Não Autenticado | 5.2 / 6 |
+
+### 10.4 Recuperação de Acesso
+
+| ID | Requisito Funcional | Ator | Base |
+| :--- | :--- | :--- | :--- |
+| RF16 | O sistema deve disponibilizar um fluxo de recuperação de acesso que permita ao usuário reautenticar-se por canal alternativo previamente verificado (e-mail ou telefone) quando não conseguir usar seu método habitual. | Usuário Não Autenticado | 5.2 |
+| RF17 | O sistema deve permitir a redefinição de senha somente após a conclusão da verificação de identidade por OTP. | Usuário Não Autenticado | 5.2 |
+
+### 10.5 Gestão de Sessão
+
+| ID | Requisito Funcional | Ator | Base |
+| :--- | :--- | :--- | :--- |
+| RF18 | Após a autenticação bem-sucedida, o sistema deve estabelecer uma sessão persistente de longa duração (*long-lived cookie*), dispensando a reautenticação em retornos futuros. | Sistema | RN-B03 |
+| RF19 | O Cliente deve ser capaz de encerrar a sessão ativa (*logout*) manualmente. | Cliente | RN-B03 (lacuna) |
+| RF20 | O sistema deve exigir reautenticação (*step-up*) para operações sensíveis mesmo com sessão ativa, notadamente na conclusão do checkout e na alteração de dados de segurança da conta. | Sistema | 7 |
+
+### 10.6 Segurança e Antifraude
+
+| ID | Requisito Funcional | Ator | Base |
+| :--- | :--- | :--- | :--- |
+| RF21 | O sistema deve limitar o número de tentativas consecutivas de autenticação por identificador e por origem (*rate limiting*) dentro de uma janela de tempo definida. | Sistema | RN-B02 / 4.1 / 8 |
+| RF22 | Ao exceder o limite de tentativas, o sistema deve bloquear temporariamente novas tentativas e/ou exigir a resolução de um desafio CAPTCHA antes de permitir o prosseguimento. | Sistema | 4.1 / 8 |
+| RF23 | O sistema deve retornar mensagens de erro genéricas nas falhas de cadastro e de autenticação, sem revelar se um identificador está ou não cadastrado (prevenção de enumeração de usuários). | Sistema | RN-B02 |
+| RF24 | O sistema deve submeter as tentativas de cadastro e de login a um motor de risco/antifraude (incluindo reCAPTCHA invisível), que pode acionar verificação adicional ou bloqueio. | Sistema | 9 |
+
+### 10.7 Incongruências corrigidas em relação ao texto original
+
+1. **Validação de senha só no cliente (RN-A02).** O texto sugeria que a validação de segurança da senha ocorria exclusivamente no *client-side* a cada caractere, o que constitui falha de segurança e contradiz a atividade "Validar no Servidor" citada nas seções 5 e 9. A funcionalidade foi desdobrada em **RF06** (feedback dinâmico no cliente) e **RF07** (validação autoritativa no servidor).
+2. **OAuth restrito ao Google (RN-A03).** A regra citava apenas "Google", mas o inventário da seção 3.1 lista "Google/Apple" e o termo genérico OAuth. Generalizado em **RF01** e **RF09**.
+3. **Terminologia de OTP inconsistente.** RN-B01 menciona apenas SMS/WhatsApp; a seção 4.1 e o título da seção 6 ("Multicanal") incluem o e-mail; RN-A03 usa "OTP" para e-mail, canal em que normalmente se usa link. Padronizado como "OTP/link por e-mail" e canais explicitados em **RF11**.
+4. **2FA sem regra correspondente.** A autenticação em duas etapas aparece nos Recortes C (seção 5.2) e na seção 7, mas nenhuma regra de negócio do Recorte B a descreve. Lacuna preenchida por **RF14**, modelada como verificação condicional baseada em risco — coerente com a estratégia "a conversão governa o design".
+5. **Recuperação de acesso sem regra nem tela.** Citada na seção 5.2 como fluxo modelado no BPMN, mas ausente do inventário e das regras. Lacuna preenchida por **RF16** e **RF17**.
+6. **Sessão persistente sem encerramento (RN-B03).** O texto descreve o *long-lived cookie*, mas não menciona *logout* nem reautenticação para ações sensíveis. Adicionados **RF19** (encerramento manual) e **RF20** (*step-up* no checkout, apoiado na seção 7).
+7. **Progressive Profiling com ator ambíguo (RN-A01).** "Momento de venda ou compra financeira" não distinguia o comprador do vendedor. Explicitado em **RF05** (Cliente em compra com pagamento vs. habilitação como Vendedor).
+8. **Rate limiting, bloqueio e ofuscação de erro tratados como efeito único.** A seção 4.1 descrevia "mensagem genérica de erro *ou* CAPTCHA" como um comportamento só. Separados em três requisitos testáveis de forma independente: **RF21** (limite de tentativas), **RF22** (resposta ao bloqueio) e **RF23** (ofuscação/anti-enumeração).
+
+---
+
 ## Histórico de Versões
 
 | Versão | Data | Descrição | Autor(es) | Revisor(es) |
 | :--- | :--- | :--- | :--- | :--- |
 | 1.0 | 27/08/2026 | Estruturação inicial do documento de Engenharia Reversa e integração da modelagem BPMN | Pedro Henrique Gomes| José Joaquim da Silva Neto |
+| 1.1 | 28/08/2026 | Atualização do documento de Engenharia Reversa e integração da modelagem BPMN | Júlia Santana Campos, João Paulo Barbosa Pereira Nunes e Pedro Henrique Gomes| José Joaquim da Silva Neto |
+| 1.2 | 28/08/2026 | Extração e padronização dos Requisitos Funcionais (seção 10) a partir da engenharia reversa, com correção de incongruências do texto original | Júlia Santana Campos | José Joaquim da Silva Neto |
