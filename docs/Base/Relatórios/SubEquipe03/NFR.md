@@ -1,8 +1,5 @@
 # NFR Framework
 
-# NFR Framework - Subsistemas de Identidade (Mercado Livre)
-
-
 ---
 
 ## O que é o artefato
