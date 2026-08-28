@@ -2,17 +2,25 @@
 
 ## Ponto de Vista - João Paulo Barbosa Pereira Nunes
 
-### Uso da IA Generativa (senso crítico)
+### Lições Aprendidas
 
-Durante a elaboração do diagrama BPMN, a inteligência artificial generativa (Claude) foi utilizada como ferramenta de apoio técnico e visual, atuando em três frentes principais, com uma separação rigorosa entre a tomada de decisão humana e a assistência automatizada.
+**Raia não é camada de UI, é responsabilidade real.** A primeira versão do nosso BPMN tinha uma raia chamada "Interface", e por um bom tempo isso pareceu correto, afinal, alguém precisa "mostrar a tela" pro usuário. O ponto de virada foi entender que uma raia representa um ator que toma decisão ou executa regra de negócio, e interface não decide nada, ela só media a interação. Depois de remover essa raia, ficou muito mais claro que Autenticação, Segurança e Cadastro são responsabilidades de fato distintas (uma valida credencial, outra bloqueia conta e mexe com token, outra cuida do ciclo de vida da conta), e que juntar tudo embaixo de um rótulo genérico de "sistema" ou "interface" só escondia essa separação.
 
-**Diagnóstico técnico e correção de desvios:** Na etapa inicial, a IA foi empregada para inspecionar o diagrama. Ela foi capaz de identificar que a versão preliminar reaproveitava erroneamente um template genérico de processo de compra (*Order Fulfillment*), desconexo do escopo real de Login e Cadastro. A ferramenta também apontou falhas na notação, como gateways mal posicionados e ausência de conteúdo nas raias planejadas, alertando para inconsistências estruturais.
+**Abstração errada é tão problema quanto conteúdo errado.** Corrigir o conteúdo do diagrama (trocar o template genérico pelo fluxo real de login e cadastro) não foi suficiente sozinho. As atividades continuavam descrevendo telas ("exibe tela de login") em vez de regra de negócio. Só quando reescrevi as atividades num nível mais técnico (consulta ao banco, comparação de hash, geração de token com TTL) o diagrama passou a ser útil como especificação, e não só como ilustração do que o usuário vê na tela.
 
-**Apoio na estruturação da engenharia reversa:** Como não há documentação pública do fluxo interno de autenticação do Mercado Livre, o mapeamento do comportamento da plataforma (verificação de e-mail e celular, 2FA, bloqueio por tentativas excedidas e recuperação de senha) exigiu um trabalho estritamente humano de engenharia reversa e observação prática. A IA não gerou as regras de negócio, mas atuou como um suporte fundamental para traduzir a lógica empírica que levantei em um encadeamento BPMN coerente e completo.
+**Diagrama também acumula dívida técnica.** Trabalhando direto no Miro via API, percebi que ficar remendando um board (mover uma caixa aqui, reconectar uma linha ali) tem um limite. Depois de algumas rodadas de ajuste incremental, o board ficou instável e algumas operações de edição simplesmente pararam de funcionar direito. A saída mais confiável, mesmo sendo mais trabalhosa, foi apagar tudo e recriar do zero já com o layout corrigido de uma vez. É basicamente o mesmo princípio de dívida técnica em código, só que aplicado a artefato visual: às vezes remendar sai mais caro do que refazer.
 
-**Refinamento visual e aplicação de notação:** Na construção final, a ferramenta auxiliou na aplicação estrita da notação BPMN oficial (pools, raias, gateways exclusivos identificados com "X", eventos de início e fim). Após uma primeira versão apresentar poluição visual, a IA ajudou a reorganizar o layout, reduzindo o cruzamento de conectores e alinhando as etapas em colunas com pontos de interface adicionais para melhorar a legibilidade.
+**Rastreabilidade não é burocracia, é o que evita retrabalho de revisão.** Ligar cada decisão do BPMN (por que esse TTL, por que esse gateway) à observação de engenharia reversa que a originou, e essa observação a uma reunião ou metodologia específica, obrigou a gente a documentar o "porquê" na hora, em vez de tentar reconstruir a justificativa depois, numa banca ou revisão, só de memória.
 
-**Conclusão sobre a responsabilidade do autor:** Todo o processo de decisão sobre o que o diagrama deveria conter, quais regras de negócio modelar e como as etapas se conectam na realidade, partiu exclusivamente da minha análise e validação em parceria com a Júlia. A IA funcionou estritamente como um assistente de estruturação, diagnóstico técnico e diagramação visual, sem interferir na autoria da lógica do processo.
+**Fluxo de Git também é modelagem de processo, só que do próprio trabalho.** Entender a diferença entre atualizar minha branch local com o que já está na main (git merge origin/main) e abrir um Pull Request pedindo pra minha branch ir pra main foi uma confusão real que tive nessa etapa. São dois fluxos com direção oposta, e o GitHub sugere o segundo automaticamente depois de um push, mesmo quando a intenção era só o primeiro. Vendo esse erro de perto ficou muito mais claro por que, no NRF Framework, a gente insiste tanto em explicitar sentido e direção de cada relação, ambiguidade de direção também gera retrabalho fora do modelo.
+
+## Uso da IA Generativa (senso crítico)
+
+Usei o Claude nesta etapa principalmente para diagnóstico do diagrama, reformulação estrutural (remover a raia de Interface, reduzir o nível de abstração) e construção do BPMN diretamente no Miro via API, além de apoio na estruturação dos documentos do projeto e no fluxo de Git.
+
+A ferramenta também errou de um jeito que valeu como aprendizado prático. Em um dos ajustes, ela usou o comando de criação em vez de atualização e duplicou uma leva de itens no board sem eu ter pedido isso, e precisou de confirmação minha antes de apagar a bagunça. Em outro momento, o próprio layout gerado pela IA tinha linhas de conexão passando por cima de gateways de outras raias, um problema que só ficou visível quando eu de fato olhei o board com calma e perguntei, a IA não sinalizou isso sozinha. Ou seja, mesmo o conteúdo gerado pela IA precisou da minha checagem visual e funcional antes de ser aceito como versão final, o que reforça que revisão crítica não é só sobre o texto ou a regra de negócio, é também sobre o artefato visual em si.
+
+As decisões sobre quais TTLs, limites de tentativa e regras de negócio o diagrama deveria representar vieram da nossa engenharia reversa da plataforma real, não de suposição da IA, e continuam marcadas como hipóteses a validar com os stakeholders, não como especificação fechada.
 
 ---
 ## Ponto de Vista - José Joaquim da Silva Neto
@@ -89,3 +97,4 @@ Utilizei a IA Generativa de forma intensiva, mas com uma separação estrita de 
 | 1.0 | 24/08/2026 | Estruturação inicial | José Joaquim da Silva Neto | Pedro Henrique Gomes |
 | 1.1 | 27/08/2026 | Adiciona ponto de vista | José Joaquim da Silva Neto | Pedro Henrique Gomes |
 | 1.2 | 27/08/2026 | Adição das visões | Júlia Santana Campos | João Paulo Barbosa Pereira Nunes |
+| 1.3 | 28/08/2026 | Atualização do ponto de vista | João Paulo Barbosa Pereira Nunes | Julia Santana Campos | 
