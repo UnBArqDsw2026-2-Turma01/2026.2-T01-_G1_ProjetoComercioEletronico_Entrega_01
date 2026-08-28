@@ -4,8 +4,8 @@ Este documento é a entrega conjunta da subequipe responsável pelos **Subsistem
 
 | Frente | Escopo | Foco do Levantamento |
 | -- | -- | -- |
-| **A** | Cadastro de Usuário | Aquisição, Progressive Profiling e Validação |
-| **B** | Login e Gestão de Sessão | Autenticação Passwordless, 2FA e Retenção |
+| **A** | Cadastro de Usuário | Aquisição, Progressive Profiling e Verificação de E-mail |
+| **B** | Login e Gestão de Sessão | Autenticação por Credenciais, 2FA opcional e Retenção |
 | **C** | Modelagem BPMN | Estruturação lógica e notação de processos |
 
 Os recortes se encadeiam diretamente: as regras de negócio e os trade-offs de usabilidade levantados em A e B formam a base empírica estruturada no processo C.
@@ -23,9 +23,9 @@ O levantamento combinou **recuperação de projeto** (*design recovery*) em nív
 | # | Etapa | O que foi feito |
 | -- | -- | -- |
 | 1 | Delimitação | Separação dos domínios em Cadastro (aquisição) e Login (recorrência). |
-| 2 | Percurso exploratório | Execução dos fluxos do início ao fim para mapear os caminhos felizes e alternativos (ex: Login via Google vs. E-mail). |
+| 2 | Percurso exploratório | Execução dos fluxos do início ao fim para mapear os caminhos felizes e alternativos (ex: login com senha vs. recuperação de acesso; cadastro nativo vs. conta já existente). |
 | 3 | Inspeção de Rede/DOM | Análise do momento exato de envio de dados (ex: eventos `input` vs `focus_out`) e verificação de cookies. |
-| 4 | Provocação de exceções | Inserção de senhas fracas, tentativas sucessivas de login para forçar rate limiting e testes de e-mails inválidos. |
+| 4 | Provocação de exceções | Inserção de senhas fracas, tentativas sucessivas de login para forçar o bloqueio de conta e testes de e-mails inválidos. |
 | 5 | Modelagem Assistida | Estruturação das regras observadas em diagramas BPMN com apoio de IA para diagnóstico estrutural e refinamento visual. |
 
 ---
@@ -38,39 +38,45 @@ Este recorte analisa o momento em que o usuário anônimo entra na base da plata
 
 | Estado | Elementos observados |
 | -- | -- |
-| **Seleção de Método** | Botões proeminentes para "Criar conta com Google/Apple" (OAuth); botão secundário para cadastro manual por e-mail. |
-| **Formulário de Cadastro** | Campos divididos em múltiplas etapas (Wizard); ausência do campo de CPF/CNPJ no fluxo inicial. |
+| **Formulário de Cadastro** | Cadastro nativo por formulário (nome, e-mail/celular, senha); campos divididos em múltiplas etapas (Wizard); ausência do campo de CPF/CNPJ no fluxo inicial. |
 | **Validação de Senha** | Medidor de força de senha que atualiza dinamicamente a cada tecla digitada (evento `input`); sem necessidade de clicar em "avançar" para obter feedback. |
+| **Verificação de E-mail** | Após o envio do formulário, a conta permanece em estado *pendente* até a confirmação de um código de verificação enviado por e-mail ou SMS. |
+
+> *Nota de escopo: apesar de o login social (Google/Apple) ter sido idealizado nas discussões iniciais da equipe, ele **não foi contemplado na modelagem técnica do BPMN v3** e, portanto, não gera requisitos nesta entrega.*
 
 ### 3.2 Regras de negócio derivadas
 
 | ID | Regra | Base |
 | -- | -- | -- |
-| RN-A01 | **Progressive Profiling:** O CPF não é exigido na criação da conta básica, sendo postergado apenas para o momento de venda ou compra financeira. | Observado |
-| RN-A02 | A validação de critérios de segurança de senha ocorre de forma síncrona no client-side a cada caractere. | DOM/Rede |
-| RN-A03 | Cadastros via OAuth (Google) assumem o e-mail como verificado, pulando a etapa de OTP. | Observado |
+| RN-A01 | **Progressive Profiling:** O CPF não é exigido na criação da conta básica, sendo postergado para o momento do checkout com pagamento ou para a habilitação como vendedor. | Observado |
+| RN-A02 | O medidor de força de senha é atualizado no *client-side* a cada caractere (feedback), mas a validação autoritativa de formato dos campos e da política de senha ocorre no servidor (gateway "Formato dos campos é válido?"). | DOM/Rede + BPMN |
+| RN-A03 | **Verificação de E-mail Obrigatória:** O cadastro nativo cria a conta com status *pendente*; a ativação depende da validação de um código de verificação com **TTL de 10 minutos**, enviado por e-mail ou SMS, com reenvio limitado a um número máximo de tentativas. | BPMN (Raia Cadastro) |
+| RN-A04 | O sistema verifica se o e-mail/telefone informado já está cadastrado antes de criar a conta (gateway "E-mail/telefone já cadastrado?"). | BPMN (Raia Cadastro) |
 
 ---
 
 ## 4. Recorte B — Login e Gestão de Sessão
 
-Este recorte analisa como usuários existentes retornam à plataforma. Destaca-se a ausência de formulários tradicionais de "senha obrigatória".
+Este recorte analisa como usuários existentes retornam à plataforma. A autenticação primária é feita por **credenciais (e-mail/usuário + senha)**, com consulta e comparação de hash no banco de dados; um segundo fator (2FA) é solicitado apenas quando a conta o tem habilitado.
 
 ### 4.1 Inventário de tela e DOM
 
 | Estado | Elementos observados |
 | -- | -- |
-| **Identificação** | Campo único inicial solicitando "E-mail, telefone ou usuário". |
-| **Despacho Multicanal** | Opções dinâmicas de verificação: SMS, WhatsApp, E-mail ou Senha. |
-| **Bloqueio (Exceção)** | Mensagem genérica de erro ou exigência de CAPTCHA após múltiplas tentativas falhas. |
+| **Identificação** | Tela de login solicitando "e-mail ou usuário" e "senha". |
+| **Segundo Fator (2FA)** | Quando a conta tem 2FA habilitado, é solicitado um código OTP de 6 dígitos, enviado por SMS ou e-mail, com opção de reenvio. |
+| **Bloqueio (Exceção)** | Após atingir o limite de tentativas falhas, a conta é marcada como bloqueada por 30 minutos e o usuário recebe uma notificação de bloqueio. |
 
 ### 4.2 Regras de negócio derivadas
 
 | ID | Regra | Base |
 | -- | -- | -- |
-| RN-B01 | **Autenticação Passwordless:** O OTP (SMS/WhatsApp) funciona como método primário de login, sem forçar a troca de senha posterior. | Observado |
-| RN-B02 | **Ofuscação de Erros:** O sistema não confirma se um e-mail não cadastrado existe ou não, mascarando a resposta para evitar enumeração. | Provocação |
-| RN-B03 | A sessão gerada é altamente persistente (Long-Lived Cookie), priorizando a usabilidade em retornos futuros em detrimento da confidencialidade local. | DOM |
+| RN-B01 | **Autenticação por Credenciais:** O login primário exige e-mail/usuário + senha; o sistema consulta a credencial no banco de dados e compara o hash da senha. Não existe login *passwordless*. | BPMN (Raia Autenticação) |
+| RN-B02 | **2FA Opt-in:** O segundo fator (OTP de 6 dígitos, **TTL de 3 minutos**) é exigido somente quando a conta possui a flag "2FA habilitada" — é uma configuração da conta (opt-in), não há motor de risco adaptativo. | BPMN (Raia Autenticação) |
+| RN-B03 | **Rate Limiting e Bloqueio:** A cada falha, o sistema incrementa um contador de tentativas mantido na sessão; ao atingir o limite configurado, marca a conta como bloqueada por **30 minutos** e envia notificação de bloqueio ao usuário. Não há CAPTCHA. | BPMN (Raia Autenticação/Segurança) |
+| RN-B04 | **Ofuscação de Erros:** O sistema retorna um erro genérico de autenticação, sem confirmar se o identificador está ou não cadastrado, evitando enumeração de usuários. | Provocação |
+| RN-B05 | **Redefinição de Senha:** O token de redefinição possui **TTL de 15 minutos** e é enviado por e-mail; a nova senha só é aceita mediante token válido e não expirado. | BPMN (Raia Segurança) |
+| RN-B06 | A sessão autenticada é materializada por um token de sessão (JWT) que dispensa a reautenticação em retornos futuros enquanto permanecer válido. | BPMN (Raia Autenticação) |
 
 ---
 
@@ -88,9 +94,29 @@ Para transpor os achados dos Recortes A e B para um formato padronizado de proce
 
 ## 6. Fluxos de Navegação (Estados Básicos)
 
-O comportamento mapeado na engenharia reversa e detalhado no BPMN pode ser resumido nos seguintes fluxos de estado macro:
+O comportamento detalhado no BPMN v3 organiza-se em uma pool do usuário e três raias do sistema (**Autenticação**, **Segurança** e **Cadastro**):
 
-**Fluxo de Autenticação Multicanal (Login):**
+**Fluxo de Login por Credenciais (Raia Autenticação):**
+
+1. O usuário informa e-mail/usuário e senha.
+2. O sistema consulta a credencial no banco e compara o hash da senha.
+   - **Hash não confere:** incrementa o contador de tentativas na sessão. Se o contador atingir o limite configurado, a conta é bloqueada por 30 minutos e o usuário é notificado; caso contrário, retorna erro genérico de autenticação.
+   - **Hash confere:** avalia se a conta tem 2FA habilitado.
+     - **Sem 2FA:** gera o token de sessão (JWT) → *Fim: sessão autenticada*.
+     - **Com 2FA:** gera um OTP de 6 dígitos (TTL de 3 minutos), enviado por SMS ou e-mail. Se o OTP for válido e estiver dentro do TTL, gera o token de sessão (JWT); se for inválido ou expirado, permite reenvio limitado a um número máximo de tentativas.
+
+**Fluxo de Cadastro (Raia Cadastro):**
+
+1. O usuário preenche o formulário nativo (nome, e-mail/celular, senha).
+2. O sistema valida o formato dos campos; se válido, verifica se o e-mail/telefone já está cadastrado.
+3. Não havendo conta prévia, gera o hash da senha e cria a conta com status *pendente*.
+4. Envia um código de verificação (TTL de 10 minutos); com código válido dentro do prazo, atualiza o status da conta para *ativa* (*Fim: cadastro concluído*); caso contrário, permite reenvio limitado.
+
+**Fluxo de Recuperação de Acesso (Raia Segurança):**
+
+1. O usuário aciona "Esqueci minha senha".
+2. O sistema gera um token de redefinição (TTL de 15 minutos) e o envia por e-mail.
+3. Ao receber a nova senha, valida se o token é válido e não expirou; se sim, gera o novo hash e atualiza a senha no banco.
 
 ![alt text](image.png)
 
@@ -98,7 +124,7 @@ O comportamento mapeado na engenharia reversa e detalhado no BPMN pode ser resum
 
 Lidos isoladamente, os SIGs mostram decisões arquiteturais isoladas e o BPMN mostra apenas os passos de um processo. Lidos em conjunto, revela-se a verdadeira estratégia do sistema:
 
-**A conversão governa o design:** O modelo de processos (BPMN) demonstra fluxos complexos de verificação em duas etapas (2FA) e bloqueios, mas a análise de interface e rede (SIG) revela que a plataforma faz de tudo para que o usuário não caia nesses fluxos a menos que seja estritamente necessário. O uso massivo de Autenticação Passwordless (ver RN-B01) e Progressive Profiling (RN-A01) comprova que o sistema absorve o risco inicial de fraude para maximizar a entrada de usuários, empurrando as complexidades processuais mapeadas no BPMN para etapas posteriores (checkout).
+**A conversão governa o design:** O modelo de processos (BPMN) prevê verificação em duas etapas (2FA) e bloqueio de conta, mas a análise de interface e rede (SIG) revela que a plataforma faz de tudo para que o usuário não caia nesses fluxos a menos que seja estritamente necessário. O 2FA opcional por conta (ver RN-B02) e o Progressive Profiling (RN-A01) comprovam que o sistema absorve o risco inicial de fraude para maximizar a entrada de usuários, empurrando as complexidades processuais para etapas posteriores (ex.: exigência de CPF no checkout).
 
 ---
 
@@ -106,22 +132,23 @@ Lidos isoladamente, os SIGs mostram decisões arquiteturais isoladas e o BPMN mo
 
 | Achado | Vai para | Papel |
 | :--- | :--- | :--- |
-| Avaliação de Rate Limiting e 2FA | BPMN | Define os gateways de decisão e laços de repetição (XOR) |
+| Contador de tentativas na sessão, bloqueio de conta e 2FA opt-in | BPMN | Define os gateways de decisão e laços de repetição (XOR) |
 | Eventos de Input e Validação Contínua | NFR Framework | Origina a operacionalização de 'Facilidade de Aprendizado' no SIG de Cadastro |
-| Sessões persistentes e Passwordless | NFR Framework | Origina as operacionalizações de eficiência e disponibilidade no SIG de Login |
+| Sessão via token (JWT) e login por credenciais | NFR Framework | Origina as operacionalizações de eficiência e disponibilidade no SIG de Login |
 
 ---
 
 ## 9. Limites do levantamento
 
-* **Motores de Risco Ocultos:** Mecanismos como reCAPTCHA invisível e análises comportamentais antifraude baseadas em IA foram inferidos pelos seus efeitos (bloqueios), pois operam no backend e não são totalmente inspecionáveis via DOM.
-* **Limitações de Caixa-Preta:** As atividades mapeadas no BPMN como "Validar no Servidor" representam caixas pretas lógicas; a arquitetura exata de microsserviços por trás dessas validações é uma aproximação baseada em padrões de mercado.
+* **Antifraude fora do escopo do modelo:** O BPMN v3 não modela CAPTCHA nem motor de risco adaptativo; o único mecanismo de contenção representado é o contador de tentativas na sessão seguido do bloqueio temporário da conta. Eventuais análises comportamentais antifraude que a plataforma real execute no backend não são inspecionáveis via DOM e não foram incorporadas ao processo.
+* **Limitações de Caixa-Preta:** As atividades mapeadas no BPMN como "Consulta credencial no banco de dados" e "Gera hash e atualiza senha no banco" representam caixas pretas lógicas; a arquitetura exata de microsserviços por trás dessas validações é uma aproximação baseada em padrões de mercado.
+* **Escopo do BPMN v3:** O modelo cobre cadastro, login por credenciais, 2FA opt-in e recuperação de acesso. Encerramento de sessão (*logout*), reautenticação para operações sensíveis (*step-up*) e login social não estão no diagrama e, por isso, não são tratados como requisitos nesta entrega.
 
 ---
 
 ## 10. Requisitos Funcionais (Revisitados)
 
-Esta seção consolida em requisitos funcionais (RF) as funcionalidades observadas — explícita e implicitamente — nos Recortes A, B e C. As declarações seguem a estrutura *"O sistema deve..."* / *"O [ator] deve ser capaz de..."*, com atores identificados e redação testável e independente. As incongruências do texto original que foram corrigidas estão detalhadas ao final.
+Esta seção consolida em requisitos funcionais (RF) as funcionalidades **efetivamente modeladas no BPMN v3**, que é a fonte de verdade da entrega. As declarações seguem a estrutura *"O sistema deve..."* / *"O [ator] deve ser capaz de..."*, com atores identificados e redação testável e independente. Os ajustes feitos para alinhar o texto ao diagrama estão descritos em 10.7.
 
 ### 10.1 Atores
 
@@ -130,67 +157,65 @@ Esta seção consolida em requisitos funcionais (RF) as funcionalidades observad
 | **Usuário Não Autenticado** | Visitante anônimo, sem conta ou sem sessão ativa. |
 | **Cliente** | Usuário autenticado que utiliza a plataforma para comprar. |
 | **Vendedor** | Usuário autenticado habilitado a anunciar e vender. |
-| **Sistema** | Plataforma de IAM e seus serviços de verificação, sessão e antifraude. |
+| **Sistema** | Plataforma de IAM e seus serviços de verificação, sessão e bloqueio. |
 
 ### 10.2 Cadastro e Perfil
 
 | ID | Requisito Funcional | Ator | Base |
 | :--- | :--- | :--- | :--- |
-| RF01 | O Usuário Não Autenticado deve ser capaz de criar uma conta por meio de provedores de identidade externos (OAuth), no mínimo Google e Apple. | Usuário Não Autenticado | RN-A03 / 3.1 |
-| RF02 | O Usuário Não Autenticado deve ser capaz de criar uma conta manualmente informando um endereço de e-mail. | Usuário Não Autenticado | 3.1 |
-| RF03 | O sistema deve apresentar o formulário de cadastro manual em múltiplas etapas (wizard), solicitando em cada etapa apenas o subconjunto mínimo de dados necessário para avançar. | Sistema | 3.1 |
-| RF04 | O sistema não deve exigir CPF/CNPJ para a criação da conta básica. | Sistema | RN-A01 |
-| RF05 | O sistema deve solicitar e validar o CPF/CNPJ apenas quando o Cliente iniciar uma compra com pagamento ou quando o usuário solicitar habilitação como Vendedor (*Progressive Profiling*), bloqueando a conclusão dessas operações até o preenchimento. | Cliente / Vendedor | RN-A01 |
-| RF06 | Durante a definição da senha, o sistema deve exibir um medidor de força atualizado dinamicamente a cada caractere digitado (evento `input`), sem exigir a submissão do formulário. | Sistema | RN-A02 / 3.1 |
-| RF07 | O sistema deve validar os critérios de segurança da senha no servidor no ato da submissão, recusando o cadastro quando a política mínima não for atendida, independentemente do feedback exibido no cliente. | Sistema | RN-A02 / 5 / 9 |
-| RF08 | Para cadastros manuais por e-mail, o sistema deve verificar a titularidade do e-mail por meio de código de uso único (OTP) antes de ativar a conta. | Sistema | RN-A03 (contraposição) |
-| RF09 | Para cadastros via OAuth, o sistema deve considerar o e-mail fornecido pelo provedor como verificado e dispensar a etapa de OTP. | Sistema | RN-A03 |
+| RF01 | O Usuário Não Autenticado deve ser capaz de criar uma conta preenchendo um formulário nativo com nome, e-mail ou celular e senha. | Usuário Não Autenticado | BPMN (Raia Cadastro) / RN-A03 |
+| RF02 | O sistema deve apresentar o formulário de cadastro em múltiplas etapas (wizard), solicitando em cada etapa apenas o subconjunto mínimo de dados necessário para avançar. | Sistema | 3.1 |
+| RF03 | O sistema não deve exigir CPF/CNPJ para a criação da conta básica. | Sistema | RN-A01 |
+| RF04 | O sistema deve solicitar e validar o CPF/CNPJ apenas quando o Cliente iniciar um checkout com pagamento ou quando o usuário solicitar habilitação como Vendedor (*Progressive Profiling*), bloqueando a conclusão dessas operações até o preenchimento. | Cliente / Vendedor | RN-A01 |
+| RF05 | Durante a definição da senha, o sistema deve exibir um medidor de força atualizado dinamicamente a cada caractere digitado (evento `input`), sem exigir a submissão do formulário. | Sistema | RN-A02 / 3.1 |
+| RF06 | Ao receber o formulário, o sistema deve validar no servidor o formato dos campos e a política de senha (gateway "Formato dos campos é válido?"), recusando o cadastro quando os critérios não forem atendidos. | Sistema | RN-A02 / BPMN |
+| RF07 | O sistema deve verificar se o e-mail ou telefone informado já está cadastrado antes de criar a conta (gateway "E-mail/telefone já cadastrado?"). | Sistema | RN-A04 / BPMN |
+| RF08 | Não havendo conta prévia, o sistema deve gerar o hash da senha e criar a conta com status *pendente*. | Sistema | RN-A03 / BPMN |
+| RF09 | O sistema deve enviar um código de verificação com **TTL de 10 minutos** por e-mail ou SMS e ativar a conta (status *ativa*) somente após a validação correta do código dentro do prazo. | Sistema | RN-A03 / BPMN |
+| RF10 | Quando o código de verificação for inválido ou estiver expirado, o sistema deve permitir o reenvio, limitado a um número máximo de tentativas. | Sistema | RN-A03 / BPMN |
 
 ### 10.3 Autenticação e Login
 
 | ID | Requisito Funcional | Ator | Base |
 | :--- | :--- | :--- | :--- |
-| RF10 | O sistema deve oferecer um campo único de identificação inicial que aceite e-mail, número de telefone ou nome de usuário. | Usuário Não Autenticado | 4.1 |
-| RF11 | Após a identificação, o sistema deve apresentar dinamicamente apenas os métodos de verificação habilitados para a conta, dentre: OTP por SMS, OTP por WhatsApp, OTP/link por e-mail e senha. | Sistema | 4.1 / 6 |
-| RF12 | O Usuário Não Autenticado deve ser capaz de concluir o login exclusivamente por OTP (*passwordless*), sem que o sistema exija o cadastro ou a redefinição de senha posteriormente. | Usuário Não Autenticado | RN-B01 |
-| RF13 | O sistema deve permitir, alternativamente, a autenticação por senha para contas que possuam senha definida. | Usuário Não Autenticado | 4.1 |
-| RF14 | Quando a tentativa for classificada como suspeita pelo motor de risco, o sistema deve exigir um segundo fator de autenticação (2FA) adicional ao método primário antes de conceder acesso. | Sistema | 5.2 / 7 / 9 |
-| RF15 | O Usuário Não Autenticado deve ser capaz de solicitar o reenvio do código OTP e de alternar o canal de entrega durante o fluxo de verificação. | Usuário Não Autenticado | 5.2 / 6 |
+| RF11 | A tela de login deve solicitar e-mail ou usuário e a respectiva senha. | Usuário Não Autenticado | RN-B01 / BPMN |
+| RF12 | O sistema deve autenticar o usuário consultando a credencial no banco de dados e comparando o hash da senha informada; quando o hash não confere, deve retornar um erro genérico de autenticação. | Sistema | RN-B01 / RN-B04 / BPMN |
+| RF13 | Quando o hash confere e a conta possui a opção de 2FA habilitada (opt-in), o sistema deve gerar um OTP de 6 dígitos com **TTL de 3 minutos**, enviado por SMS ou e-mail, e concluir o login somente após a validação do OTP dentro do prazo. Contas sem 2FA habilitado seguem direto para a emissão da sessão. | Sistema | RN-B02 / BPMN |
+| RF14 | Quando o OTP de 2FA for inválido ou estiver expirado, o sistema deve permitir o reenvio, limitado a um número máximo de tentativas, sem oferecer troca dinâmica de canal. | Usuário Não Autenticado | RN-B02 / BPMN |
+| RF15 | O sistema deve restringir o envio de códigos (verificação de cadastro e OTP de 2FA) aos canais SMS e e-mail. | Sistema | RN-A03 / RN-B02 |
 
-### 10.4 Recuperação de Acesso
-
-| ID | Requisito Funcional | Ator | Base |
-| :--- | :--- | :--- | :--- |
-| RF16 | O sistema deve disponibilizar um fluxo de recuperação de acesso que permita ao usuário reautenticar-se por canal alternativo previamente verificado (e-mail ou telefone) quando não conseguir usar seu método habitual. | Usuário Não Autenticado | 5.2 |
-| RF17 | O sistema deve permitir a redefinição de senha somente após a conclusão da verificação de identidade por OTP. | Usuário Não Autenticado | 5.2 |
-
-### 10.5 Gestão de Sessão
+### 10.4 Rate Limiting e Bloqueio de Conta
 
 | ID | Requisito Funcional | Ator | Base |
 | :--- | :--- | :--- | :--- |
-| RF18 | Após a autenticação bem-sucedida, o sistema deve estabelecer uma sessão persistente de longa duração (*long-lived cookie*), dispensando a reautenticação em retornos futuros. | Sistema | RN-B03 |
-| RF19 | O Cliente deve ser capaz de encerrar a sessão ativa (*logout*) manualmente. | Cliente | RN-B03 (lacuna) |
-| RF20 | O sistema deve exigir reautenticação (*step-up*) para operações sensíveis mesmo com sessão ativa, notadamente na conclusão do checkout e na alteração de dados de segurança da conta. | Sistema | 7 |
+| RF16 | A cada falha de autenticação, o sistema deve incrementar um contador de tentativas mantido na sessão. | Sistema | RN-B03 / BPMN |
+| RF17 | Ao atingir o limite configurado de tentativas, o sistema deve marcar a conta como bloqueada por **30 minutos** e enviar uma notificação de bloqueio ao usuário. | Sistema | RN-B03 / BPMN |
+| RF18 | O sistema deve retornar mensagens de erro genéricas nas falhas de cadastro e de autenticação, sem revelar se um identificador está ou não cadastrado (prevenção de enumeração de usuários). | Sistema | RN-B04 |
 
-### 10.6 Segurança e Antifraude
+### 10.5 Recuperação de Acesso
 
 | ID | Requisito Funcional | Ator | Base |
 | :--- | :--- | :--- | :--- |
-| RF21 | O sistema deve limitar o número de tentativas consecutivas de autenticação por identificador e por origem (*rate limiting*) dentro de uma janela de tempo definida. | Sistema | RN-B02 / 4.1 / 8 |
-| RF22 | Ao exceder o limite de tentativas, o sistema deve bloquear temporariamente novas tentativas e/ou exigir a resolução de um desafio CAPTCHA antes de permitir o prosseguimento. | Sistema | 4.1 / 8 |
-| RF23 | O sistema deve retornar mensagens de erro genéricas nas falhas de cadastro e de autenticação, sem revelar se um identificador está ou não cadastrado (prevenção de enumeração de usuários). | Sistema | RN-B02 |
-| RF24 | O sistema deve submeter as tentativas de cadastro e de login a um motor de risco/antifraude (incluindo reCAPTCHA invisível), que pode acionar verificação adicional ou bloqueio. | Sistema | 9 |
+| RF19 | O Usuário Não Autenticado deve ser capaz de acionar a redefinição de senha ("Esqueci minha senha"); o sistema deve gerar um token de redefinição com **TTL de 15 minutos** e enviá-lo por e-mail. | Usuário Não Autenticado | RN-B05 / BPMN |
+| RF20 | Ao receber a nova senha, o sistema deve validar se o token de redefinição é válido e não está expirado; sendo válido, deve gerar o novo hash e atualizar a senha no banco de dados. | Sistema | RN-B05 / BPMN |
 
-### 10.7 Incongruências corrigidas em relação ao texto original
+### 10.6 Gestão de Sessão
 
-1. **Validação de senha só no cliente (RN-A02).** O texto sugeria que a validação de segurança da senha ocorria exclusivamente no *client-side* a cada caractere, o que constitui falha de segurança e contradiz a atividade "Validar no Servidor" citada nas seções 5 e 9. A funcionalidade foi desdobrada em **RF06** (feedback dinâmico no cliente) e **RF07** (validação autoritativa no servidor).
-2. **OAuth restrito ao Google (RN-A03).** A regra citava apenas "Google", mas o inventário da seção 3.1 lista "Google/Apple" e o termo genérico OAuth. Generalizado em **RF01** e **RF09**.
-3. **Terminologia de OTP inconsistente.** RN-B01 menciona apenas SMS/WhatsApp; a seção 4.1 e o título da seção 6 ("Multicanal") incluem o e-mail; RN-A03 usa "OTP" para e-mail, canal em que normalmente se usa link. Padronizado como "OTP/link por e-mail" e canais explicitados em **RF11**.
-4. **2FA sem regra correspondente.** A autenticação em duas etapas aparece nos Recortes C (seção 5.2) e na seção 7, mas nenhuma regra de negócio do Recorte B a descreve. Lacuna preenchida por **RF14**, modelada como verificação condicional baseada em risco — coerente com a estratégia "a conversão governa o design".
-5. **Recuperação de acesso sem regra nem tela.** Citada na seção 5.2 como fluxo modelado no BPMN, mas ausente do inventário e das regras. Lacuna preenchida por **RF16** e **RF17**.
-6. **Sessão persistente sem encerramento (RN-B03).** O texto descreve o *long-lived cookie*, mas não menciona *logout* nem reautenticação para ações sensíveis. Adicionados **RF19** (encerramento manual) e **RF20** (*step-up* no checkout, apoiado na seção 7).
-7. **Progressive Profiling com ator ambíguo (RN-A01).** "Momento de venda ou compra financeira" não distinguia o comprador do vendedor. Explicitado em **RF05** (Cliente em compra com pagamento vs. habilitação como Vendedor).
-8. **Rate limiting, bloqueio e ofuscação de erro tratados como efeito único.** A seção 4.1 descrevia "mensagem genérica de erro *ou* CAPTCHA" como um comportamento só. Separados em três requisitos testáveis de forma independente: **RF21** (limite de tentativas), **RF22** (resposta ao bloqueio) e **RF23** (ofuscação/anti-enumeração).
+| ID | Requisito Funcional | Ator | Base |
+| :--- | :--- | :--- | :--- |
+| RF21 | Após a autenticação bem-sucedida (e a validação do 2FA, quando aplicável), o sistema deve emitir um token de sessão (JWT) que dispensa a reautenticação em retornos futuros enquanto permanecer válido. | Sistema | RN-B06 / BPMN |
+
+### 10.7 Ajustes de fidelidade ao BPMN v3
+
+Durante a auditoria, o texto original foi confrontado com o BPMN v3 e as extrapolações abaixo foram corrigidas:
+
+1. **Fim do "passwordless-first".** O texto descrevia o OTP como método primário de login e a senha como alternativa. O BPMN modela o oposto: identificação por e-mail/usuário **+ senha**, com "Consulta credencial no banco de dados" e comparação de hash. Reescritos RN-B01, a seção 6 e os requisitos de login (RF11–RF12).
+2. **2FA por configuração, não por risco.** O 2FA deixou de ser descrito como decisão de "motor de risco adaptativo" e passou a refletir o gateway "Conta com 2FA habilitada?" — uma opção da conta (opt-in). Ajustados RN-B02, RF13 e RF14.
+3. **Remoção do CAPTCHA.** O BPMN não possui CAPTCHA. A resposta ao excesso de tentativas foi unificada em: contador na sessão → bloqueio da conta por 30 minutos → notificação ao usuário (RN-B03, RF16, RF17). Removidos os antigos RF sobre CAPTCHA e sobre "motor de risco/reCAPTCHA invisível".
+4. **Canais restritos a SMS e e-mail.** Removidas as menções ao canal WhatsApp e à alternância dinâmica de canais ("Despacho Multicanal"). O reenvio limitado permanece como único recurso (RF10, RF14, RF15).
+5. **Remoção do OAuth / login social.** O BPMN prevê apenas cadastro nativo por formulário. Removidos os RF de criação de conta e verificação por OAuth; o assunto foi rebaixado a uma nota de escopo na seção 3.1.
+6. **Enriquecimento com dados do diagrama.** Incorporados os TTLs (OTP 3 min, código de verificação 10 min, token de redefinição 15 min), a duração do bloqueio (30 min) com notificação explícita, o status *pendente* da conta recém-criada e o contador de tentativas mantido "na sessão".
+7. **Escopo enxugado.** *Logout* manual e reautenticação (*step-up*) para operações sensíveis não estão no BPMN v3 e foram removidos da lista de requisitos, ficando registrados como limite do levantamento na seção 9.
 
 ---
 
@@ -199,5 +224,5 @@ Esta seção consolida em requisitos funcionais (RF) as funcionalidades observad
 | Versão | Data | Descrição | Autor(es) | Revisor(es) |
 | :--- | :--- | :--- | :--- | :--- |
 | 1.0 | 27/08/2026 | Estruturação inicial do documento de Engenharia Reversa e integração da modelagem BPMN | Pedro Henrique Gomes| José Joaquim da Silva Neto |
-| 1.1 | 28/08/2026 | Atualização do documento de Engenharia Reversa e integração da modelagem BPMN | Júlia Santana Campos, João Paulo Barbosa Pereira Nunes e Pedro Henrique Gomes| José Joaquim da Silva Neto |
-| 1.2 | 28/08/2026 | Extração e padronização dos Requisitos Funcionais (seção 10) a partir da engenharia reversa, com correção de incongruências do texto original | Júlia Santana Campos | José Joaquim da Silva Neto |
+| 1.1 | 28/08/2026 | Extração e padronização dos Requisitos Funcionais (seção 10) a partir da engenharia reversa, com correção de incongruências do texto original | Júlia Santana Campos, João Paulo Barbosa Pereira Nunes e Pedro Henrique Gomes| José Joaquim da Silva Neto |
+| 1.2 | 28/08/2026 | Refatoração de fidelidade ao BPMN v3: login por credenciais + 2FA opt-in, remoção de passwordless/CAPTCHA/OAuth/WhatsApp, inclusão dos TTLs e estados do diagrama e renumeração dos RF | Júlia Santana Campos | José Joaquim da Silva Neto |
