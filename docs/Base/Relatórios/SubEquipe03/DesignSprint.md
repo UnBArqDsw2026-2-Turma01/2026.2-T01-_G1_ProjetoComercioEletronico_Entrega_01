@@ -60,17 +60,23 @@ Na fase de Esboçar, a subequipe produziu um rascunho informal do fluxo do siste
 
 Na fase de Decidir, a subequipe definiu qual fluxo específico do Mercado Livre seria modelado em BPMN e qual critério de qualidade seria formalizado no SIG do NFR Framework, registrando a justificativa de cada escolha com base no que foi levantado nas fases anteriores.
 
+| Decisões |
+|   --     |
+| -- |
+| -- |
+| -- |
+| -- |
 <a id="fase-prototipar-260826"></a>
 
 ### Fase Prototipar - 26/08/26
 
-Na fase de Prototipar, foram construídos os artefatos formais dos dois focos do trabalho: a modelagem completa do sistema na notação BPMN, representando o fluxo do Mercado Livre levantado pela Engenharia Reversa, e o SIG completo na notação do NFR Framework, formalizando o critério de qualidade definido na fase de Decisão.
+Na fase de Prototipar, foram construídos os artefatos formais dos dois focos do trabalho: a [modelagem completa do sistema na notação BPMN](/Base/Relatórios/SubEquipe03/BPMN.md), representando o fluxo do Mercado Livre levantado pela Engenharia Reversa, e o [SIG completo na notação do NFR Framework](/Base/Relatórios/SubEquipe03/NFR.md).
 
 <a id="fase-testar-270826"></a>
 
 ### Fase Testar - 27/08/26
 
-Na fase de testar a equipe realizou uma reunião com foco em testar e validar todo o trabalho realizado ao longo do processo da metodologia. (COLOCAR LINK PARA A ATA).
+Na fase de testar a equipe realizou uma reunião com foco em testar e validar todo o trabalho realizado ao longo do processo da metodologia. [reunião do dia 27/08/2026](/Atas/Subequipe3/Ata27_08.md).
 
 ---
 
