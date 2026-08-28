@@ -8,9 +8,17 @@
   - SubEquipe 01
     - [Reunião 24/08](/Atas/Subequipe1/ata24_08.md)
     - [Reunião 26/08](/Atas/Subequipe1/ata26_08.md)
+    - [Reunião 27/08](/Atas/Subequipe1/ata27_08.md)
   - SubEquipe 02
+    - [Reunião 24/08](/Atas/Subequipe2/ata24_08.md)
+    - [Reunião 26/08](/Atas/Subequipe2/ata26_08.md)
   - SubEquipe 03
-    - [Reunião 24/08](/Atas/Subequipe3/Ata24_08.md)
+    - [Ata de reunião 24/08 - Presencial](/Atas/Subequipe3/Atra24_08_presencial.md)
+    - [Ata de reunião 24/08](/Atas/Subequipe3/Ata24_08.md)
+    - [Ata de reunião 27/08](/Atas/Subequipe3/Ata27_08.md)
+    - [Gravação de reunião 28/08]()
+    - [Ata de reunião 28/08]()
+
 
 - **Base**
   - [1. Desenho de Software (Base)](/Base/1.Base.md)
@@ -24,10 +32,12 @@
     - [1.1.2. SubEquipe_02](/Base/Relatórios/1.1.2.SubEquipe_02.md)
       - [Artefato Generalista](/Base/Relatórios/SubEquipe02/ArtefatoGeneralista.md)
       - [NFR Framework](/Base/Relatórios/SubEquipe02/NFR.md)
+      - [Engenharia Reversa](/Base/Relatórios/SubEquipe02/EngenhariaReversa.md)
       - [Modelagem BPMN](/Base/Relatórios/SubEquipe02/BPMN.md)
       - [IA Generativa](/Base/Relatórios/SubEquipe02/IAGenerativa.md)
     - [1.1.3. SubEquipe_03](/Base/Relatórios/1.1.3.SubEquipe_03.md)
       - [Design Sprint](/Base/Relatórios/SubEquipe03/DesignSprint.md)
+      - [5W2H](/Base/Relatórios/SubEquipe03/5W2H.md)
       - [Artefato Generalista](/Base/Relatórios/SubEquipe03/ArtefatoGeneralista.md)
       - [Léxico](/Base/Relatórios/SubEquipe03/Lexico.md)
       - [Engenharia Reversa](/Base/Relatórios/SubEquipe03/EngenhariaReversa.md)
@@ -35,4 +45,7 @@
       - [Modelagem BPMN](/Base/Relatórios/SubEquipe03/BPMN.md)
       - [IA Generativa](/Base/Relatórios/SubEquipe03/IAGenerativa.md)
   - [1.2. Participações - Base](/Base/1.2.ParticipacoesBase.md)
+    - [SubEquipe 01](/Base/Participacoes/ParticipacoesSubequipe01.md)
+    - [SubEquipe 02](/Base/Participacoes/ParticipacoesSubequipe02.md)
+    - [SubEquipe 03](/Base/Participacoes/ParticipacoesSubequipe03.md)
   - [1.3. Iniciativas Extras - Base](/Base/1.3.IniciativasExtras.md)

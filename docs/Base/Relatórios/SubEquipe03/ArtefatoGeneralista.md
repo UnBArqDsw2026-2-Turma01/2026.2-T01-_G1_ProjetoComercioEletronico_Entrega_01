@@ -6,9 +6,16 @@ Conforme discutido na [reunião do dia 24/08/2026](/Atas/Subequipe3/Ata24_08.md)
 
 # Rich Picture
 
-![Rich Picture](../../../assets/Subequipe3/RichpictureSubequipe03.png)
+<p align="center">
+  <img src="assets/Subequipe3/RichpictureSubequipe03.jpeg" alt="Rich Picture">
+  <br>
+  <em>Figura 1 — Rich Picture.</em>
+  <br>
+  <small>Autores: José Joaquim da Silva Neto, João Paulo Nunes, Júlia Santana Campos e Pedro Henrique Gomes.</small>
+</p>
 
 > *Figura 1 — Rich Picture do processo de compra, pagamento e devolução no Mercado Livre. Atores: Usuário, Vendedor, Instituição Financeira, transportadoras e o Mediador (Aplicação), representado pela balança. Setas verdes indicam o fluxo de compra e pagamento; setas vermelhas indicam o fluxo de devolução, acionado quando "o produto chega errado/estragado". O ícone de polegares para baixo simboliza a insatisfação do cliente nesse processo.*
+
 
 ---
 
@@ -36,6 +43,8 @@ MONK, Andrew; HOWARD, Steve. The Rich Picture: A Tool for Reasoning About Work C
 | Versão | Data | Descrição | Autor(es) | Revisor(es) |
 | -- | -- | -- | -- | -- |
 | 1.0 | 24/08/2026 | Estruturação inicial | José Joaquim da Silva Neto | Pedro Henrique Gomes |
-| 1.1 | 25/08/2026 | Adição da Rich Picture e do embasamento| José Joaquim da Silva Neto | Pedro Henrique Gomes |
-| 1.2 | 26/08/2026 | Adição de justificativas| José Joaquim da Silva Neto | João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes |
-| 1.3 | 27/08/2026 | Adição de justificativas| José Joaquim da Silva Neto | João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes |
+| 1.1 | 25/08/2026 | Adição da Rich Picture e do embasamento| José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes | José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes |
+| 1.2 | 26/08/2026 | Adição de justificativas| José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes | José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes |
+| 1.3 | 27/08/2026 | Adição de justificativas| José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes | José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes |
+| 1.4 | 27/08/2026 | Correção dos caminhos das imagens| Pedro Henrique Gomes | José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes |
+| 1.5 | 28/08/2026 | Atualização da Rich Picture| José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes | José Joaquim da Silva Neto, João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes |

@@ -2,6 +2,8 @@
 
 > Técnica de Léxico Ampliado da Linguagem, aplicada ao domínio de comércio eletrônico do Mercado Livre. Cada símbolo é definido por uma **Noção** (denotação, sem julgamento) e um **Impacto** (conotação, consequências/ações no universo de discurso).
 
+Este documento de Domínio Léxico do objeto de estudo Mercado Livre foi desenvolvido na fase entender da [Design Sprint](/Base/Relatórios/SubEquipe03/DesignSprint.md#fase-entender-240826), a partir do [Brainstorming](/Base/Relatórios/SubEquipe03/DesignSprint.md#brainstorming), servindo como base padronizada de vocabulário para a construção do *Rich Picture*, do *BPMN* de Login/Cadastro e dos SIGs do *NFR Framework*.
+
 ## Sumário
 
 - [Atores](#atores)
@@ -14,12 +16,12 @@
 
 ## Atores
 
-### 1. Comprador
+### 1. Comprador (Cliente / Ator)
 
 | Campo | Descrição |
 |---|---|
-| **Noção** | Usuário da plataforma que busca, seleciona e adquire produtos anunciados por um Vendedor. |
-| **Impacto** | 1. Realiza busca de Produto.<br>2. Adiciona item ao Carrinho de Compras.<br>3. Confirma Pedido e efetua Pagamento.<br>4. Pode registrar Reclamação ou solicitar Devolução após a compra. |
+| **Noção** | Usuário da plataforma que busca, seleciona e adquire produtos anunciados por um Vendedor. Atua como o ator inicial no fluxo de autenticação e navegação. |
+| **Impacto** | 1. Inicia o processo interativo disparando o fluxo de **Login** ou **Cadastro** no BPMN.<br>2. Insere dados de credenciais na Interface.<br>3. Realiza busca de Produto e adiciona item ao Carrinho de Compras (mapeado no *Rich Picture*).<br>4. Confirma Pedido e efetua Pagamento, podendo registrar Reclamação ou solicitar Devolução. |
 
 ### 2. Vendedor
 
@@ -83,7 +85,7 @@
 | Campo | Descrição |
 |---|---|
 | **Noção** | Transação financeira que efetiva a quitação do valor do Pedido, processada via Mercado Pago. |
-| **Impacto** | 1. Libera o Pedido para separação e Envio.<br>2. Pode ser estornado em caso de Chargeback ou cancelamento. |
+| **Impacto** | 1. Libera o Pedido para separação e Envio.<br>2. Pode ser estornado em caso de Chargeback ou cancelamento.<br>3. Exige reautenticação (*Step-Up Authentication*), relacionando-se com a segurança do **Login**. |
 
 ### 10. Avaliação / Reputação
 
@@ -96,28 +98,49 @@
 
 ## Serviços da Plataforma
 
-### 11. Mercado Pago
+### 11. Interface (Camada de Apresentação)
+
+| Campo | Descrição |
+|---|---|
+| **Noção** | Componente de front-end responsável por exibir telas, formulários de entrada e mensagens de erro ao Comprador, mapeado diretamente como a primeira raia do **BPMN**. |
+| **Impacto** | 1. Coleta dados de credenciais no **Login** e **Cadastro**.<br>2. Exibe feedback visual atômico (*Validação Contínua de Input*), impactando diretamente o *softgoal* de `Facilidade de Aprendizado` no **NFR Framework**. |
+
+### 12. Módulo de Autenticação e Gestão de Sessão
+
+| Campo | Descrição |
+|---|---|
+| **Noção** | Subsistema de back-end responsável por validar credenciais, controlar tentativas de acesso e gerenciar tokens de sessão, correspondendo às raias centrais do **BPMN**. |
+| **Impacto** | 1. Executa o fluxo de senhas, *Passwordless* (OTP) e validação de 2FA.<br>2. Gera trade-offs críticos de `Confidencialidade` e `Eficiência` mapeados no SIG de **Login** do **NFR Framework**. |
+
+### 13. Módulo de Segurança e Antifraude
+
+| Campo | Descrição |
+|---|---|
+| **Noção** | Subsistema isolado que monitora comportamentos anômalos, gerencia bloqueios temporários por excesso de tentativas e tokens sensíveis de recuperação. |
+| **Impacto** | 1. Aciona o evento de fim *Acesso Bloqueado* no **BPMN**.<br>2. Introduz restrições que impactam negativamente a `Usabilidade` em prol da proteção de contas no **NFR Framework**. |
+
+### 14. Mercado Pago
 
 | Campo | Descrição |
 |---|---|
 | **Noção** | Serviço de intermediação financeira da plataforma responsável pelo processamento de Pagamentos, repasses a Vendedores e gestão de estornos. |
 | **Impacto** | 1. Retém valores até confirmação de entrega em algumas modalidades.<br>2. Processa reembolsos em Devoluções. |
 
-### 12. Frete
+### 15. Frete
 
 | Campo | Descrição |
 |---|---|
 | **Noção** | Custo e condição logística de transporte do Produto do Vendedor até o Comprador. |
 | **Impacto** | 1. É calculado no momento da compra.<br>2. Pode ser gratuito conforme regras do Vendedor ou da plataforma. |
 
-### 13. Mercado Envios
+### 16. Mercado Envios
 
 | Campo | Descrição |
 |---|---|
 | **Noção** | Serviço logístico da plataforma que gerencia o transporte, rastreamento e entrega dos Pedidos. |
 | **Impacto** | 1. Gera código de rastreio para o Comprador.<br>2. Notifica alterações de status de Envio. |
 
-### 14. Mercado Livre Full
+### 17. Mercado Livre Full
 
 | Campo | Descrição |
 |---|---|
@@ -128,21 +151,21 @@
 
 ## Pós-venda e Conflitos
 
-### 15. Reclamação
+### 18. Reclamação
 
 | Campo | Descrição |
 |---|---|
 | **Noção** | Manifestação formal do Comprador relatando problema com Produto, Envio ou atendimento referente a um Pedido. |
 | **Impacto** | 1. Pode escalar para Disputa.<br>2. Aciona prazo de resposta obrigatório do Vendedor. |
 
-### 16. Disputa
+### 19. Disputa
 
 | Campo | Descrição |
 |---|---|
 | **Noção** | Processo de mediação formal aberto quando Comprador e Vendedor não resolvem uma Reclamação diretamente. |
 | **Impacto** | 1. Envolve intervenção da plataforma como mediadora.<br>2. Pode resultar em Devolução ou reembolso via Mercado Pago. |
 
-### 17. Devolução
+### 20. Devolução
 
 | Campo | Descrição |
 |---|---|
@@ -155,4 +178,6 @@
 
 | Versão | Data | Descrição | Autor(es) | Revisor(es) |
 | -- | -- | -- | -- | -- |
-| 1.0 | 27/08/2026 | Criação da págica e adição do domínio léxico | José Joaquim da Silva Neto | João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes |
+| 1.0 | 27/08/26 | Criação da página e adição do domínio léxico | José Joaquim da Silva Neto | João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes |
+| 1.1 | 28/08/26 | Adicionando elos de rastreabilidade | José Joaquim da Silva Neto e Pedro Henrique Gomes | -- |
+| 1.2 | 28/08/26 | Ajuste do léxico para integração com BPMN, NFR Framework e Rich Picture | Pedro Henrique Gomes | José Joaquim da Silva Neto|
