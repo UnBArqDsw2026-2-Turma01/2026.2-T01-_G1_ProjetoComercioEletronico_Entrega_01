@@ -61,7 +61,7 @@ A partir das transições, as seguintes regras foram abstraídas:
 
 Os achados da engenharia reversa foram consolidados no diagrama BPMN abaixo, ilustrando o fluxo técnico e as interações do usuário.
 
-[![BPMN Fluxo de Busca](../../../assets/SubEquipe02/BPMN-Subequipe02-JuliaPatricio.jpg)](../../../assets/SubEquipe02/BPMN-Subequipe02-JuliaPatricio.jpg ":ignore")
+[![BPMN Fluxo de Busca](../../../assets/Subequipe02/BPMN-Subequipe02-JuliaPatricio.jpg)](../../../assets/Subequipe02/BPMN-Subequipe02-JuliaPatricio.jpg ":ignore")
 
 <sub>*Clique na imagem para abri-la em tamanho real.*</sub>
 
