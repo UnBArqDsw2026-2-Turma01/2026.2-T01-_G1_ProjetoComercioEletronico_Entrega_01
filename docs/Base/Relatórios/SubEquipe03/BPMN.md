@@ -100,4 +100,5 @@ O diagrama representa de forma consistente o fluxo unificado de **login, cadastr
 | Versão | Data | Descrição | Autor(es) | Revisor(es) |
 | -- | -- | -- | -- | -- |
 | 1.0 | 24/08/2026 | Estruturação inicial | José Joaquim da Silva Neto | Pedro Henrique Gomes |
-| 1.1 | 27/08/2026 | Adiciona BPMN | José Joaquim da Silva Neto | Pedro Henrique Gomes |
+| 1.1 | 27/08/2026 | Modelagem do BPMN | João Paulo Barbosa Pereira Nunes e Júlia Santana Campos | José Joaquim da Silva Neto e Pedro Henrique Gomes |
+| 1.2 | 27/08/2026 | Adiciona BPMN | José Joaquim da Silva Neto | Pedro Henrique Gomes |

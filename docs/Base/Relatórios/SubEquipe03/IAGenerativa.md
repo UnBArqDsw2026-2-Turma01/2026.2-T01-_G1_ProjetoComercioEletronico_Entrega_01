@@ -2,12 +2,19 @@
 
 ## Ponto de Vista - João Paulo Barbosa Pereira Nunes
 
-### Lições Aprendidas
-
 ### Uso da IA Generativa (senso crítico)
 
----
+Durante a elaboração do diagrama BPMN, a inteligência artificial generativa (Claude) foi utilizada como ferramenta de apoio técnico e visual, atuando em três frentes principais, com uma separação rigorosa entre a tomada de decisão humana e a assistência automatizada.
 
+**Diagnóstico técnico e correção de desvios:** Na etapa inicial, a IA foi empregada para inspecionar o diagrama. Ela foi capaz de identificar que a versão preliminar reaproveitava erroneamente um template genérico de processo de compra (*Order Fulfillment*), desconexo do escopo real de Login e Cadastro. A ferramenta também apontou falhas na notação, como gateways mal posicionados e ausência de conteúdo nas raias planejadas, alertando para inconsistências estruturais.
+
+**Apoio na estruturação da engenharia reversa:** Como não há documentação pública do fluxo interno de autenticação do Mercado Livre, o mapeamento do comportamento da plataforma (verificação de e-mail e celular, 2FA, bloqueio por tentativas excedidas e recuperação de senha) exigiu um trabalho estritamente humano de engenharia reversa e observação prática. A IA não gerou as regras de negócio, mas atuou como um suporte fundamental para traduzir a lógica empírica que levantei em um encadeamento BPMN coerente e completo.
+
+**Refinamento visual e aplicação de notação:** Na construção final, a ferramenta auxiliou na aplicação estrita da notação BPMN oficial (pools, raias, gateways exclusivos identificados com "X", eventos de início e fim). Após uma primeira versão apresentar poluição visual, a IA ajudou a reorganizar o layout, reduzindo o cruzamento de conectores e alinhando as etapas em colunas com pontos de interface adicionais para melhorar a legibilidade.
+
+**Conclusão sobre a responsabilidade do autor:** Todo o processo de decisão sobre o que o diagrama deveria conter, quais regras de negócio modelar e como as etapas se conectam na realidade, partiu exclusivamente da minha análise e validação em parceria com a Júlia. A IA funcionou estritamente como um assistente de estruturação, diagnóstico técnico e diagramação visual, sem interferir na autoria da lógica do processo.
+
+---
 ## Ponto de Vista - José Joaquim da Silva Neto
 
 ### Lições Aprendidas
@@ -37,7 +44,19 @@ As decisões de modelagem, estrutura das raias, definição dos gateways, elemen
 
 ### Lições Aprendidas
 
+**A engenharia reversa como fundação da modelagem realista.** Trabalhando em dupla com o João, ficou claro que desenhar um diagrama BPMN de um sistema existente e sem documentação pública, como o Mercado Livre, exige muito mais do que apenas conhecer a ferramenta de desenho. Aprendi que o passo fundamental é a observação tátil do sistema (engenharia reversa de caixa-preta). Tentar abstrair o funcionamento antes de testar na prática nos levou a erros iniciais, como o uso de templates genéricos. O BPMN só passou a ter valor real quando começamos a mapear o comportamento empírico da plataforma, como os fluxos de exceção, validação em duas etapas e bloqueios.
+
+**Separação arquitetural através das raias.** Outra lição valiosa foi compreender que o BPMN força a definição de limites arquiteturais. O processo nos ensinou a parar de pensar no "sistema" como uma entidade única e começar a separar "quem solicita", "quem valida" e "quem notifica". Essa clareza transformou nossa visão sobre o fluxo de autenticação, mostrando que a interface é apenas uma casca, enquanto os motores de segurança e cadastro operam regras de negócio complexas nos bastidores.
+
 ### Uso da IA Generativa (senso crítico)
+
+Encarei a inteligência artificial generativa como uma grande facilitadora metodológica e de aprendizado durante a elaboração deste trabalho em dupla. O uso da ferramenta foi focado na compreensão técnica e na ponte entre a teoria e a prática.
+
+**Compreensão aprofundada da notação:** Utilizei a IA como uma tutora para dominar as regras oficiais do BPMN. Quando tínhamos dúvidas sobre como representar corretamente regras de negócio complexas, como o uso correto de gateways exclusivos ou a sinalização de eventos intermediários, a IA ajudou a esclarecer a semântica da notação, garantindo que não estivéssemos apenas desenhando um fluxograma comum, mas sim um modelo de processos formal.
+
+**Apoio na estruturação da engenharia reversa:** A IA foi fundamental para me ajudar a entender *como* aplicar os achados da nossa engenharia reversa de maneira estruturada. Eu fornecia as observações práticas de como a plataforma do Mercado Livre se comportava (ex: o que acontece quando o limite de tentativas é excedido), e utilizava a IA para discutir como traduzir essa lógica observada em etapas processuais coerentes.
+
+**Conclusão sobre o método:** A IA atuou como uma ponte que facilitou a tradução do comportamento real (caixa-preta) para a linguagem formal do BPMN. Contudo, a responsabilidade de "ir a campo", testar o software, provocar os erros na interface e validar se o desenho final de fato representava a realidade permaneceu inteiramente humana. A IA otimizou o como fazer, mas o *que* fazer partiu da nossa análise crítica e empírica do sistema.
 
 ---
 
@@ -68,3 +87,4 @@ Utilizei a IA Generativa de forma intensiva, mas com uma separação estrita de 
 | Versão | Data | Descrição | Autor(es) | Revisor(es) |
 | -- | -- | -- | -- | -- |
 | 1.0 | 24/08/2026 | Estruturação inicial | José Joaquim da Silva Neto | Pedro Henrique Gomes |
+| 1.1 | 27/08/2026 | Adição das visões | Júlia Santana Campos | João Paulo Barbosa Pereira Nunes |
