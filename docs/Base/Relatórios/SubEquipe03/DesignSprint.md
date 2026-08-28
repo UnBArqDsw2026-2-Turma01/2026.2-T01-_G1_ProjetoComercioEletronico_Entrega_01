@@ -9,7 +9,7 @@ A metodologia escolhida pela subequipe 3 foi o Design Sprint, desenvolvida pela 
 ### Fases da metodologia Design Sprint
 
 <p align="center">
-  <img src="../../../assets/Subequipe3/DesignSprintProcessoSubequipe3.jpeg" alt="Modelagem BPMN do Design Sprint">
+  <img src="assets/Subequipe3/DesignSprintProcessoSubequipe3.jpeg" alt="Modelagem BPMN do Design Sprint">
   <br>
   <em>Figura 2 — Modelagem BPMN do Design Sprint.</em>
   <br>
@@ -19,7 +19,7 @@ A metodologia escolhida pela subequipe 3 foi o Design Sprint, desenvolvida pela 
 ### Processo de mudança nos artefatos
 
 <p align="center">
-  <img src="../../../assets/Subequipe3/ProcessoMudancaArtefatosSubequipe3.jpeg" alt="Modelagem BPMN do processo de mudança nos artefatos">
+  <img src="assets/Subequipe3/ProcessoMudancaArtefatosSubequipe3.jpeg" alt="Modelagem BPMN do processo de mudança nos artefatos">
   <br>
   <em>Figura 1 — Modelagem BPMN do processo de mudança nos artefatos.</em>
   <br>
@@ -95,4 +95,5 @@ Também nessa fase a equipe sentiu a necessidade de realizar uma nova reunião c
 | 1.0 | 25/08/2026 | Estruturação inicial | José Joaquim da Silva Neto | Pedro Henrique Gomes |
 | 1.1 | 27/08/2026 | Adição da metodologia e rastreabilidade | José Joaquim da Silva Neto | João Paulo Barbosa Pereira Nunes, Júlia Santana Campos e Pedro Henrique Gomes |
 | 1.2 | 28/08/2026 | Adição de legenda nas imagens | José Joaquim da Silva Neto | Pedro Henrique Gomes |
-| 1.3 | 28/08/2026 | Adição de elos de rastreabilidade | José Joaquim da Silva Neto | Pedro Henrique Gomes |
+| 1.3 | 28/08/2026 |Correção no caminho das imagens | José Joaquim da Silva Neto | Pedro Henrique Gomes |
+| 1.4 | 28/08/2026 | Adição de elos de rastreabilidade | José Joaquim da Silva Neto | Pedro Henrique Gomes |
